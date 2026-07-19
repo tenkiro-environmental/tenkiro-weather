@@ -1,0 +1,42 @@
+# KiCad backup/autosave/lock
+*.kicad_prl
+*-backups/
+_autosave-*
+*.bak
+*~
+*.lck
+~*.kicad_*
+
+# JLCPCB fab packages + BOM (regenerated via make jlc / make bom-<board>)
+hardware/*/jlcpcb/
+hardware/*/*-jlcpcb.zip
+hardware/*/jlcpcb_bom.csv
+
+# Generated SVGs (regenerated via make docs)
+hardware/*/docs/images/*.svg
+
+# Rust / cargo build outputs (Cargo.lock IS committed for the binary)
+firmware/**/target/
+**/*.rs.bk
+
+# C-toolchain firmware build outputs
+firmware/**/build/
+firmware/**/*.elf
+firmware/**/*.bin
+firmware/**/*.hex
+firmware/**/*.map
+
+# Vendored SDKs / cross-built C libraries (fetched/built locally, not committed)
+firmware/vendor/
+
+# Python caches (hardware/scripts schgen tooling)
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
