@@ -46,11 +46,17 @@ large PDFs.
   https://sensirion.com/products/catalog/SPS30
 - Vane options: resistor-ladder RJ11 vane (Misol/Davis WH-SP class) or
   AS5600-ASOT contactless angle (C499458; MT6701 C3003196 alternate).
-- **Lightning: ScioSense AS3935** + Coilcraft MA5532-AE antenna (both
-  off-BOM, DigiKey) — https://www.sciosense.com/as3935-franklin-lightning-sensor-ic/
-- **UV: ams AS7331** spectral UVA/B/C (C20482877 thin — plan DigiKey;
-  GUVA-S12SD + TIA as cost-down) —
-  https://ams-osram.com/products/sensor-solutions/ambient-light-color-spectral-proximity-sensors/ams-as7331-spectral-uv-sensor
+- **Lightning: ScioSense AS3935** (off-BOM, DigiKey) —
+  https://www.sciosense.com/as3935-franklin-lightning-sensor-ic/
+  - Antenna: 100 µH, Q trimmed to ~15, 500 kHz parallel resonance — per the
+    [AS3935 HW Design Guide](https://www.sciosense.com/wp-content/uploads/2023/12/AS3935-Application-Note-Hardware-Design-Guide.pdf).
+    **MA5532 is obsolete** — MA5532-AEB residual stock at Mouser; alternates
+    Premo SDTR1103-HF1-0100J / TR1103, Sumida CAS11D28-101, or validated
+    generic 100 µH drum-core + 10 k damping.
+- **UV: Lite-On LTR-390UV-01** (LCSC C492374, JLCPCB-assemblable; DigiKey
+  7322497) — UV-A + ALS, UV-index output. Cost-down: GUVA-S12SD + TIA.
+  Parked: ams AS7331 (unsourceable 2026); VEML6075/SI1145 discontinued. —
+  https://optoelectronics.liteon.com/upload/download/DS86-2015-0004/LTR-390UV_Final_%20DS_V1%201.pdf
 - **Sky IR / cloud: MLX90614ESF-BCC** (C7501763) —
   https://www.melexis.com/en/product/MLX90614/
 - **Hail/impact:** generic piezo disc + TLV7031DBVR comparator (C2869832).

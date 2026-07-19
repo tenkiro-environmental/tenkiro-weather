@@ -250,8 +250,8 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
 | Bus TVS | **SM712** | C521963 | 327 k | RS-485-profile ±12/−7 V clamp on A/B at every node. |
 | SPS30 header | **S5B-ZR(LF)(SN)** (JST ZH-5, side entry) | C265404 | 13 k | Mates the off-BOM Sensirion SPS30 pigtail (pod PCB). |
 | Vane sensor | **AS5600-ASOT** (pod option) | C499458 | 37 k | Contactless 12-bit vane angle; MT6701 (C3003196) alternate. |
-| Lightning | **AS3935** + MA5532-AE coil | — (off-BOM) | — | Storm detection to ~40 km; only always-on sensor (~70 µA); DigiKey-sourced, footprints on Sora. |
-| UV | **AS7331** (off-BOM primary) | C20482877 | 22 | Spectral UVA/B/C; GUVA-S12SD + TIA as cost-down stuffing. |
+| Lightning | **AS3935** + 100 µH coil (MA5532-AEB residual / Premo / Sumida — see extras section) | — (off-BOM) | — | Storm detection to ~40 km; only always-on sensor (~70 µA); coil specced by parameters (100 µH, Q→15), MA5532 obsolete. |
+| UV | **LTR-390UV-01** | C492374 | 1.2 k | UV-A + ALS with UV-index output, I²C; GUVA-S12SD + TIA cost-down; AS7331 parked (unsourceable 2026). |
 | Sky IR | **MLX90614ESF-BCC** | C7501763 | 704 | Zenith cloud/fog sensing (35° FOV, 3 V, gradient-comp), I²C load-switched. |
 | Hail comparator | **TLV7031DBVR** | C2869832 | 3.6 k | 315 nA comparator for the piezo impact channel (disc off-BOM). |
 
@@ -361,10 +361,18 @@ ever, is power-pack-only territory.
 
 Four additional measurements are part of the platform:
 
-**Lightning — AS3935 (ScioSense) + MA5532-AE 500 kHz coil.** Detects strokes
+**Lightning — AS3935 (ScioSense) + 100 µH antenna coil.** Detects strokes
 to ~40 km with storm-distance estimation. Both parts are **off-BOM**
 (DigiKey/Mouser — not in the JLCPCB library); footprints go on the Sora
-board. Design invariants:
+board. The classic **Coilcraft MA5532 is obsolete** (2026) — spec the
+antenna by parameters instead, per the AS3935 Hardware Design Guide:
+**100 µH, Q trimmed to ~15** (a 10 kΩ parallel damping resistor tames a
+Q≈34–45 coil), parallel-resonant at 500 kHz. Sourcing order: residual
+**MA5532-AEB** stock at Mouser (grab a strip for protos), design-guide
+alternates **Premo SDTR1103-HF1-0100J / TR1103** and **Sumida
+CAS11D28-101** (availability varies), or a hand-validated generic 100 µH
+high-Q drum-core + damping resistor; cheap CJMCU-3935/DFRobot modules are a
+coil-harvest source for bench prototypes. Design invariants:
 
 - It is the **only always-on sensor**: listening mode ≈ 70 µA (~230 µW) —
   budgeted; its IRQ wakes the U073 from STOP, so firmware stays asleep.
@@ -377,12 +385,14 @@ board. Design invariants:
 - Antenna tuning (internal caps, ±3.5 % target) is a per-board calibration
   step — note it in the bring-up checklist.
 
-**UV — AS7331 primary, GUVA-S12SD cost-down (Hikari function).** The ams
-**AS7331** gives true spectral UVA/UVB/UVC over I²C at µA standby — thin at
-JLCPCB (C20482877, 22) so plan it off-BOM from DigiKey. The budget alternate
-is a **GUVA-S12SD** photodiode (off-BOM) into a TIA op-amp → U073 ADC —
-crude single-band UV index. Board carries the AS7331 footprint; GUVA is the
-fallback stuffing option.
+**UV — LTR-390UV-01 primary, GUVA-S12SD cost-down (Hikari function).** The
+Lite-On **LTR-390UV-01** (LCSC **C492374, 1.2 k stock — JLCPCB-assemblable**;
+also ships-today at DigiKey) does UV-A + ALS with direct UV-index output
+over I²C, µA-class standby. (Earlier searches missed it — the library lists
+the exact hyphenated MPN.) Budget alternate: **GUVA-S12SD** photodiode
+(off-BOM) into a TIA op-amp → U073 ADC. The ams **AS7331** (true spectral
+UVA/UVB/UVC) was the original pick but is **hard to source in 2026** — parked
+as a premium variant if supply recovers; VEML6075/SI1145 are discontinued.
 
 **Sky IR thermometer / cloud cover — MLX90614ESF-BCC** (C7501763, 704 in
 stock — JLCPCB-assemblable). Zenith-pointed, narrow-FOV (35°),
@@ -438,8 +448,12 @@ plus an **SCD40** CO₂/T/RH sensor (C3659421, 1.2 k stock) for indoor air.
   vane (both electrically supported; pick per product tier / mechanics).
 - **Field connector family for the mast bus** — IP67 M8 4-pin vs glands +
   pigtails (off-BOM either way).
-- ~~**UV sensor**~~ — **resolved 2026-07: AS7331** (off-BOM), GUVA-S12SD as
-  cost-down stuffing; VEML7700 covers lux.
+- ~~**UV sensor**~~ — **resolved 2026-07: LTR-390UV-01** (C492374,
+  JLCPCB-stocked), GUVA-S12SD as cost-down stuffing; AS7331 parked
+  (unsourceable); VEML7700 covers lux.
+- **AS3935 coil sourcing** — MA5532 is obsolete; buy MA5532-AEB residual
+  stock for protos and qualify a live 100 µH / Q≈15 alternative (Premo
+  SDTR1103 / Sumida CAS11D28 / validated generic) before production.
 - **AS3935 bring-up** — antenna-coil tuning (±3.5 %) and noise-floor
   calibration next to the real board; verify the quiet-rail strategy.
 - **Enclosure sky ports** — sky-facing window/hood for MLX90614 + UV, and

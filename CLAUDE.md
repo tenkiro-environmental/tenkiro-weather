@@ -41,11 +41,13 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
   (power-pack-fed pods may idle listening at ~2 µA, never more). The SPS30
   is off-BOM but its JST ZH-5 header (S5B-ZR) is on the pod PCB; SPS30 runs
   in UART mode, never I²C over cable. Atmospheric extras (2026-07):
-  **AS3935 lightning** (off-BOM + MA5532 coil; the *only* always-on sensor,
-  ~70 µA — keep it and the coil away from the switchers, on a quiet
-  RC/LDO rail, and treat coil tuning as a bring-up step), **AS7331 UV**
-  (off-BOM; GUVA-S12SD cost-down stuffing), **MLX90614ESF-BCC** sky-IR
-  cloud sensor, piezo + TLV7031 hail/impact channel.
+  **AS3935 lightning** (off-BOM; the *only* always-on sensor, ~70 µA — keep
+  it and the coil away from the switchers, on a quiet RC/LDO rail, and treat
+  coil tuning as a bring-up step. **MA5532 coil is obsolete** — spec by
+  parameters: 100 µH, Q→15, 500 kHz), **LTR-390UV-01 UV** (C492374,
+  JLCPCB-stocked; GUVA-S12SD cost-down; AS7331 parked/unsourceable),
+  **MLX90614ESF-BCC** sky-IR cloud sensor, piezo + TLV7031 hail/impact
+  channel.
 - `hardware/tenkiro-hashi/` — indoor bridge: E22-900M22S radio + ESP32-S3
   (primary, Wi-Fi). Backup wired-Ethernet variant: **STM32H563VGT6 +
   LAN8742A RMII PHY** (decided 2026-07; **no WIZnet**, and don't substitute
