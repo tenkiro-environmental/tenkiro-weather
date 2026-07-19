@@ -218,10 +218,10 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
                                                      │ LPTIM/EXTI: pulses  │
                                                      └──────┬──────┬───────┘
                                                             │      │
-                                       Kaze/Ame pulse port ─┘      └─ mast module port
-                                       (reed anemometer / rain     (power-gated 3V3/5V +
-                                        tipping bucket, RJ11)       UART/RS-485: smart wind
-                                                                    and/or air-quality pod)
+                                       Kaze/Ame pulse port ─┘      └─ mast bus (4-wire chain:
+                                       (reed anemometer / rain      switched V+ · GND · RS-485 A/B,
+                                        tipping bucket, RJ11,       MAX3471 micropower transceivers;
+                                        ladder-vane ADC line)       smart wind / AQ pods, SPS30 opt.)
 ```
 
 ### Sora part table
@@ -239,6 +239,11 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
 | Light | **VEML7700-TT** | C1850416 | 3.2 k | Ambient lux (Hikari); dedicated UV sensor TBD. |
 | VOC (opt.) | SGP40-D-R4 | C2874215 | 1.6 k | Optional on-board air-quality proxy; PM stays off-board. |
 | Input TVS | SMBJ26A | C908802 | 39 k | Clamps 12 V-system transients at the DC input. |
+| Mast bus xcvr | **MAX3471EUA+T** | C27462 | 11 k | Micropower RS-485 (1.6 µA listening) — one on Sora, one per pod. |
+| Bus V+ switch | **TPS22919DCKR** | C2149796 | 1.5 k | Gates bus/pod power on the RTC schedule (also gates SPS30 + AS5600 on pods). |
+| Bus TVS | **SM712** | C521963 | 327 k | RS-485-profile ±12/−7 V clamp on A/B at every node. |
+| SPS30 header | **S5B-ZR(LF)(SN)** (JST ZH-5, side entry) | C265404 | 13 k | Mates the off-BOM Sensirion SPS30 pigtail (pod PCB). |
+| Vane sensor | **AS5600-ASOT** (pod option) | C499458 | 37 k | Contactless 12-bit vane angle; MT6701 (C3003196) alternate. |
 
 ### Power architecture (flexible input — requirement)
 
@@ -263,15 +268,84 @@ so never rail it to VBAT).
   optional VOC (SGP40) — the sheltered, radiation-shield-adjacent set.
 - **Pulse port (RJ11-style):** classic reed anemometer + tipping-bucket rain
   — zero-power contacts into LPTIM/EXTI, debounced in firmware.
-- **Mast module port:** power-gated 3V3/5 V + UART (RS-485 option for long
-  runs) for a **smart pod** — wind (Kaze) and/or particulate air quality
-  combined or separate; PM sensors (SPS30/PMSx003 class) are UART-native.
-  Smart pods, if they get their own MCU, use fleet part **STM32G031K8U6** /
-  **STM32G030F6P6** class (calcumaker/tsumikoro small-G0 precedent).
+- **Mast bus:** a switched-power RS-485 multidrop chain for **smart pods** —
+  wind (Kaze) and/or particulate air quality combined or separate. Pods, if
+  they get their own MCU, use fleet part **STM32G031K8U6** /
+  **STM32G030F6P6** class (calcumaker/tsumikoro small-G0 precedent; the
+  U031C8T6, C23172783, 1.5 k stock, is the U0-family option).
 
 Whether wind + air quality share one pod or split into two is deferred — the
-port is the stable interface either way (same connector, addressable
+bus is the stable interface either way (same connector, addressable
 protocol).
+
+### Mast bus — pod interlink (decided direction, 2026-07)
+
+Requirements: pods may **chain over short wires**, may be powered by Sora
+**or by a wired power pack**, must survive outdoor exposure, and must burn
+**no idle power on the bus**.
+
+**Design: 4-wire switched-power RS-485 daisy-chain** — V+, GND, and an
+A/B differential pair; every pod has an in + out connector (or a T-splice).
+
+- **Transceiver: MAX3471** (C27462, 11 k stock) on every node including
+  Sora — a micropower half-duplex RS-485 built for battery multidrop:
+  **1.6 µA quiescent with the receiver listening**, 2.5–5.5 V supply, up to
+  64 kbps, 64 nodes. 9.6–38.4 kbaud Nami-framed (same CRC/auth style as the
+  radio protocol), Sora as polling master.
+- **Zero idle power, two modes:**
+  1. *Sora-powered chain:* Sora gates bus V+ with a **TPS22919** load switch
+     (C2149796) on its RTC schedule — between samples the entire chain is
+     unpowered: **exactly zero idle**, no transceiver spec needed.
+  2. *Power-pack-powered chain:* pods fed continuously from the pack idle in
+     STOP with the MAX3471 receiver listening (~2 µA/node) and wake on bus
+     traffic. ORing/ideal diodes on each pod let pack and Sora V+ coexist
+     without backfeed.
+- **Durability:** differential signalling tolerates long wet cable runs;
+  **SM712** RS-485-profile TVS (C521963, 327 k stock, ±12/−7 V asymmetric)
+  on A/B at every node, SMBJ clamp on V+, fail-safe biasing at Sora.
+  Field-side connectors are off-BOM (IP67 M8 4-pin or cable glands —
+  open question); PCB side is ordinary headers/screw terminals.
+- **Why not the alternatives:** I²C doesn't survive cable runs; CAN adds
+  controller complexity and higher standby; LIN wants a 12 V rail; 1-Wire is
+  too slow/fragile for PM data. RS-485 is multidrop-native and the MAX3471
+  makes it micropower.
+
+### PM2.5 — Sensirion SPS30 (optional pod sensor, decided 2026-07)
+
+The **Sensirion SPS30** is the supported PM2.5/PM10 option. It's off-BOM
+(source from DigiKey/Mouser — doesn't need to come from JLCPCB), but the pod
+PCB **carries its mating header**: the SPS30 pigtail is **JST ZH 5-pin**, so
+populate a genuine JST **S5B-ZR(LF)(SN)** side-entry shrouded header
+(C265404, 13 k stock at LCSC; SMD variant S5B-ZR-SM4A-TF, C485355).
+
+- Pinout (SPS30): 1 VDD 5 V, 2 RX/SDA, 3 TX/SCL, 4 SEL (GND → I²C, float →
+  UART), 5 GND. **Use UART** — Sensirion only rates I²C for very short
+  traces.
+- Power: 4.5–5.5 V, ~55 mA measuring, <8 mA idle — the pod gates it with its
+  own TPS22919 and duty-cycles measurements; a small 5 V buck-boost on the
+  pod makes it work from either bus V+ (3.6–5.7 V LTO span) or the power
+  pack.
+- Logic is 3.3 V-compatible (5 V-tolerant inputs on the SPS30 side).
+
+### Wind vane + rain — scoping (2026-07)
+
+Two supported vane paths, both zero/near-zero idle:
+
+1. **Commodity resistor-ladder vane** (Misol/Davis WH-SP class, 8 reeds /
+   16 headings, shares the anemometer RJ11): excite the divider from a GPIO
+   **only during the ADC sample** — zero idle by construction. Coarse
+   (22.5°) but proven and cheap.
+2. **Contactless magnetic vane** on the Kaze pod: **AS5600** 12-bit I²C
+   angle sensor (C499458, 37 k stock; MT6701, C3003196, as alternate) with a
+   diametral magnet on the vane shaft — 0.1°-class, no contacts to wear,
+   ~6 mA while powered so it lives behind the pod's load switch and is
+   sampled, not left running.
+
+Anemometer + rain gauge stay **dumb reed pulses** into Sora's pulse port:
+LPTIM counts in STOP mode, so gust capture is continuous at negligible cost —
+use a high-value (≥1 MΩ) pull-up so a stuck-closed reed leaks single-digit
+µA, plus RC + TVS on the port (long exposed wires). A heated rain gauge, if
+ever, is power-pack-only territory.
 
 ### Hashi variants
 
@@ -293,7 +367,13 @@ Both carry the same E22-900M22S (C411293) radio + USB-C power + console.
 - ~~**Solar charger part**~~ — **CN3722** MPPT (BQ24650/LT3652 alternates);
   **panel sizing** for the 2s LTO pack still open.
 - **Wind/air-quality pod split** — one combined mast pod vs separate Kaze +
-  air-quality pods (port interface is fixed either way); pick the PM sensor.
+  air-quality pods (the mast bus is the fixed interface either way).
+  ~~PM sensor~~ — **resolved: Sensirion SPS30 as the supported option**
+  (off-BOM, JST ZH-5 header on the pod).
+- **Vane mechanics** — resistor-ladder RJ11 vane vs AS5600 contactless pod
+  vane (both electrically supported; pick per product tier / mechanics).
+- **Field connector family for the mast bus** — IP67 M8 4-pin vs glands +
+  pigtails (off-BOM either way).
 - **UV sensor** — VEML7700 covers lux; a UV-index part is still open
   (LTR-390UV had no JLCPCB stock 2026-07).
 - **LTO pack format** — cell format (18650/pouch), holder vs tabbed, 2s

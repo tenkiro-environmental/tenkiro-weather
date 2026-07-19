@@ -37,6 +37,15 @@ large PDFs.
 - **MB85RS64PNF** SPI FRAM (C8741).
 - Sensors: SHT40-AD1B-R2 (C2909890), BMP390 (C5124834), VEML7700-TT
   (C1850416), optional SGP40-D-R4 (C2874215).
+- **Mast bus** (switched-power RS-485 pod chain): MAX3471EUA+T (C27462,
+  1.6 µA transceiver) — https://www.analog.com/en/products/max3471.html ;
+  TPS22919DCKR load switch (C2149796); SM712 bus TVS (C521963).
+- **PM2.5 (optional pod): Sensirion SPS30** — off-BOM (DigiKey
+  1649-1108-ND / Mouser 403-SPS30), UART mode, 5 V; pod header JST
+  S5B-ZR(LF)(SN) (C265404) —
+  https://sensirion.com/products/catalog/SPS30
+- Vane options: resistor-ladder RJ11 vane (Misol/Davis WH-SP class) or
+  AS5600-ASOT contactless angle (C499458; MT6701 C3003196 alternate).
 
 ## Station (Sora) — TBD
 

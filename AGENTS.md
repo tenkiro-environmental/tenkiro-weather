@@ -32,9 +32,15 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
   shared with ephemerkey), E22-900M22S radio, U.FL antenna, **2s LTO** pack
   charged by CN3722 MPPT from raw solar **or** 9–16 V DC (12 V battery
   systems), TPS62840 3.3 V rail, load switches for sensor rails, MB85RS64
-  FRAM buffering. On-board temp/RH/pressure/light; wind + air-quality on
-  pulse + mast-module ports (split kept flexible). **Power budget is sacred**:
-  Sora sleeps almost always (wake → sample → TX → short ACK window → sleep).
+  FRAM buffering. On-board temp/RH/pressure/light; reed wind/rain on the
+  pulse port; smart pods (wind vane / SPS30 PM2.5) on the **mast bus** — a
+  4-wire switched-power RS-485 chain (MAX3471 micropower transceivers,
+  SM712 TVS per node). **Power budget is sacred**: Sora sleeps almost always
+  (wake → sample → TX → short ACK window → sleep), and the mast bus must
+  burn **zero idle power** — bus V+ is gated on the RTC schedule
+  (power-pack-fed pods may idle listening at ~2 µA, never more). The SPS30
+  is off-BOM but its JST ZH-5 header (S5B-ZR) is on the pod PCB; SPS30 runs
+  in UART mode, never I²C over cable.
 - `hardware/tenkiro-hashi/` — indoor bridge: E22-900M22S radio + ESP32-S3
   (primary, Wi-Fi). Backup wired-Ethernet variant: **STM32H563VGT6 +
   LAN8742A RMII PHY** (decided 2026-07; **no WIZnet**, and don't substitute
