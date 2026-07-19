@@ -458,9 +458,15 @@ plus an **SCD40** CO₂/T/RH sensor (C3659421, 1.2 k stock) for indoor air.
   (unsourceable); VEML7700 covers lux.
 - ~~**AS3935 coil sourcing**~~ — **resolved 2026-07: Premo
   SDTR1103-HF1-0100J** (100 µH ±5 %, Q45 @ 0.5 MHz, in production,
-  purpose-made for lightning detectors); MA5532-AEB residuals acceptable
-  for protos. Confirm a purchasing channel (Premo direct / DC Electronic
-  Solutions / DigiKey marketplace) when ordering rev A.
+  purpose-made for lightning detectors). **Channel reality (checked
+  2026-07): no 100 µH lightning coil exists at JLCPCB or DigiKey at all**
+  (DigiKey returns zero results for SDTR1103 *and* MA5532; Coilcraft's
+  active 4513TC family is 1–7.25 mH RFID values only). Order the Premo part
+  via Premo direct / DC Electronic Solutions (US rep); the only
+  major-distributor listing is **Mouser's MA5532-AEB residual** (verify live
+  stock in a browser — Mouser blocks bots) — fine for protos. The coil is a
+  consigned/hand-placed part on JLCPCB builds either way, same as the
+  AS3935.
 - **AS3935 bring-up** — antenna-coil tuning (±3.5 %) and noise-floor
   calibration next to the real board; verify the quiet-rail strategy.
 - **Enclosure sky ports** — sky-facing window/hood for MLX90614 + UV, and
