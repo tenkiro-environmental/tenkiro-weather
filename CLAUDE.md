@@ -28,8 +28,8 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
 - Per-sheet **on-canvas notes** in the schematic carry the wiring/pin spec.
 
 ## Hardware (KiCad 10) — two boards, radio-linked
-- `hardware/tenkiro-sora/` — outdoor station: **STM32U575RGT6** (fleet part,
-  shared with calcumaker), E22-900M22S radio, U.FL antenna, **2s LTO** pack
+- `hardware/tenkiro-sora/` — outdoor station: **STM32U073CBT6** (U0 family
+  shared with ephemerkey), E22-900M22S radio, U.FL antenna, **2s LTO** pack
   charged by CN3722 MPPT from raw solar **or** 9–16 V DC (12 V battery
   systems), TPS62840 3.3 V rail, load switches for sensor rails, MB85RS64
   FRAM buffering. On-board temp/RH/pressure/light; wind + air-quality on

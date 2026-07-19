@@ -28,8 +28,9 @@ large PDFs.
 
 ## Station (Sora) — platform decided 2026-07 (see `../DESIGN.md`)
 
-- **STM32U575RGT6** (LCSC C5270980) — ULP MCU, fleet part shared with
-  calcumaker (`stm32u575rg` embassy target).
+- **STM32U073CBT6** (LCSC C27035627) — ULP MCU (M0+, 128 K/40 K, LQFP-48),
+  same U0 family as ephemerkey's U083KCU6. Headroom alternate:
+  STM32U575VGT6 (C5270988, deep stock; calcumaker-shared U5 line).
 - **CN3722** MPPT charger (C77905), 2s LTO float ≈ 5.5 V; alternates
   BQ24650RVAR (C53712) / LT3652IMSE (C671115).
 - **TPS62840DLCR** 750 nA-Iq buck (C2071859) → 3.3 V rail.

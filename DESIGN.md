@@ -146,7 +146,7 @@ compromised PCB antenna driven several dB harder. Sora includes:
 
 ### `tenkiro-sora` — outdoor station
 
-- Ultra-low-power MCU: **STM32U575RGT6** (decided 2026-07 — see platform sketch)
+- Ultra-low-power MCU: **STM32U073CBT6** (decided 2026-07 — see platform sketch)
 - E22-900M22S (SX1262) radio module
 - External 915 MHz antenna (U.FL)
 - **LTO cells** (lithium-titanate; wide-temperature outdoor chemistry —
@@ -209,8 +209,8 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
                              ▼                       └─────────┬───────────┘
                       CN3722 MPPT charger                      │
                       (float ≈ 5.5 V, 2s LTO)        ┌─────────┴───────────┐
-                             │                       │  STM32U575RGT6      │
-                      2s LTO pack (4.8 V nom,        │  (LQFP-64, ULP M33) │
+                             │                       │  STM32U073CBT6      │
+                      2s LTO pack (4.8 V nom,        │  (LQFP-48, ULP M0+) │
                       3.6–5.7 V; −30 °C charge OK)   │                     │
                              │                       │ SPI0: E22-900M22S ──┼── U.FL ant
                       TPS62840 buck → 3.3 V          │ SPI1: MB85RS64 FRAM │
@@ -228,7 +228,7 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
 
 | Block | Part | LCSC | Stock (2026-07) | Why |
 |---|---|---|---|---|
-| MCU | **STM32U575RGT6** (LQFP-64) | C5270980 | 345 | Fleet part (calcumaker fw target `stm32u575rg` already bootstrapped); U5 = ST's ULP line (sub-µA stop w/ RTC), 1 MB flash / 786 K RAM for buffering. Fleet alternates: STM32U083KCU6 (ephemerkey) — **not stocked at JLCPCB**; STM32G0B1KBU6 (C5159549, 2.6 k, 3 repos) — cost-down alternate, weaker sleep specs. |
+| MCU | **STM32U073CBT6** (LQFP-48, M0+, 128 K/40 K) | C27035627 | 1,009 | Same STM32U0 family as ephemerkey's U083KCU6 (U083 ≈ U073 + LCD driver) — fleet firmware experience carries over; ST ULP line (sub-µA stop w/ RTC, LPUART/LPTIM); right-sized and cheap for a sleep-mostly node (radio + FRAM share one SPI bus, separate CS; buffering lives in FRAM). Software AEAD assumed — don't rely on hw AES. Alternates: STM32U073KCU6 (C22445363, 90 — exact 32-pin sibling of ephemerkey's part, thin stock); **STM32U575VGT6 (C5270988, 17 k)** / U575RGT6 (C5270980, 345) — calcumaker-shared U5 headroom path if Sora outgrows the M0+; STM32G0B1KBU6 (C5159549, 2.6 k, 3 repos) — non-ULP cost fallback. |
 | Radio | **E22-900M22S** (SX1262) | C411293 | 789 | JLCPCB-assemblable directly — no consignment needed. |
 | Charger | **CN3722** (TSSOP-16) | C77905 | 5.3 k | Solar MPPT controller, VIN to 28 V → handles raw panel **and** 9–16 V DC; resistor-set float ≈ 5.5 V for 2s LTO. Alternates: BQ24650RVAR (C53712, 557) same topology w/ TI docs; LT3652IMSE (C671115, 2.9 k). |
 | Battery | 2s **LTO** pack (holder/leads, off-BOM) | — | — | 4.8 V nom, 3.6–5.7 V; charges below freezing, huge cycle life — right chemistry for permanently-outdoor solar. |
@@ -284,8 +284,9 @@ Both carry the same E22-900M22S (C411293) radio + USB-C power + console.
 
 ## Open questions
 
-- ~~**Sora MCU**~~ — **resolved 2026-07: STM32U575RGT6** (fleet part;
-  G0B1KBU6 documented as cost-down alternate). See platform sketch.
+- ~~**Sora MCU**~~ — **resolved 2026-07: STM32U073CBT6** (U0 family shared
+  with ephemerkey; U575VGT6 documented as the headroom alternate). See
+  platform sketch.
 - ~~**Hashi backup MCU (wired Ethernet)**~~ — **resolved 2026-07:
   STM32H563VGT6 + LAN8742A** (WIZnet ruled out by decision; supersedes the
   survey's RP2350+W5500 pick). See the Hashi section.
