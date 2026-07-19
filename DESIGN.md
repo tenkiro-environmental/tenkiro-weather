@@ -250,7 +250,7 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
 | Bus TVS | **SM712** | C521963 | 327 k | RS-485-profile ±12/−7 V clamp on A/B at every node. |
 | SPS30 header | **S5B-ZR(LF)(SN)** (JST ZH-5, side entry) | C265404 | 13 k | Mates the off-BOM Sensirion SPS30 pigtail (pod PCB). |
 | Vane sensor | **AS5600-ASOT** (pod option) | C499458 | 37 k | Contactless 12-bit vane angle; MT6701 (C3003196) alternate. |
-| Lightning | **AS3935** + 100 µH coil (MA5532-AEB residual / Premo / Sumida — see extras section) | — (off-BOM) | — | Storm detection to ~40 km; only always-on sensor (~70 µA); coil specced by parameters (100 µH, Q→15), MA5532 obsolete. |
+| Lightning | **AS3935** + **Premo SDTR1103-HF1-0100J** coil | — (off-BOM) | — | Storm detection to ~40 km; only always-on sensor (~70 µA). Coil: 100 µH ±5 %, Q45 @ 0.5 MHz (damped to ~15), purpose-made for lightning detectors; MA5532 obsolete. |
 | UV | **LTR-390UV-01** | C492374 | 1.2 k | UV-A + ALS with UV-index output, I²C; GUVA-S12SD + TIA cost-down; AS7331 parked (unsourceable 2026). |
 | Sky IR | **MLX90614ESF-BCC** | C7501763 | 704 | Zenith cloud/fog sensing (35° FOV, 3 V, gradient-comp), I²C load-switched. |
 | Hail comparator | **TLV7031DBVR** | C2869832 | 3.6 k | 315 nA comparator for the piezo impact channel (disc off-BOM). |
@@ -364,15 +364,20 @@ Four additional measurements are part of the platform:
 **Lightning — AS3935 (ScioSense) + 100 µH antenna coil.** Detects strokes
 to ~40 km with storm-distance estimation. Both parts are **off-BOM**
 (DigiKey/Mouser — not in the JLCPCB library); footprints go on the Sora
-board. The classic **Coilcraft MA5532 is obsolete** (2026) — spec the
-antenna by parameters instead, per the AS3935 Hardware Design Guide:
-**100 µH, Q trimmed to ~15** (a 10 kΩ parallel damping resistor tames a
-Q≈34–45 coil), parallel-resonant at 500 kHz. Sourcing order: residual
-**MA5532-AEB** stock at Mouser (grab a strip for protos), design-guide
-alternates **Premo SDTR1103-HF1-0100J / TR1103** and **Sumida
-CAS11D28-101** (availability varies), or a hand-validated generic 100 µH
-high-Q drum-core + damping resistor; cheap CJMCU-3935/DFRobot modules are a
-coil-harvest source for bench prototypes. Design invariants:
+board. The classic **Coilcraft MA5532 is obsolete** (2026); the antenna
+requirement per the AS3935 Hardware Design Guide is **100 µH, Q trimmed to
+~15** (10 kΩ parallel damping), parallel-resonant at 500 kHz.
+
+**Production coil: Premo SDTR1103-HF1-0100J** (datasheet-verified 2026-07):
+100 µH **±5 %**, **Q = 45 ±5 % specified at 0.5 MHz** (damp to ~15 with the
+10 kΩ), SMD 11.8 × 3.6 × 2.5 mm ferrite-laminate coil with plastic base,
+drop-tested >500 × 1 m, −40…+85 °C, AEC-Q200, T&R 3000/reel — Premo's
+stated application is "RF reception at 500 kHz" and the series page is
+literally titled *"for lightning detector."* In production and tighter
+tolerance than the MA5532 ever was. Source via Premo/reps (DC Electronic
+Solutions in the US; DigiKey carries Premo marketplace listings) — off-BOM
+like the AS3935 itself. Proto fallbacks: residual MA5532-AEB at Mouser, or
+coil-harvest from CJMCU-3935/DFRobot modules. Design invariants:
 
 - It is the **only always-on sensor**: listening mode ≈ 70 µA (~230 µW) —
   budgeted; its IRQ wakes the U073 from STOP, so firmware stays asleep.
@@ -451,9 +456,11 @@ plus an **SCD40** CO₂/T/RH sensor (C3659421, 1.2 k stock) for indoor air.
 - ~~**UV sensor**~~ — **resolved 2026-07: LTR-390UV-01** (C492374,
   JLCPCB-stocked), GUVA-S12SD as cost-down stuffing; AS7331 parked
   (unsourceable); VEML7700 covers lux.
-- **AS3935 coil sourcing** — MA5532 is obsolete; buy MA5532-AEB residual
-  stock for protos and qualify a live 100 µH / Q≈15 alternative (Premo
-  SDTR1103 / Sumida CAS11D28 / validated generic) before production.
+- ~~**AS3935 coil sourcing**~~ — **resolved 2026-07: Premo
+  SDTR1103-HF1-0100J** (100 µH ±5 %, Q45 @ 0.5 MHz, in production,
+  purpose-made for lightning detectors); MA5532-AEB residuals acceptable
+  for protos. Confirm a purchasing channel (Premo direct / DC Electronic
+  Solutions / DigiKey marketplace) when ordering rev A.
 - **AS3935 bring-up** — antenna-coil tuning (±3.5 %) and noise-floor
   calibration next to the real board; verify the quiet-rail strategy.
 - **Enclosure sky ports** — sky-facing window/hood for MLX90614 + UV, and

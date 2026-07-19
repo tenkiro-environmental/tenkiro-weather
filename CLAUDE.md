@@ -43,8 +43,9 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
   in UART mode, never I²C over cable. Atmospheric extras (2026-07):
   **AS3935 lightning** (off-BOM; the *only* always-on sensor, ~70 µA — keep
   it and the coil away from the switchers, on a quiet RC/LDO rail, and treat
-  coil tuning as a bring-up step. **MA5532 coil is obsolete** — spec by
-  parameters: 100 µH, Q→15, 500 kHz), **LTR-390UV-01 UV** (C492374,
+  coil tuning as a bring-up step. Coil = **Premo SDTR1103-HF1-0100J**
+  (100 µH ±5 %, Q45 @ 0.5 MHz, damped to ~15 with 10 k; MA5532 is
+  obsolete — residuals for protos only), **LTR-390UV-01 UV** (C492374,
   JLCPCB-stocked; GUVA-S12SD cost-down; AS7331 parked/unsourceable),
   **MLX90614ESF-BCC** sky-IR cloud sensor, piezo + TLV7031 hail/impact
   channel.

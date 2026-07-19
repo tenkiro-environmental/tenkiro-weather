@@ -48,11 +48,15 @@ large PDFs.
   AS5600-ASOT contactless angle (C499458; MT6701 C3003196 alternate).
 - **Lightning: ScioSense AS3935** (off-BOM, DigiKey) —
   https://www.sciosense.com/as3935-franklin-lightning-sensor-ic/
-  - Antenna: 100 µH, Q trimmed to ~15, 500 kHz parallel resonance — per the
+  - Antenna: 100 µH, Q trimmed to ~15 (10 k parallel), 500 kHz parallel
+    resonance — per the
     [AS3935 HW Design Guide](https://www.sciosense.com/wp-content/uploads/2023/12/AS3935-Application-Note-Hardware-Design-Guide.pdf).
-    **MA5532 is obsolete** — MA5532-AEB residual stock at Mouser; alternates
-    Premo SDTR1103-HF1-0100J / TR1103, Sumida CAS11D28-101, or validated
-    generic 100 µH drum-core + 10 k damping.
+  - **Production coil: Premo SDTR1103-HF1-0100J** — 100 µH ±5 %, Q45 ±5 %
+    @ 0.5 MHz, SMD 11.8×3.6×2.5 mm, −40…+85 °C, AEC-Q200, purpose-made for
+    lightning detectors ([datasheet](https://www.dcelectronicsolutions.com/wp-content/uploads/2018/04/SDTR1103-HF1.pdf),
+    [Premo product page](https://grupopremo.com/products/sdtr1103)). Source
+    via Premo / DC Electronic Solutions / DigiKey marketplace. **MA5532 is
+    obsolete** — MA5532-AEB Mouser residuals for protos only.
 - **UV: Lite-On LTR-390UV-01** (LCSC C492374, JLCPCB-assemblable; DigiKey
   7322497) — UV-A + ALS, UV-index output. Cost-down: GUVA-S12SD + TIA.
   Parked: ams AS7331 (unsourceable 2026); VEML6075/SI1145 discontinued. —
