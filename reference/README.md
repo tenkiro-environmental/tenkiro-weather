@@ -16,13 +16,26 @@ large PDFs.
 
 ## Bridge (Hashi)
 
-- **ESP32-S3** — primary network MCU (Wi-Fi).
-- **RP2350A + WIZnet W5500** — wired-Ethernet backup variant (decided 2026-07).
-  - RP2350A: LCSC C42411118 — https://www.raspberrypi.com/products/rp2350/
-  - W5500: LCSC C32843 (hardwired TCP/IP over SPI; MACRAW mode for external
-    stacks) — https://wiznet.io/products/iethernet-chips/w5500
-  - Rust: `embassy-net-wiznet` + `embassy-rp`; C: pico-sdk + WIZnet ioLibrary.
-  - Runner-up (documented in `../DESIGN.md`): STM32H723 + LAN8742A RMII PHY.
+- **ESP32-S3-WROOM-1-N8R2** (LCSC C2913204) — primary network MCU (Wi-Fi).
+- **STM32H563VGT6 + LAN8742A** — wired-Ethernet backup variant (decided
+  2026-07; WIZnet ruled out by decision, superseding the survey's
+  RP2350+W5500 pick — see `../doc/hashi-ethernet-mcu-survey-2026-07.md`).
+  - STM32H563VGT6: LCSC C18221950 (integrated Ethernet MAC) —
+    https://www.st.com/en/microcontrollers-microprocessors/stm32h563-573.html
+  - LAN8742A-CZ-TR: LCSC C621424 (RMII PHY; do **not** substitute LAN8720A) —
+    https://www.microchip.com/en-us/product/lan8742a
+  - Rust: `embassy-stm32` eth + embassy-net; C: STM32 HAL + lwIP.
+
+## Station (Sora) — platform decided 2026-07 (see `../DESIGN.md`)
+
+- **STM32U575RGT6** (LCSC C5270980) — ULP MCU, fleet part shared with
+  calcumaker (`stm32u575rg` embassy target).
+- **CN3722** MPPT charger (C77905), 2s LTO float ≈ 5.5 V; alternates
+  BQ24650RVAR (C53712) / LT3652IMSE (C671115).
+- **TPS62840DLCR** 750 nA-Iq buck (C2071859) → 3.3 V rail.
+- **MB85RS64PNF** SPI FRAM (C8741).
+- Sensors: SHT40-AD1B-R2 (C2909890), BMP390 (C5124834), VEML7700-TT
+  (C1850416), optional SGP40-D-R4 (C2874215).
 
 ## Station (Sora) — TBD
 

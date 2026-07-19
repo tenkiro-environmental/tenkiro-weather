@@ -16,9 +16,9 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
 - Use Makefile targets when possible.
 - This is a **KiCad 10** project — use `kicad-cli` for schematic/PCB operations.
 - Use `uv` for all Python operations (never bare `pip`).
-- **Don't assume** final part choices that are still open (Sora MCU, sensor
-  set, solar charger, Nami AEAD). Source of truth is `DESIGN.md` → Open
-  Questions.
+- **Don't assume** final part choices that are still open (wind/AQ pod split,
+  PM + UV sensors, LTO pack format, panel sizing, Nami AEAD). Source of truth
+  is `DESIGN.md` → Open Questions. **No WIZnet parts** (2026-07 decision).
 
 ## Source of truth
 - **`DESIGN.md`** — full system design: radio choice (SX1262 / E22-900M22S,
@@ -28,13 +28,17 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
 - Per-sheet **on-canvas notes** in the schematic carry the wiring/pin spec.
 
 ## Hardware (KiCad 10) — two boards, radio-linked
-- `hardware/tenkiro-sora/` — outdoor station: ultra-low-power MCU (TBD),
-  E22-900M22S radio, U.FL antenna, LiFePO₄ + solar + low-Iq charger, load
-  switches for sensor rails, FRAM/flash buffering. **Power budget is sacred**:
+- `hardware/tenkiro-sora/` — outdoor station: **STM32U575RGT6** (fleet part,
+  shared with calcumaker), E22-900M22S radio, U.FL antenna, **2s LTO** pack
+  charged by CN3722 MPPT from raw solar **or** 9–16 V DC (12 V battery
+  systems), TPS62840 3.3 V rail, load switches for sensor rails, MB85RS64
+  FRAM buffering. On-board temp/RH/pressure/light; wind + air-quality on
+  pulse + mast-module ports (split kept flexible). **Power budget is sacred**:
   Sora sleeps almost always (wake → sample → TX → short ACK window → sleep).
 - `hardware/tenkiro-hashi/` — indoor bridge: E22-900M22S radio + ESP32-S3
-  (primary, Wi-Fi). Backup wired-Ethernet variant: **RP2350A + WIZnet W5500
-  over SPI** (decided 2026-07 — no RMII; see DESIGN.md for the survey).
+  (primary, Wi-Fi). Backup wired-Ethernet variant: **STM32H563VGT6 +
+  LAN8742A RMII PHY** (decided 2026-07; **no WIZnet**, and don't substitute
+  LAN8720A — see DESIGN.md).
 - Each board's schematic is **generated from its own data manifest**
   (`hardware/scripts/tenkiro-{sora,hashi}.schgen.py` — to be authored), not
   hand-authored, then **placed, not wired** — wiring happens in eeschema using

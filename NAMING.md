@@ -15,6 +15,7 @@
 | **Kaze** | wind | wind module |
 | **Ame** | rain | rain module |
 | **Hikari** | light | light/UV module |
+| *(TBD)* | — | particulate / air-quality module (may combine with Kaze in one mast pod — name open) |
 
 ## Repo vs product
 

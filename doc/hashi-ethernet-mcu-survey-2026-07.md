@@ -1,8 +1,16 @@
 # Hashi wired-Ethernet backup MCU — survey (2026-07)
 
-Research supporting the DESIGN.md decision: the non-ESP32 wired-Ethernet
-backup variant of Tenkiro Hashi is **RP2350A + WIZnet W5500 (SPI)**, runner-up
-**STM32H723 + LAN8742A**. LCSC prices/stock verified July 2026.
+> **Superseded (2026-07-19):** WIZnet parts were ruled out by decision, so the
+> runner-up path is promoted: the Ethernet backup is **STM32H563VGT6 +
+> LAN8742A**. A JLCPCB re-check found the survey's H5 stock concern was
+> package-specific — STM32H563**VGT6** (LQFP-100, LCSC C18221950) had **8,042**
+> in stock vs the ~35–139 of the ZIT6/LQFP-144 checked below; LAN8742A-CZ-TR
+> (C621424) 2.6 k, LAN8742AI-CZ-TR (C621425) 3.1 k. The survey below is kept
+> for the reasoning and rejected options.
+
+Research supporting the original recommendation: **RP2350A + WIZnet W5500
+(SPI)**, runner-up **STM32H723 + LAN8742A**. LCSC prices/stock verified July
+2026.
 
 ## 1. RP2350A + WIZnet W5500 — ★ chosen
 
