@@ -54,12 +54,14 @@ large PDFs.
   - **Production coil: Premo SDTR1103-HF1-0100J** — 100 µH ±5 %, Q45 ±5 %
     @ 0.5 MHz, SMD 11.8×3.6×2.5 mm, −40…+85 °C, AEC-Q200, purpose-made for
     lightning detectors ([datasheet](https://www.dcelectronicsolutions.com/wp-content/uploads/2018/04/SDTR1103-HF1.pdf),
-    [Premo product page](https://grupopremo.com/products/sdtr1103)). Source
-    via Premo / DC Electronic Solutions / DigiKey marketplace. **MA5532 is
-    obsolete** — MA5532-AEB Mouser residuals for protos only.
+    [Premo product page](https://grupopremo.com/products/sdtr1103)).
+    **Plan of record for all builds** — order via Premo direct / DC
+    Electronic Solutions; consigned at JLCPCB. No major distributor carries
+    it (MA5532 is obsolete; Mouser -AEB residual = bench fallback only).
 - **UV: Lite-On LTR-390UV-01** (LCSC C492374, JLCPCB-assemblable; DigiKey
   7322497) — UV-A + ALS, UV-index output. Cost-down: GUVA-S12SD + TIA.
-  Parked: ams AS7331 (unsourceable 2026); VEML6075/SI1145 discontinued. —
+  Board also carries a **DNP ams AS7331 footprint** (OLGA-16, C20482877) as
+  the spectral-UV upgrade option; VEML6075/SI1145 discontinued. —
   https://optoelectronics.liteon.com/upload/download/DS86-2015-0004/LTR-390UV_Final_%20DS_V1%201.pdf
 - **Sky IR / cloud: MLX90614ESF-BCC** (C7501763) —
   https://www.melexis.com/en/product/MLX90614/

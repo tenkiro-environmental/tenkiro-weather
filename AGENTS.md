@@ -44,9 +44,12 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
   **AS3935 lightning** (off-BOM; the *only* always-on sensor, ~70 µA — keep
   it and the coil away from the switchers, on a quiet RC/LDO rail, and treat
   coil tuning as a bring-up step. Coil = **Premo SDTR1103-HF1-0100J**
-  (100 µH ±5 %, Q45 @ 0.5 MHz, damped to ~15 with 10 k; MA5532 is
-  obsolete — residuals for protos only), **LTR-390UV-01 UV** (C492374,
-  JLCPCB-stocked; GUVA-S12SD cost-down; AS7331 parked/unsourceable),
+  (100 µH ±5 %, Q45 @ 0.5 MHz, damped to ~15 with 10 k) — **plan of record
+  for all builds**, ordered direct from Premo/DC Electronic Solutions,
+  consigned at JLCPCB (no distributor carries it; MA5532 is obsolete),
+  **LTR-390UV-01 UV** (C492374, JLCPCB-stocked; GUVA-S12SD cost-down; the
+  board must also carry a **DNP AS7331 OLGA-16 footprint** on the same I²C
+  bus as the spectral-UV upgrade stuffing option),
   **MLX90614ESF-BCC** sky-IR cloud sensor, piezo + TLV7031 hail/impact
   channel.
 - `hardware/tenkiro-hashi/` — indoor bridge: E22-900M22S radio + ESP32-S3
