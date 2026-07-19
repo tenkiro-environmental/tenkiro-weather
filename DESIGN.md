@@ -98,6 +98,9 @@ A packet contains (fixed-width binary, roughly 40–80 bytes total):
 - temperature, humidity, pressure
 - wind speed, wind gust, wind direction
 - rain counter, light/UV
+- lightning: cumulative stroke counter + last-storm distance (2026-07 add)
+- hail/impact: cumulative counter (2026-07 add)
+- sky IR temperature (cloud cover; 2026-07 add)
 - status flags, CRC or authentication tag
 
 Design rules:
@@ -158,6 +161,8 @@ compromised PCB antenna driven several dB harder. Sora includes:
 - Sensor split kept flexible: on-board temp/RH/pressure; wind and air-quality
   on detachable module ports (may be combined or separate — see platform
   sketch)
+- Atmospheric extras: AS3935 lightning (always-listening), AS7331/GUVA UV,
+  MLX90614 sky-IR cloud sensing, piezo hail/impact channel
 
 ### `tenkiro-hashi` — indoor bridge
 
@@ -166,6 +171,7 @@ compromised PCB antenna driven several dB harder. Sora includes:
 - **Backup option (wired Ethernet, non-ESP32): STM32H563VGT6 + LAN8742A
   RMII PHY** — decided 2026-07 (see below)
 - USB-C power
+- **SCD40 CO₂ + temp/RH** (indoor air on the always-on node; 2026-07 add)
 - MQTT client + local web interface
 - Optional USB serial console
 
@@ -244,6 +250,10 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
 | Bus TVS | **SM712** | C521963 | 327 k | RS-485-profile ±12/−7 V clamp on A/B at every node. |
 | SPS30 header | **S5B-ZR(LF)(SN)** (JST ZH-5, side entry) | C265404 | 13 k | Mates the off-BOM Sensirion SPS30 pigtail (pod PCB). |
 | Vane sensor | **AS5600-ASOT** (pod option) | C499458 | 37 k | Contactless 12-bit vane angle; MT6701 (C3003196) alternate. |
+| Lightning | **AS3935** + MA5532-AE coil | — (off-BOM) | — | Storm detection to ~40 km; only always-on sensor (~70 µA); DigiKey-sourced, footprints on Sora. |
+| UV | **AS7331** (off-BOM primary) | C20482877 | 22 | Spectral UVA/B/C; GUVA-S12SD + TIA as cost-down stuffing. |
+| Sky IR | **MLX90614ESF-BCC** | C7501763 | 704 | Zenith cloud/fog sensing (35° FOV, 3 V, gradient-comp), I²C load-switched. |
+| Hail comparator | **TLV7031DBVR** | C2869832 | 3.6 k | 315 nA comparator for the piezo impact channel (disc off-BOM). |
 
 ### Power architecture (flexible input — requirement)
 
@@ -347,6 +357,59 @@ use a high-value (≥1 MΩ) pull-up so a stuck-closed reed leaks single-digit
 µA, plus RC + TVS on the port (long exposed wires). A heated rain gauge, if
 ever, is power-pack-only territory.
 
+### Atmospheric extras (locked in 2026-07)
+
+Four additional measurements are part of the platform:
+
+**Lightning — AS3935 (ScioSense) + MA5532-AE 500 kHz coil.** Detects strokes
+to ~40 km with storm-distance estimation. Both parts are **off-BOM**
+(DigiKey/Mouser — not in the JLCPCB library); footprints go on the Sora
+board. Design invariants:
+
+- It is the **only always-on sensor**: listening mode ≈ 70 µA (~230 µW) —
+  budgeted; its IRQ wakes the U073 from STOP, so firmware stays asleep.
+  Firmware may disable it below a battery floor.
+- **Placement is critical**: the AS3935 false-triggers on switching-converter
+  noise. Keep it and the coil far from the CN3722 and TPS62840, feed it from
+  a quiet RC-filtered rail or its own small LDO, and keep the coil clear of
+  the SX1262 antenna path (500 kHz vs 915 MHz — different worlds, but the
+  coil is still a magnetic pickup).
+- Antenna tuning (internal caps, ±3.5 % target) is a per-board calibration
+  step — note it in the bring-up checklist.
+
+**UV — AS7331 primary, GUVA-S12SD cost-down (Hikari function).** The ams
+**AS7331** gives true spectral UVA/UVB/UVC over I²C at µA standby — thin at
+JLCPCB (C20482877, 22) so plan it off-BOM from DigiKey. The budget alternate
+is a **GUVA-S12SD** photodiode (off-BOM) into a TIA op-amp → U073 ADC —
+crude single-band UV index. Board carries the AS7331 footprint; GUVA is the
+fallback stuffing option.
+
+**Sky IR thermometer / cloud cover — MLX90614ESF-BCC** (C7501763, 704 in
+stock — JLCPCB-assemblable). Zenith-pointed, narrow-FOV (35°),
+gradient-compensated, 3 V variant: clear sky reads 20–40 °C below ambient,
+overcast reads near-ambient → cloud-fraction estimate, and with the SHT40
+dew point, fog prediction. I²C, sleeps to µA, load-switched with the sensor
+rail. Needs a sky-facing window in the enclosure (IR-transparent or open
+port under a hood).
+
+**Hail / rain impact — piezo disc + TLV7031 comparator.** A generic piezo
+disc (off-BOM, cents) bonded under an impact plate, into a **TLV7031DBVR**
+nanopower comparator (C2869832, 3.6 k stock, 315 nA) → EXTI/LPTIM pulse
+counting in STOP. Impact energy discriminates hail from heavy rain and gives
+a rain-intensity proxy independent of the tipping bucket. Threshold set by
+resistor divider; two comparator levels (rain/hail) if a second TLV7031 is
+stuffed.
+
+**Indoor CO₂ on Hashi — SCD40** (C3659421, 1.2 k stock, JLCPCB-assemblable):
+the bridge is always-on USB-powered indoors, so Sensirion SCD40 CO₂ +
+temp/RH costs nothing power-wise and makes Hashi a sensor node in its own
+right (published over the same MQTT).
+
+Parked (surveyed 2026-07, not in rev A): TSL2591 night-sky brightness
+(astro pod with the MLX90614), VL53L1 ToF snow depth (experimental on snow;
+ultrasonic JSN-SR04T-class is the proven alternative), capacitive
+soil-moisture / leaf-wetness garden pods.
+
 ### Hashi variants
 
 | Variant | MCU | Network | LCSC | Stock |
@@ -354,7 +417,8 @@ ever, is power-pack-only territory.
 | Primary | **ESP32-S3-WROOM-1-N8R2** | Wi-Fi | C2913204 | 17.8 k |
 | Ethernet backup | **STM32H563VGT6** | integrated MAC + **LAN8742A-CZ-TR** RMII PHY | C18221950 / C621424 | 8 k / 2.6 k |
 
-Both carry the same E22-900M22S (C411293) radio + USB-C power + console.
+Both carry the same E22-900M22S (C411293) radio + USB-C power + console,
+plus an **SCD40** CO₂/T/RH sensor (C3659421, 1.2 k stock) for indoor air.
 
 ## Open questions
 
@@ -374,8 +438,12 @@ Both carry the same E22-900M22S (C411293) radio + USB-C power + console.
   vane (both electrically supported; pick per product tier / mechanics).
 - **Field connector family for the mast bus** — IP67 M8 4-pin vs glands +
   pigtails (off-BOM either way).
-- **UV sensor** — VEML7700 covers lux; a UV-index part is still open
-  (LTR-390UV had no JLCPCB stock 2026-07).
+- ~~**UV sensor**~~ — **resolved 2026-07: AS7331** (off-BOM), GUVA-S12SD as
+  cost-down stuffing; VEML7700 covers lux.
+- **AS3935 bring-up** — antenna-coil tuning (±3.5 %) and noise-floor
+  calibration next to the real board; verify the quiet-rail strategy.
+- **Enclosure sky ports** — sky-facing window/hood for MLX90614 + UV, and
+  the hail impact plate's mechanical mount.
 - **LTO pack format** — cell format (18650/pouch), holder vs tabbed, 2s
   balancing/protection approach.
 - **Nami crypto** — pick the AEAD (e.g. AES-CCM vs ChaCha20-Poly1305) and key

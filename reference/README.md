@@ -46,6 +46,16 @@ large PDFs.
   https://sensirion.com/products/catalog/SPS30
 - Vane options: resistor-ladder RJ11 vane (Misol/Davis WH-SP class) or
   AS5600-ASOT contactless angle (C499458; MT6701 C3003196 alternate).
+- **Lightning: ScioSense AS3935** + Coilcraft MA5532-AE antenna (both
+  off-BOM, DigiKey) — https://www.sciosense.com/as3935-franklin-lightning-sensor-ic/
+- **UV: ams AS7331** spectral UVA/B/C (C20482877 thin — plan DigiKey;
+  GUVA-S12SD + TIA as cost-down) —
+  https://ams-osram.com/products/sensor-solutions/ambient-light-color-spectral-proximity-sensors/ams-as7331-spectral-uv-sensor
+- **Sky IR / cloud: MLX90614ESF-BCC** (C7501763) —
+  https://www.melexis.com/en/product/MLX90614/
+- **Hail/impact:** generic piezo disc + TLV7031DBVR comparator (C2869832).
+- **Hashi indoor CO₂: Sensirion SCD40** (C3659421) —
+  https://sensirion.com/products/catalog/SCD40
 
 ## Station (Sora) — TBD
 
