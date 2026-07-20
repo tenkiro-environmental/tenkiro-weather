@@ -17,8 +17,9 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
 - This is a **KiCad 10** project — use `kicad-cli` for schematic/PCB operations.
 - Use `uv` for all Python operations (never bare `pip`).
 - **Don't assume** final part choices that are still open (wind/AQ pod split,
-  PM + UV sensors, LTO pack format, panel sizing, Nami AEAD). Source of truth
-  is `DESIGN.md` → Open Questions. **No WIZnet parts** (2026-07 decision).
+  vane mechanics, mast-bus field connector, LTO pack format, panel sizing,
+  enclosures). Source of truth is `DESIGN.md` → Open Questions. **No WIZnet
+  parts** (2026-07 decision).
 
 ## Source of truth
 - **`DESIGN.md`** — full system design: radio choice (SX1262 / E22-900M22S,
@@ -31,8 +32,10 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
 - `hardware/tenkiro-sora/` — outdoor station: **STM32U073CBT6** (U0 family
   shared with ephemerkey), E22-900M22S radio, U.FL antenna, **2s LTO** pack
   charged by CN3722 MPPT from raw solar **or** 9–16 V DC (12 V battery
-  systems), TPS62840 3.3 V rail, load switches for sensor rails, MB85RS64
-  FRAM buffering. On-board temp/RH/pressure/light; reed wind/rain on the
+  systems), TPS62840 3.3 V rail, load switches for sensor rails; outage
+  buffering + the nonce epoch counter use **internal flash** (no external
+  NVM — FRAM dropped 2026-07). On-board temp/RH/pressure/light; reed
+  wind/rain on the
   pulse port; smart pods (wind vane / SPS30 PM2.5) on the **mast bus** — a
   4-wire switched-power RS-485 chain (MAX3471 micropower transceivers,
   SM712 TVS per node). **Power budget is sacred**: Sora sleeps almost always
@@ -87,6 +90,16 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
 - Nami packets are fixed-width binary (~40–80 B) with sequence numbers,
   cumulative rain/wind counters, and an authentication tag — no JSON over the
   air, no unauthenticated packets.
+- **Nami crypto (decided 2026-07): Ascon-128a AEAD** (NIST SP 800-232),
+  software-only — never depend on hw AES. The frame carries a **cipher-suite
+  byte** (0x01 Ascon-128a default, 0x02 ChaCha20-Poly1305 reserved) — keep
+  that agility; don't hardcode one cipher into the frame layout. Nonce =
+  devid ‖ epoch ‖ seq, where **epoch is a boot counter in internal flash**
+  (one write per boot — never per packet; there is no FRAM) and seq is a RAM
+  counter zeroed at boot; Hashi enforces strictly increasing (epoch, seq) for
+  replay protection. Full 16 B tag, PSK-per-pairing + HKDF
+  `uplink`/`downlink` subkeys. No join procedure, no key exchange, no random
+  nonces.
 
 ## Licensing
 - **Firmware** — repo `LICENSE` is **AGPL-3.0**.

@@ -101,7 +101,8 @@ A packet contains (fixed-width binary, roughly 40–80 bytes total):
 - lightning: cumulative stroke counter + last-storm distance (2026-07 add)
 - hail/impact: cumulative counter (2026-07 add)
 - sky IR temperature (cloud cover; 2026-07 add)
-- status flags, CRC or authentication tag
+- status flags, authentication tag (16 B AEAD tag — see Security below; the
+  tag replaces a CRC, it is not in addition to one)
 
 Design rules:
 
@@ -113,6 +114,56 @@ Design rules:
 - A unique device key and **authenticated encryption**.
 - Periodic bridge-to-node clock correction.
 - Local flash buffering on Sora during extended link loss.
+
+### Security (decided 2026-07)
+
+**AEAD: Ascon-128a (NIST SP 800-232) is the plan of record**, with the frame
+built for **cipher agility** so it isn't welded in. Rationale: crypto cost is
+a rounding error next to radio TX (an 80-byte packet costs ~µJ to seal in
+software on the U073's M0+ vs. ~130 ms of +14 dBm airtime), so the pick is
+about fit, not speed — Ascon is the NIST lightweight-crypto standard,
+purpose-designed for exactly this class of device, constant-time by
+construction, small code/state, with a maintained `ascon-aead` no_std Rust
+crate. **ChaCha20-Poly1305 (RFC 8439) is the named alternate** (most-analyzed
+software AEAD, best cross-language tooling) and gets a reserved suite ID from
+day one. Software AEAD only — never depend on hw AES (the U073 has none).
+
+Frame layout (cleartext header is the AAD; payload encrypted; tag full-width):
+
+```
+[ver:1][suite:1][devid:4][epoch:2][seq:4] [encrypted payload 24–56 B] [tag:16]
+```
+
+- **`suite` byte = cipher agility.** 0x01 = Ascon-128a (default), 0x02 =
+  ChaCha20-Poly1305 (reserved). Hashi accepts any suite it knows for a paired
+  device; a future cipher is a firmware update and a new suite ID, not a
+  protocol break. `ver` covers layout changes, `suite` covers crypto changes —
+  they are deliberately separate fields.
+- **Nonce = devid (4 B) ‖ epoch (2 B) ‖ seq (4 B)**, zero-padded/truncated to
+  the suite's nonce size. No random nonces, no negotiation, **no external
+  NVM needed**: `epoch` is a boot counter persisted in a dedicated internal
+  flash page and incremented **once per boot** (~1 flash write per power
+  cycle — endurance is a non-issue; 65 k boots at even one brownout a day is
+  ~180 years), and `seq` is a RAM counter zeroed at boot. Any reboot bumps
+  the epoch, so a (epoch, seq) pair — and hence a nonce — can never repeat,
+  even across brownouts with lost RAM. This is the structural nonce-safety
+  property, bought without per-packet NVM writes.
+- **Replay protection**: Hashi enforces strictly increasing `(epoch, seq)`
+  (lexicographic) per device — a replayed packet fails the ordering check
+  before tag verification even runs. 2³² packets per boot at one a minute is
+  ~8000 years, so `seq` never wraps within an epoch (wrap forces a reboot →
+  new epoch, belt-and-suspenders).
+- **Tag: full 16 bytes.** At SF7 truncating to 8 B saves ~10 ms airtime per
+  minute — not worth reasoning about reduced forgery margins.
+
+Key management stays deliberately primitive: **one pre-shared 256-bit key per
+Sora↔Hashi pairing, provisioned at flash time**, with per-direction subkeys
+derived via HKDF (`uplink` / `downlink` labels) so ACKs never share a nonce
+space with telemetry. No join procedure, no key exchange, no session state —
+that is the LoRaWAN complexity Nami exists to avoid. Rekeying is a reflash
+(honest for a device you own and can walk to); in-field pairing can layer on
+later without changing the frame. Known residual: encryption doesn't hide
+traffic timing or stop jamming — inherent to LoRa, acceptable here.
 
 ### Initial link settings
 
@@ -157,7 +208,8 @@ compromised PCB antenna driven several dB harder. Sora includes:
   panel **or** up to 16 V DC (12 V battery system)
 - Low-quiescent-current solar/MPPT charger with resistor-set LTO float
 - Load switches for the sensor rails
-- FRAM for buffered readings
+- Internal-flash buffering for readings during link loss (no external NVM —
+  FRAM dropped 2026-07)
 - Sensor split kept flexible: on-board temp/RH/pressure; wind and air-quality
   on detachable module ports (may be combined or separate — see platform
   sketch)
@@ -219,8 +271,9 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
                       2s LTO pack (4.8 V nom,        │  (LQFP-48, ULP M0+) │
                       3.6–5.7 V; −30 °C charge OK)   │                     │
                              │                       │ SPI0: E22-900M22S ──┼── U.FL ant
-                      TPS62840 buck → 3.3 V          │ SPI1: MB85RS64 FRAM │
-                      (750 nA Iq, VIN ≤ 6.5 V)  ─────┤ ADC: Vbat/Vsolar    │
+                      TPS62840 buck → 3.3 V          │ int flash: outage   │
+                      (750 nA Iq, VIN ≤ 6.5 V)  ─────┤  buffer+nonce epoch │
+                                                     │ ADC: Vbat/Vsolar    │
                                                      │ LPTIM/EXTI: pulses  │
                                                      └──────┬──────┬───────┘
                                                             │      │
@@ -234,12 +287,12 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
 
 | Block | Part | LCSC | Stock (2026-07) | Why |
 |---|---|---|---|---|
-| MCU | **STM32U073CBT6** (LQFP-48, M0+, 128 K/40 K) | C27035627 | 1,009 | Same STM32U0 family as ephemerkey's U083KCU6 (U083 ≈ U073 + LCD driver) — fleet firmware experience carries over; ST ULP line (sub-µA stop w/ RTC, LPUART/LPTIM); right-sized and cheap for a sleep-mostly node (radio + FRAM share one SPI bus, separate CS; buffering lives in FRAM). Software AEAD assumed — don't rely on hw AES. Alternates: STM32U073KCU6 (C22445363, 90 — exact 32-pin sibling of ephemerkey's part, thin stock); **STM32U575VGT6 (C5270988, 17 k)** / U575RGT6 (C5270980, 345) — calcumaker-shared U5 headroom path if Sora outgrows the M0+; STM32G0B1KBU6 (C5159549, 2.6 k, 3 repos) — non-ULP cost fallback. |
+| MCU | **STM32U073CBT6** (LQFP-48, M0+, 128 K/40 K) | C27035627 | 1,009 | Same STM32U0 family as ephemerkey's U083KCU6 (U083 ≈ U073 + LCD driver) — fleet firmware experience carries over; ST ULP line (sub-µA stop w/ RTC, LPUART/LPTIM); right-sized and cheap for a sleep-mostly node (outage buffering + the nonce epoch counter live in internal flash — no external NVM on the board). Software AEAD assumed — don't rely on hw AES. Alternates: STM32U073KCU6 (C22445363, 90 — exact 32-pin sibling of ephemerkey's part, thin stock); **STM32U575VGT6 (C5270988, 17 k)** / U575RGT6 (C5270980, 345) — calcumaker-shared U5 headroom path if Sora outgrows the M0+; STM32G0B1KBU6 (C5159549, 2.6 k, 3 repos) — non-ULP cost fallback. |
 | Radio | **E22-900M22S** (SX1262) | C411293 | 789 | JLCPCB-assemblable directly — no consignment needed. |
 | Charger | **CN3722** (TSSOP-16) | C77905 | 5.3 k | Solar MPPT controller, VIN to 28 V → handles raw panel **and** 9–16 V DC; resistor-set float ≈ 5.5 V for 2s LTO. Alternates: BQ24650RVAR (C53712, 557) same topology w/ TI docs; LT3652IMSE (C671115, 2.9 k). |
 | Battery | 2s **LTO** pack (holder/leads, off-BOM) | — | — | 4.8 V nom, 3.6–5.7 V; charges below freezing, huge cycle life — right chemistry for permanently-outdoor solar. |
 | 3V3 rail | **TPS62840DLCR** buck | C2071859 | 5.5 k | 750 nA Iq, VIN 1.8–6.5 V spans the 2s-LTO range; 750 mA covers E22 TX peaks. |
-| Storage | **MB85RS64PNF** FRAM (SOP-8 SPI) | C8741 | 6.4 k | Unlimited-endurance buffered readings during link loss. |
+| Storage | *(none — internal flash)* | — | — | Outage readings buffer in the U073's internal flash (128 K is plenty; wear only during link loss) and the nonce epoch counter is 1 flash write per boot. FRAM (e.g. MB85RS64PNF, C8741) was considered and **dropped 2026-07** — nothing needs per-packet NVM writes; re-add only if that changes. |
 | T/RH | **SHT40-AD1B-R2** | C2909890 | 8.8 k | On-board (Kumo function), I²C, load-switched. |
 | Pressure | **BMP390** | C5124834 | 1.3 k | On-board, I²C. |
 | Light | **VEML7700-TT** | C1850416 | 3.2 k | Ambient lux (Hikari); dedicated UV sensor TBD. |
@@ -476,6 +529,8 @@ plus an **SCD40** CO₂/T/RH sensor (C3659421, 1.2 k stock) for indoor air.
   the hail impact plate's mechanical mount.
 - **LTO pack format** — cell format (18650/pouch), holder vs tabbed, 2s
   balancing/protection approach.
-- **Nami crypto** — pick the AEAD (e.g. AES-CCM vs ChaCha20-Poly1305) and key
-  provisioning story.
+- ~~**Nami crypto**~~ — **decided 2026-07**: Ascon-128a AEAD with a cipher-suite
+  byte for agility (ChaCha20-Poly1305 reserved as suite 0x02); PSK-per-pairing
+  + HKDF direction keys; epoch-counter nonces in internal flash (no FRAM —
+  dropped). See "Nami → Security".
 - **Enclosure / radiation shield** for Sora.

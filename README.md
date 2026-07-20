@@ -29,11 +29,12 @@ from `hardware/`, `make help` lists the doc/BOM/fab targets.
 
 ## Status
 
-Early design capture (2026-07). Radio architecture, protocol direction, the
-hardware platform (Sora: STM32U073 + CN3722 LTO charging; Hashi: ESP32-S3 /
-STM32H563 + LAN8742A Ethernet backup), and JLCPCB part picks are sketched;
-the wind/air-quality pod split, PM + UV sensors, and LTO pack format are
-open — see `DESIGN.md` → Open Questions.
+Early design capture (2026-07). Radio architecture, the Nami protocol
+(Ascon-128a AEAD with cipher agility), the hardware platform (Sora:
+STM32U073 + CN3722 LTO charging; Hashi: ESP32-S3 / STM32H563 + LAN8742A
+Ethernet backup), and JLCPCB part picks are settled; the wind/air-quality
+pod split, mechanical choices (vane, mast-bus connector, enclosures), and
+LTO pack format are open — see `DESIGN.md` → Open Questions.
 
 ## License
 

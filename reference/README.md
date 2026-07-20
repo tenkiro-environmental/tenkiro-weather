@@ -34,7 +34,13 @@ large PDFs.
 - **CN3722** MPPT charger (C77905), 2s LTO float ≈ 5.5 V; alternates
   BQ24650RVAR (C53712) / LT3652IMSE (C671115).
 - **TPS62840DLCR** 750 nA-Iq buck (C2071859) → 3.3 V rail.
-- **MB85RS64PNF** SPI FRAM (C8741).
+- ~~MB85RS64PNF SPI FRAM (C8741)~~ — **dropped 2026-07**: outage buffering
+  and the Nami nonce epoch counter use the U073's internal flash; nothing
+  needs per-packet NVM writes.
+- **Nami AEAD: Ascon-128a** (NIST SP 800-232) —
+  https://csrc.nist.gov/pubs/sp/800/232/final ; Rust `ascon-aead` crate
+  (no_std). Alternate suite (reserved 0x02): ChaCha20-Poly1305, RFC 8439,
+  `chacha20poly1305` crate. Key derivation: HKDF (RFC 5869), `hkdf` crate.
 - Sensors: SHT40-AD1B-R2 (C2909890), BMP390 (C5124834), VEML7700-TT
   (C1850416), optional SGP40-D-R4 (C2874215).
 - **Mast bus** (switched-power RS-485 pod chain): MAX3471EUA+T (C27462,
