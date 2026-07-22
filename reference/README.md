@@ -31,9 +31,16 @@ large PDFs.
 - **STM32U073CBT6** (LCSC C27035627) — ULP MCU (M0+, 128 K/40 K, LQFP-48),
   same U0 family as ephemerkey's U083KCU6. Headroom alternate:
   STM32U575VGT6 (C5270988, deep stock; calcumaker-shared U5 line).
-- **CN3722** MPPT charger (C77905), 2s LTO float ≈ 5.5 V; alternates
-  BQ24650RVAR (C53712) / LT3652IMSE (C671115).
-- **TPS62840DLCR** 750 nA-Iq buck (C2071859) → 3.3 V rail.
+- **BQ24650RVAR** solar-MPPT charge controller (C53712; RVAT C2876745) —
+  **1S LTO float 2.85 V** (programmable ≥ 2.1 V — integrated 1-cell chargers
+  can't reach LTO). CN3722 (C77905) kept only as revert-to-2s fallback —
+  https://www.ti.com/product/BQ24650
+- **BQ34Z100PWR-G1** multi-chemistry fuel gauge (C91302) — Impedance Track
+  with **LTO ChemID support**, low-side sense, I²C —
+  https://www.ti.com/product/BQ34Z100-G1
+- **TPS63900DSKR** 75 nA-Iq buck-boost (C1518762) → 3.3 V rail (1S LTO
+  2.4 V nom is below the rail; replaced the TPS62840 buck) —
+  https://www.ti.com/product/TPS63900
 - ~~MB85RS64PNF SPI FRAM (C8741)~~ — **dropped 2026-07**: outage buffering
   and the Nami nonce epoch counter use the U073's internal flash; nothing
   needs per-packet NVM writes.

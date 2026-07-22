@@ -30,9 +30,13 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
 
 ## Hardware (KiCad 10) — two boards, radio-linked
 - `hardware/tenkiro-sora/` — outdoor station: **STM32U073CBT6** (U0 family
-  shared with ephemerkey), E22-900M22S radio, U.FL antenna, **2s LTO** pack
-  charged by CN3722 MPPT from raw solar **or** 9–16 V DC (12 V battery
-  systems), TPS62840 3.3 V rail, load switches for sensor rails; outage
+  shared with ephemerkey), E22-900M22S radio, U.FL antenna, **1S LTO** cell
+  (2026-07: 1S, not 2s — no balancing) charged by **BQ24650** MPPT
+  (float 2.85 V; CN3722 is only the revert-to-2s fallback) from raw solar
+  **or** 9–16 V DC (12 V battery systems), **BQ34Z100-G1 fuel gauge** (LTO
+  ChemID; the second always-on load beside the AS3935), **TPS63900
+  buck-boost** 3.3 V rail (pack is below 3.3 V — never substitute a
+  buck-only part), load switches for sensor rails; outage
   buffering + the nonce epoch counter use **internal flash** (no external
   NVM — FRAM dropped 2026-07). On-board temp/RH/pressure/light; reed
   wind/rain on the
@@ -40,7 +44,8 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
   4-wire switched-power RS-485 chain (MAX3471 micropower transceivers,
   SM712 TVS per node). **Power budget is sacred**: Sora sleeps almost always
   (wake → sample → TX → short ACK window → sleep), and the mast bus must
-  burn **zero idle power** — bus V+ is gated on the RTC schedule
+  burn **zero idle power** — bus V+ (the gated 3.3 V rail, never raw 1S
+  pack) is switched on the RTC schedule
   (power-pack-fed pods may idle listening at ~2 µA, never more). The SPS30
   is off-BOM but its JST ZH-5 header (S5B-ZR) is on the pod PCB; SPS30 runs
   in UART mode, never I²C over cable. Atmospheric extras (2026-07):

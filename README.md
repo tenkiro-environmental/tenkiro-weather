@@ -2,9 +2,9 @@
 
 **Tenkiro** is a private-radio home weather system:
 
-- **Tenkiro Sora** — a solar-powered outdoor weather station (2s LTO pack
-  charged from raw solar or a 12 V system, STM32U073 ultra-low-power MCU,
-  Semtech SX1262 915 MHz LoRa radio).
+- **Tenkiro Sora** — a solar-powered outdoor weather station (1S LTO cell
+  with fuel gauge, charged from raw solar or a 12 V system, STM32U073
+  ultra-low-power MCU, Semtech SX1262 915 MHz LoRa radio).
 - **Tenkiro Hashi** — an always-on indoor bridge between the radio link and
   your network (USB-C powered, MQTT + local web interface; ESP32-S3, with a
   wired-Ethernet backup variant on STM32H563 + LAN8742A).
@@ -31,7 +31,8 @@ from `hardware/`, `make help` lists the doc/BOM/fab targets.
 
 Early design capture (2026-07). Radio architecture, the Nami protocol
 (Ascon-128a AEAD with cipher agility), the hardware platform (Sora:
-STM32U073 + CN3722 LTO charging; Hashi: ESP32-S3 / STM32H563 + LAN8742A
+STM32U073 + BQ24650 1S-LTO charging with BQ34Z100 fuel gauge; Hashi:
+ESP32-S3 / STM32H563 + LAN8742A
 Ethernet backup), and JLCPCB part picks are settled; the wind/air-quality
 pod split, mechanical choices (vane, mast-bus connector, enclosures), and
 LTO pack format are open — see `DESIGN.md` → Open Questions.

@@ -94,7 +94,8 @@ better matched to one station + one bridge.
 A packet contains (fixed-width binary, roughly 40–80 bytes total):
 
 - protocol version, station ID, packet sequence, station uptime
-- battery voltage, solar voltage/current
+- battery voltage, state of charge (BQ34Z100 fuel gauge), solar
+  voltage/current
 - temperature, humidity, pressure
 - wind speed, wind gust, wind direction
 - rain counter, light/UV
@@ -203,9 +204,10 @@ compromised PCB antenna driven several dB harder. Sora includes:
 - Ultra-low-power MCU: **STM32U073CBT6** (decided 2026-07 — see platform sketch)
 - E22-900M22S (SX1262) radio module
 - External 915 MHz antenna (U.FL)
-- **LTO cells** (lithium-titanate; wide-temperature outdoor chemistry —
-  supersedes the brief's LiFePO₄) + **flexible charge input**: raw solar
-  panel **or** up to 16 V DC (12 V battery system)
+- **1S LTO cell** (lithium-titanate; wide-temperature outdoor chemistry —
+  supersedes the brief's LiFePO₄; 1S since 2026-07) + **fuel gauge** +
+  **flexible charge input**: raw solar panel **or** up to 16 V DC (12 V
+  battery system)
 - Low-quiescent-current solar/MPPT charger with resistor-set LTO float
 - Load switches for the sensor rails
 - Internal-flash buffering for readings during link loss (no external NVM —
@@ -265,15 +267,15 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
         (12 V battery sys)   │  reverse-pol FET      │   VEML7700 ambient  │ load-
                              │  + SMBJ26A TVS        │   (SGP40 VOC opt.)  │ switched
                              ▼                       └─────────┬───────────┘
-                      CN3722 MPPT charger                      │
-                      (float ≈ 5.5 V, 2s LTO)        ┌─────────┴───────────┐
+                      BQ24650 MPPT charger                     │
+                      (float ≈ 2.85 V, 1S LTO)       ┌─────────┴───────────┐
                              │                       │  STM32U073CBT6      │
-                      2s LTO pack (4.8 V nom,        │  (LQFP-48, ULP M0+) │
-                      3.6–5.7 V; −30 °C charge OK)   │                     │
-                             │                       │ SPI0: E22-900M22S ──┼── U.FL ant
-                      TPS62840 buck → 3.3 V          │ int flash: outage   │
-                      (750 nA Iq, VIN ≤ 6.5 V)  ─────┤  buffer+nonce epoch │
-                                                     │ ADC: Vbat/Vsolar    │
+                      1S LTO cell (2.4 V nom,        │  (LQFP-48, ULP M0+) │
+                      1.8–2.9 V; −30 °C charge OK)   │                     │
+                        ├─ BQ34Z100 fuel gauge       │ SPI0: E22-900M22S ──┼── U.FL ant
+                        │  (low-side sense, I²C) ────┤ int flash: outage   │
+                      TPS63900 buck-boost → 3.3 V    │  buffer+nonce epoch │
+                      (75 nA Iq, VIN 1.8–5.5 V) ─────┤ ADC: Vbat/Vsolar    │
                                                      │ LPTIM/EXTI: pulses  │
                                                      └──────┬──────┬───────┘
                                                             │      │
@@ -289,9 +291,10 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
 |---|---|---|---|---|
 | MCU | **STM32U073CBT6** (LQFP-48, M0+, 128 K/40 K) | C27035627 | 1,009 | Same STM32U0 family as ephemerkey's U083KCU6 (U083 ≈ U073 + LCD driver) — fleet firmware experience carries over; ST ULP line (sub-µA stop w/ RTC, LPUART/LPTIM); right-sized and cheap for a sleep-mostly node (outage buffering + the nonce epoch counter live in internal flash — no external NVM on the board). Software AEAD assumed — don't rely on hw AES. Alternates: STM32U073KCU6 (C22445363, 90 — exact 32-pin sibling of ephemerkey's part, thin stock); **STM32U575VGT6 (C5270988, 17 k)** / U575RGT6 (C5270980, 345) — calcumaker-shared U5 headroom path if Sora outgrows the M0+; STM32G0B1KBU6 (C5159549, 2.6 k, 3 repos) — non-ULP cost fallback. |
 | Radio | **E22-900M22S** (SX1262) | C411293 | 789 | JLCPCB-assemblable directly — no consignment needed. |
-| Charger | **CN3722** (TSSOP-16) | C77905 | 5.3 k | Solar MPPT controller, VIN to 28 V → handles raw panel **and** 9–16 V DC; resistor-set float ≈ 5.5 V for 2s LTO. Alternates: BQ24650RVAR (C53712, 557) same topology w/ TI docs; LT3652IMSE (C671115, 2.9 k). |
-| Battery | 2s **LTO** pack (holder/leads, off-BOM) | — | — | 4.8 V nom, 3.6–5.7 V; charges below freezing, huge cycle life — right chemistry for permanently-outdoor solar. |
-| 3V3 rail | **TPS62840DLCR** buck | C2071859 | 5.5 k | 750 nA Iq, VIN 1.8–6.5 V spans the 2s-LTO range; 750 mA covers E22 TX peaks. |
+| Charger | **BQ24650RVAR** (VQFN-16) | C53712 | 557 | Solar-MPPT synchronous buck controller, VIN 5–28 V → raw panel **and** 9–16 V DC; float programmable down to 2.1 V → **2.85 V 1S-LTO** divider-set (revised 2026-07; the only topology that reaches an LTO float — integrated 1-cell chargers stop at 3.0 V). RVAT sibling C2876745; deep DigiKey stock backs the thin LCSC count. CN3722 (C77905, 5.3 k) = revert-to-2s fallback only. |
+| Fuel gauge | **BQ34Z100PWR-G1** (TSSOP-14) | C91302 | 3 k | Multi-chemistry Impedance Track gauge — **officially supports LTO** (MAX17048/17055 don't); low-side sense, I²C SoC/SoH into the Nami packet. Second always-on load beside the AS3935 (~2–3 mAh/day). VCC from the 3.3 V rail; verify LTO ChemID at bring-up. |
+| Battery | 1S **LTO** cell (holder/leads, off-BOM) | — | — | 2.4 V nom, 1.8–2.9 V (revised 2026-07 from 2s: no balancing, gauge-friendly); charges below freezing, huge cycle life — right chemistry for permanently-outdoor solar. |
+| 3V3 rail | **TPS63900DSKR** buck-boost | C1518762 | 4.2 k | 75 nA Iq, VIN 1.8–5.5 V spans the 1S-LTO range (2.4 V nom is *below* 3.3 V — buck-only TPS62840 no longer works); ~400 mA covers E22 TX, derate at pack floor. |
 | Storage | *(none — internal flash)* | — | — | Outage readings buffer in the U073's internal flash (128 K is plenty; wear only during link loss) and the nonce epoch counter is 1 flash write per boot. FRAM (e.g. MB85RS64PNF, C8741) was considered and **dropped 2026-07** — nothing needs per-packet NVM writes; re-add only if that changes. |
 | T/RH | **SHT40-AD1B-R2** | C2909890 | 8.8 k | On-board (Kumo function), I²C, load-switched. |
 | Pressure | **BMP390** | C5124834 | 1.3 k | On-board, I²C. |
@@ -312,18 +315,48 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
 
 Two charge sources, one battery:
 
-1. **Raw solar panel** (6–18 V panels) — CN3722's input-voltage-regulation
+1. **Raw solar panel** (6–18 V panels) — BQ24650's input-voltage-regulation
    loop provides MPPT against panel collapse.
 2. **DC input up to 16 V** (12 V lead-acid/LiFePO₄ battery systems) — same
    charger input via ORing diodes + reverse-polarity FET + SMBJ26A TVS
    (28 V-max charger leaves headroom for 12 V-system transients).
 
-Battery is **2s LTO** (float ≈ 2.75 V/cell → 5.5 V, resistor-set): chosen
-over LiFePO₄ for sub-zero charge acceptance and cycle life; the capacity
-penalty is acceptable for a ~mW-average node. The 3.3 V system rail
-(TPS62840) spans the full 3.6–5.7 V pack range; the E22 module runs from the
-3.3 V rail (its 5.7 V-charging pack peak would exceed the module's 5.5 V max,
-so never rail it to VBAT).
+Battery is **1S LTO** (revised 2026-07 from 2s — kills the balancing
+question entirely and enables a real fuel gauge): float ≈ 2.85 V
+resistor-set, working range ~1.8–2.9 V, 2.4 V nominal. LTO stays the
+chemistry — sub-zero charge acceptance and cycle life are why it was picked
+over LiFePO₄, and no integrated 1-cell charger reaches a 2.85 V float
+(BQ25798-class parts bottom out at VREG = 3.0 V), which is what forces the
+discrete controller:
+
+- **Charger: BQ24650** (promoted from alternate to primary) — synchronous
+  buck charge controller *designed for solar MPPT*, VIN 5–28 V covers both
+  inputs, and its feedback reference lets the float be programmed down to
+  2.1 V, so a 2.85 V 1S-LTO float is just a divider. CN3722 is demoted to
+  the revert-to-2s fallback; LT3652 drops out entirely (3.3 V minimum float
+  can't reach 1S LTO).
+- **Fuel gauge: BQ34Z100-G1** — the only stocked gauge that *officially
+  supports LTO chemistry* (Impedance Track with LTO ChemIDs; MAX17048/17055
+  are Li-ion-OCV parts whose supply ranges don't even survive LTO's 1.8 V
+  floor). Chemistry-independent low-side sense resistor, I²C, reports
+  SoC/SoH/current/temp — SoC goes in the Nami packet. Honest cost: a gauge
+  must integrate 24/7, so this is the **second always-on load** beside the
+  AS3935 (~tens of µA in its sleep modes, ~100 µA tracking) ≈ 2–3 mAh/day —
+  acceptable against a multi-Ah 1S cell and any real panel. Bring-up items:
+  power its VCC/REGIN from the 3.3 V rail (not the 2.4 V pack), verify the
+  chosen LTO ChemID against the actual cell, tune sleep-mode strategy.
+- **3.3 V rail: TPS63900 buck-boost** (replaces the TPS62840 buck — a 2.4 V
+  nominal pack sits *below* the rail, so buck-only no longer works). VIN
+  1.8–5.5 V spans the whole 1S-LTO range, 75 nA Iq keeps the
+  sleep budget, ~400 mA output covers E22 TX peaks (+22 dBm ≈ 110 mA;
+  derate near the 1.8 V pack floor — fine at our +14 dBm start; give it
+  generous bulk capacitance).
+- The E22 module and everything else run from the 3.3 V rail; the pack
+  voltage (≤2.9 V) is never railed anywhere directly.
+- **Mast bus V+ becomes the gated 3.3 V rail**, not raw pack — 1S LTO
+  (1.8–2.9 V) is below the MAX3471's 2.5 V minimum, so bus V+ is now the
+  TPS22919-switched 3.3 V. Pods needing 5 V (SPS30) boost locally, as
+  already planned. Power-pack mode is unchanged.
 
 ### Sensor split (kept flexible — requirement)
 
@@ -356,9 +389,11 @@ A/B differential pair; every pod has an in + out connector (or a T-splice).
   64 kbps, 64 nodes. 9.6–38.4 kbaud Nami-framed (same CRC/auth style as the
   radio protocol), Sora as polling master.
 - **Zero idle power, two modes:**
-  1. *Sora-powered chain:* Sora gates bus V+ with a **TPS22919** load switch
-     (C2149796) on its RTC schedule — between samples the entire chain is
-     unpowered: **exactly zero idle**, no transceiver spec needed.
+  1. *Sora-powered chain:* Sora gates bus V+ — the **3.3 V rail** since the
+     1S-LTO move (raw pack at 1.8–2.9 V is below the MAX3471's 2.5 V min) —
+     with a **TPS22919** load switch (C2149796) on its RTC schedule; between
+     samples the entire chain is unpowered: **exactly zero idle**, no
+     transceiver spec needed.
   2. *Power-pack-powered chain:* pods fed continuously from the pack idle in
      STOP with the MAX3471 receiver listening (~2 µA/node) and wake on bus
      traffic. ORing/ideal diodes on each pod let pack and Sora V+ coexist
@@ -385,9 +420,9 @@ populate a genuine JST **S5B-ZR(LF)(SN)** side-entry shrouded header
   UART), 5 GND. **Use UART** — Sensirion only rates I²C for very short
   traces.
 - Power: 4.5–5.5 V, ~55 mA measuring, <8 mA idle — the pod gates it with its
-  own TPS22919 and duty-cycles measurements; a small 5 V buck-boost on the
-  pod makes it work from either bus V+ (3.6–5.7 V LTO span) or the power
-  pack.
+  own TPS22919 and duty-cycles measurements; a small 5 V boost on the pod
+  makes it work from either bus V+ (the gated 3.3 V rail since the 1S move)
+  or the power pack.
 - Logic is 3.3 V-compatible (5 V-tolerant inputs on the SPS30 side).
 
 ### Wind vane + rain — scoping (2026-07)
@@ -438,7 +473,7 @@ from a CJMCU-3935/DFRobot module.) Design invariants:
   budgeted; its IRQ wakes the U073 from STOP, so firmware stays asleep.
   Firmware may disable it below a battery floor.
 - **Placement is critical**: the AS3935 false-triggers on switching-converter
-  noise. Keep it and the coil far from the CN3722 and TPS62840, feed it from
+  noise. Keep it and the coil far from the BQ24650 and TPS63900, feed it from
   a quiet RC-filtered rail or its own small LDO, and keep the coil clear of
   the SX1262 antenna path (500 kHz vs 915 MHz — different worlds, but the
   coil is still a magnetic pickup).
@@ -500,8 +535,10 @@ plus an **SCD40** CO₂/T/RH sensor (C3659421, 1.2 k stock) for indoor air.
 - ~~**Hashi backup MCU (wired Ethernet)**~~ — **resolved 2026-07:
   STM32H563VGT6 + LAN8742A** (WIZnet ruled out by decision; supersedes the
   survey's RP2350+W5500 pick). See the Hashi section.
-- ~~**Solar charger part**~~ — **CN3722** MPPT (BQ24650/LT3652 alternates);
-  **panel sizing** for the 2s LTO pack still open.
+- ~~**Solar charger part**~~ — **revised 2026-07: BQ24650** MPPT promoted to
+  primary for the **1S LTO** move (2.85 V float; adds BQ34Z100-G1 fuel gauge,
+  TPS63900 buck-boost rail; CN3722 = revert-to-2s fallback, LT3652 dropped);
+  **panel sizing** for the 1S cell still open.
 - **Wind/air-quality pod split** — one combined mast pod vs separate Kaze +
   air-quality pods (the mast bus is the fixed interface either way).
   ~~PM sensor~~ — **resolved: Sensirion SPS30 as the supported option**
@@ -527,8 +564,10 @@ plus an **SCD40** CO₂/T/RH sensor (C3659421, 1.2 k stock) for indoor air.
   calibration next to the real board; verify the quiet-rail strategy.
 - **Enclosure sky ports** — sky-facing window/hood for MLX90614 + UV, and
   the hail impact plate's mechanical mount.
-- **LTO pack format** — cell format (18650/pouch), holder vs tabbed, 2s
-  balancing/protection approach.
+- **LTO cell format** — 1S (2026-07): which cell (18650-LTO vs pouch vs
+  Toshiba SCiB-class), capacity, holder vs tabbed. Balancing is no longer a
+  question — 1S killed it; protection is just the charger float + gauge
+  undervoltage alarm.
 - ~~**Nami crypto**~~ — **decided 2026-07**: Ascon-128a AEAD with a cipher-suite
   byte for agility (ChaCha20-Poly1305 reserved as suite 0x02); PSK-per-pairing
   + HKDF direction keys; epoch-counter nonces in internal flash (no FRAM —
