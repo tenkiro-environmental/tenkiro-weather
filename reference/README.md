@@ -36,7 +36,10 @@ large PDFs.
   can't reach LTO). CN3722 (C77905) kept only as revert-to-2s fallback —
   https://www.ti.com/product/BQ24650
 - **BQ34Z100PWR-G1** multi-chemistry fuel gauge (C91302) — Impedance Track
-  with **LTO ChemID support**, low-side sense, I²C —
+  with **LTO ChemID support** (TI-confirmed: e2e.ti.com threads 329276 &
+  1252347; get the exact ChemID via the GPCCHEM tool), low-side sense, I²C.
+  Verified vs datasheet SLUSBZ5D: REGIN 2.7–4.5 V (feed from 3.3 V rail),
+  BAT pin direct ≤5 V (no divider at 1S), FULLSLEEP <30 µA —
   https://www.ti.com/product/BQ34Z100-G1
 - **TPS63900DSKR** 75 nA-Iq buck-boost (C1518762) → 3.3 V rail (1S LTO
   2.4 V nom is below the rail; replaced the TPS62840 buck) —

@@ -292,7 +292,7 @@ repos (calcumaker / tsumikoro / ephemerkey / pulsarfab / reefvolt-*).
 | MCU | **STM32U073CBT6** (LQFP-48, M0+, 128 K/40 K) | C27035627 | 1,009 | Same STM32U0 family as ephemerkey's U083KCU6 (U083 ≈ U073 + LCD driver) — fleet firmware experience carries over; ST ULP line (sub-µA stop w/ RTC, LPUART/LPTIM); right-sized and cheap for a sleep-mostly node (outage buffering + the nonce epoch counter live in internal flash — no external NVM on the board). Software AEAD assumed — don't rely on hw AES. Alternates: STM32U073KCU6 (C22445363, 90 — exact 32-pin sibling of ephemerkey's part, thin stock); **STM32U575VGT6 (C5270988, 17 k)** / U575RGT6 (C5270980, 345) — calcumaker-shared U5 headroom path if Sora outgrows the M0+; STM32G0B1KBU6 (C5159549, 2.6 k, 3 repos) — non-ULP cost fallback. |
 | Radio | **E22-900M22S** (SX1262) | C411293 | 789 | JLCPCB-assemblable directly — no consignment needed. |
 | Charger | **BQ24650RVAR** (VQFN-16) | C53712 | 557 | Solar-MPPT synchronous buck controller, VIN 5–28 V → raw panel **and** 9–16 V DC; float programmable down to 2.1 V → **2.85 V 1S-LTO** divider-set (revised 2026-07; the only topology that reaches an LTO float — integrated 1-cell chargers stop at 3.0 V). RVAT sibling C2876745; deep DigiKey stock backs the thin LCSC count. CN3722 (C77905, 5.3 k) = revert-to-2s fallback only. |
-| Fuel gauge | **BQ34Z100PWR-G1** (TSSOP-14) | C91302 | 3 k | Multi-chemistry Impedance Track gauge — **officially supports LTO** (MAX17048/17055 don't); low-side sense, I²C SoC/SoH into the Nami packet. Second always-on load beside the AS3935 (~2–3 mAh/day). VCC from the 3.3 V rail; verify LTO ChemID at bring-up. |
+| Fuel gauge | **BQ34Z100PWR-G1** (TSSOP-14) | C91302 | 3 k | Multi-chemistry Impedance Track gauge — **LTO ChemIDs confirmed by TI** (E2E #329276; MAX17048/17055 can't do LTO). Low-side sense, I²C SoC/SoH into the Nami packet. Verified wiring: REGIN from 3.3 V rail (2.7–4.5 V), BAT direct to cell (≤5 V, no divider). FULLSLEEP <30 µA / SLEEP <84 µA — ~0.7–2 mAh/day always-on. ChemID via GPCCHEM at bring-up. |
 | Battery | 1S **LTO** cell (holder/leads, off-BOM) | — | — | 2.4 V nom, 1.8–2.9 V (revised 2026-07 from 2s: no balancing, gauge-friendly); charges below freezing, huge cycle life — right chemistry for permanently-outdoor solar. |
 | 3V3 rail | **TPS63900DSKR** buck-boost | C1518762 | 4.2 k | 75 nA Iq, VIN 1.8–5.5 V spans the 1S-LTO range (2.4 V nom is *below* 3.3 V — buck-only TPS62840 no longer works); ~400 mA covers E22 TX, derate at pack floor. |
 | Storage | *(none — internal flash)* | — | — | Outage readings buffer in the U073's internal flash (128 K is plenty; wear only during link loss) and the nonce epoch counter is 1 flash write per boot. FRAM (e.g. MB85RS64PNF, C8741) was considered and **dropped 2026-07** — nothing needs per-packet NVM writes; re-add only if that changes. |
@@ -336,15 +336,23 @@ discrete controller:
   the revert-to-2s fallback; LT3652 drops out entirely (3.3 V minimum float
   can't reach 1S LTO).
 - **Fuel gauge: BQ34Z100-G1** — the only stocked gauge that *officially
-  supports LTO chemistry* (Impedance Track with LTO ChemIDs; MAX17048/17055
-  are Li-ion-OCV parts whose supply ranges don't even survive LTO's 1.8 V
-  floor). Chemistry-independent low-side sense resistor, I²C, reports
-  SoC/SoH/current/temp — SoC goes in the Nami packet. Honest cost: a gauge
-  must integrate 24/7, so this is the **second always-on load** beside the
-  AS3935 (~tens of µA in its sleep modes, ~100 µA tracking) ≈ 2–3 mAh/day —
-  acceptable against a multi-Ah 1S cell and any real panel. Bring-up items:
-  power its VCC/REGIN from the 3.3 V rail (not the 2.4 V pack), verify the
-  chosen LTO ChemID against the actual cell, tune sleep-mode strategy.
+  supports LTO chemistry* (Impedance Track; TI confirms LTO ChemIDs in the
+  portfolio — E2E #329276/#1252347; MAX17048/17055 are Li-ion-OCV parts
+  whose supply ranges don't even survive LTO's 1.8 V floor).
+  Chemistry-independent low-side sense resistor, I²C, reports
+  SoC/SoH/current/temp — SoC goes in the Nami packet.
+  **LTO-at-1S wiring, verified against SLUSBZ5D (2026-07):**
+  - **REGIN from the always-on 3.3 V rail** (spec 2.7–4.5 V full-drive;
+    the 2.4 V pack can't self-power it — that's all the "3 V minimum pack"
+    headline means, not a measurement limit).
+  - **BAT pin direct to the cell, no external divider** (≤5 V packs connect
+    directly; internal scaling puts a 1.8–2.9 V cell mid-range of the
+    0.05–1 V measurement ADC). VEN/translation stays unused.
+  - Datasheet currents: NORMAL <145 µA, SLEEP <84 µA, **FULLSLEEP <30 µA**
+    → worst realistic budget ~0.7–2 mAh/day as the second always-on load
+    beside the AS3935. Acceptable against a multi-Ah cell and any panel.
+  - Bring-up: get the exact ChemID via TI's GPCCHEM tool from
+    charge/discharge logs of the actual cell; tune SLEEP/FULLSLEEP entry.
 - **3.3 V rail: TPS63900 buck-boost** (replaces the TPS62840 buck — a 2.4 V
   nominal pack sits *below* the rail, so buck-only no longer works). VIN
   1.8–5.5 V spans the whole 1S-LTO range, 75 nA Iq keeps the
