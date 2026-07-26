@@ -5,8 +5,8 @@ KiCad 10 design for the **Tenkiro** weather system. Two PCBs (linked by the
 
 - **`tenkiro-sora/`** — the outdoor solar-powered weather station: ultra-low-
   power MCU, E22-900M22S (SX1262) radio module, external 915 MHz antenna
-  (U.FL), LiFePO₄ cell + solar panel + low-Iq charger, load-switched sensor
-  rails, FRAM/flash buffering.
+  (U.FL), 1S LTO cell + solar panel + MPPT charger + fuel gauge, load-switched
+  sensor rails, internal-flash buffering.
 - **`tenkiro-hashi/`** — the indoor bridge: E22-900M22S (SX1262) radio module,
   network MCU (ESP32-S3 primary; wired-Ethernet backup variant on a non-ESP32
   MCU — see `../DESIGN.md`), USB-C power, MQTT + local web interface.
@@ -44,7 +44,7 @@ CERN-OHL-S v2 design. Every one is indexed, with its source and license, in
 > OF MERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A PARTICULAR PURPOSE.
 > Please see the CERN-OHL-S v2 for applicable conditions.
 >
-> Source location: https://github.com/tenkiro/tenkiro
+> Source location: https://github.com/tenkiro-environmental/tenkiro-weather
 >
 > As per CERN-OHL-S v2 § 4, if you produce a device using this source, you
 > should where practicable keep the above Source Location visible on the device.
