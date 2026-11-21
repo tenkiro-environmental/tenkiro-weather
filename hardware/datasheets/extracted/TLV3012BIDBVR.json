@@ -1,0 +1,380 @@
+{
+  "base": {
+    "absolute_max": {
+      "INPUT": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 7,
+          "min": -0.5,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "TJ": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 150,
+          "min": null,
+          "notes": null,
+          "typ": null,
+          "unit": "\u00b0C"
+        }
+      ],
+      "TJ_max": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 150,
+          "min": null,
+          "notes": null,
+          "typ": null,
+          "unit": "\u00b0C"
+        }
+      ],
+      "V+": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 7,
+          "min": -0.5,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "VIN_max": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 7,
+          "min": -0.5,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ]
+    },
+    "esd": {
+      "HBM": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "ESD ratings"
+          },
+          "max": 2000,
+          "min": null,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ]
+    },
+    "family": "Low-power comparator with voltage reference",
+    "package": {
+      "code": "DBV SOT-23-6",
+      "evidence": {
+        "confidence": "high",
+        "method": "table",
+        "page": 3,
+        "section": "Pin configuration and functions"
+      },
+      "pin_count": 6,
+      "thermal_pad": false
+    },
+    "pinout": [
+      {
+        "description": "Push-pull comparator output.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "OUT",
+        "notes": "TLV3012B has push-pull output; no open-drain pull-up needed.",
+        "numbers": [
+          "1"
+        ],
+        "type": "output"
+      },
+      {
+        "description": "Negative supply and reference ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "V-",
+        "notes": null,
+        "numbers": [
+          "2"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "Non-inverting input.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "IN+",
+        "notes": null,
+        "numbers": [
+          "3"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Inverting input.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "IN-",
+        "notes": null,
+        "numbers": [
+          "4"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Integrated1.242V reference.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "REF",
+        "notes": "Do not externally drive. Reference output current0.5mA.",
+        "numbers": [
+          "5"
+        ],
+        "type": "power_out"
+      },
+      {
+        "description": "Positive supply.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "V+",
+        "notes": "B variant supports1.65\u20135.5V; bypass near device.",
+        "numbers": [
+          "6"
+        ],
+        "power_domain": "V+",
+        "type": "power_in"
+      }
+    ],
+    "recommended_operating": {
+      "HYSTERESIS": [
+        {
+          "condition": "-40..125C",
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 8,
+            "section": "Electrical characteristics"
+          },
+          "max": 0.008,
+          "min": 0.002,
+          "notes": null,
+          "typ": 0.006,
+          "unit": "V"
+        }
+      ],
+      "IQ": [
+        {
+          "condition": "Output high,-40..125C",
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 9,
+            "section": "Electrical characteristics"
+          },
+          "max": 3.6e-06,
+          "min": null,
+          "notes": null,
+          "typ": 2.4e-06,
+          "unit": "A"
+        }
+      ],
+      "OFFSET": [
+        {
+          "condition": "-40..125C,VCM=V-",
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 8,
+            "section": "Electrical characteristics"
+          },
+          "max": 0.009,
+          "min": -0.009,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "REF_CURRENT": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 8,
+            "section": "Electrical characteristics"
+          },
+          "max": 0.0005,
+          "min": null,
+          "notes": null,
+          "typ": null,
+          "unit": "A"
+        }
+      ],
+      "TA": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Electrical characteristics"
+          },
+          "max": 125,
+          "min": -40,
+          "notes": null,
+          "typ": null,
+          "unit": "\u00b0C"
+        }
+      ],
+      "V+": [
+        {
+          "condition": "B version only",
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Electrical characteristics"
+          },
+          "max": 5.5,
+          "min": 1.65,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "VIN": [
+        {
+          "condition": "B version only",
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Electrical characteristics"
+          },
+          "max": 5.5,
+          "min": 1.65,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "VREF": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 8,
+            "section": "Electrical characteristics"
+          },
+          "max": 1.26,
+          "min": 1.223,
+          "notes": null,
+          "typ": 1.242,
+          "unit": "V"
+        }
+      ]
+    },
+    "thermal": {
+      "theta_ja": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Thermal information"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 162.5,
+          "unit": "\u00b0C/W"
+        }
+      ]
+    }
+  },
+  "categories": [],
+  "extraction": {
+    "extracted_at": "2026-10-04T00:04:23Z",
+    "extractor_schema_version": "1.0",
+    "extractor_scout": null,
+    "plan_ref": "TLV3012BIDBVR.plan.json",
+    "quality_score": 71
+  },
+  "schema_version": {
+    "base": "1.0",
+    "categories": {}
+  },
+  "source": {
+    "datasheet_date": "2023-04",
+    "datasheet_revision": "SBOS300C",
+    "family_ref": null,
+    "local_path": "hardware/datasheets/TLV3012AIDBVR.pdf",
+    "manufacturer": "Texas Instruments",
+    "mpn": "TLV3012BIDBVR",
+    "page_count": 43,
+    "sha256": "sha256:02993c016420887ee4f1ab2fa640e7596c9c1324a73f4f72bee3b32adec38df3",
+    "source_url": "https://www.ti.com/lit/ds/symlink/tlv3012.pdf"
+  }
+}

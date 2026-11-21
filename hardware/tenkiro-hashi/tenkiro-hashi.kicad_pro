@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "filename": "tenkiro-hashi.kicad_pro",
+    "version": 1
+  },
+  "sheets": [
+    [
+      "726d02e4-11af-5eb7-8660-1a660356ff80",
+      "tenkiro-hashi"
+    ],
+    [
+      "f2682768-4e12-5ef9-a7a2-738b37e17cae",
+      "Radio"
+    ],
+    [
+      "0aaee066-664c-5c1b-8abe-bcacc6affe69",
+      "Commissioning host interface"
+    ]
+  ]
+}

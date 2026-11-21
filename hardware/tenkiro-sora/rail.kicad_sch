@@ -1,0 +1,1620 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "294db87a-eea2-5f01-be2f-6245f6e13822")
+	(paper "A3")
+	(title_block
+		(title "tenkiro-sora — 3V3 rail and UVLO")
+		(date "2026-10-03")
+		(rev "A0")
+		(company "Tenkiro")
+	)
+	(lib_symbols
+	(symbol "tenkiro:TPS63900DSKR" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+ (property "Reference" "U" (at 0 12.7 0) (effects (font (size 1.27 1.27))))
+ (property "Value" "TPS63900DSKR" (at 88.9000 60.9600 0) (effects (font (size 1.27 1.27))))
+ (property "Footprint" "Package_SON:WSON-10-1EP_2.5x2.5mm_P0.5mm_EP1.2x2mm" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+ (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps63900.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+ (symbol "TPS63900DSKR_0_1" (rectangle (start -12.7 10.16) (end 12.7 -10.16) (stroke (width 0.254) (type default)) (fill (type background))))
+ (symbol "TPS63900DSKR_1_1"
+ (pin power_in line (at -17.78 6.35 0) (length 5.08) (name "VIN" (effects (font (size 1.016 1.016)))) (number "10" (effects (font (size 1.016 1.016)))))
+ (pin input line (at -17.78 3.8099999999999996 0) (length 5.08) (name "EN" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
+ (pin input line (at -17.78 1.2699999999999996 0) (length 5.08) (name "SEL" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016)))))
+ (pin passive line (at -17.78 -1.2700000000000005 0) (length 5.08) (name "CFG1" (effects (font (size 1.016 1.016)))) (number "3" (effects (font (size 1.016 1.016)))))
+ (pin passive line (at -17.78 -3.8100000000000005 0) (length 5.08) (name "CFG2" (effects (font (size 1.016 1.016)))) (number "4" (effects (font (size 1.016 1.016)))))
+ (pin passive line (at -17.78 -6.35 0) (length 5.08) (name "CFG3" (effects (font (size 1.016 1.016)))) (number "5" (effects (font (size 1.016 1.016)))))
+ (pin passive line (at 17.78 5.08 180) (length 5.08) (name "LX1" (effects (font (size 1.016 1.016)))) (number "9" (effects (font (size 1.016 1.016)))))
+ (pin passive line (at 17.78 2.54 180) (length 5.08) (name "LX2" (effects (font (size 1.016 1.016)))) (number "7" (effects (font (size 1.016 1.016)))))
+ (pin power_out line (at 17.78 0.0 180) (length 5.08) (name "VOUT" (effects (font (size 1.016 1.016)))) (number "6" (effects (font (size 1.016 1.016)))))
+ (pin power_in line (at 17.78 -2.54 180) (length 5.08) (name "GND" (effects (font (size 1.016 1.016)))) (number "8" (effects (font (size 1.016 1.016)))))
+ (pin power_in line (at 17.78 -5.08 180) (length 5.08) (name "EP" (effects (font (size 1.016 1.016)))) (number "11" (effects (font (size 1.016 1.016)))))
+ ))
+	(symbol "Device:L"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "L"
+			(at -1.27 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "L"
+			(at 1.905 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Inductor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "inductor choke coil reactor magnetic"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "Choke_* *Coil* Inductor_* L_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "L_0_1"
+			(arc
+				(start 0 2.54)
+				(mid 0.6323 1.905)
+				(end 0 1.27)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 0 1.27)
+				(mid 0.6323 0.635)
+				(end 0 0)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 0 0)
+				(mid 0.6323 -0.635)
+				(end 0 -1.27)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(arc
+				(start 0 -1.27)
+				(mid 0.6323 -1.905)
+				(end 0 -2.54)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "L_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 1.27)
+				(name "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 1.27)
+				(name "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "Device:C"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "C"
+			(at 0.635 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C"
+			(at 0.635 -2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 0.9652 -3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "cap capacitor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "C_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "C_0_1"
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "Device:R"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "R"
+			(at 2.032 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "R"
+			(at 0 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at -1.778 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "R res resistor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "R_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "R_0_1"
+			(rectangle
+				(start -1.016 -2.54)
+				(end 1.016 2.54)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "R_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 1.27)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 1.27)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "tenkiro:TLV3012BIDBVR" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+ (property "Reference" "U" (at 0 10.16 0) (effects (font (size 1.27 1.27))))
+ (property "Value" "TLV3012BIDBVR" (at 88.9000 157.4800 0) (effects (font (size 1.27 1.27))))
+ (property "Footprint" "Package_TO_SOT_SMD:SOT-23-6" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+ (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv3012.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+ (symbol "TLV3012BIDBVR_0_1" (rectangle (start -12.7 7.62) (end 12.7 -7.62) (stroke (width 0.254) (type default)) (fill (type background))))
+ (symbol "TLV3012BIDBVR_1_1"
+ (pin power_in line (at -17.78 3.81 0) (length 5.08) (name "V+" (effects (font (size 1.016 1.016)))) (number "6" (effects (font (size 1.016 1.016)))))
+ (pin input line (at -17.78 1.27 0) (length 5.08) (name "IN+" (effects (font (size 1.016 1.016)))) (number "3" (effects (font (size 1.016 1.016)))))
+ (pin input line (at -17.78 -1.27 0) (length 5.08) (name "IN-" (effects (font (size 1.016 1.016)))) (number "4" (effects (font (size 1.016 1.016)))))
+ (pin power_in line (at -17.78 -3.81 0) (length 5.08) (name "V-" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016)))))
+ (pin output line (at 17.78 1.27 180) (length 5.08) (name "REF" (effects (font (size 1.016 1.016)))) (number "5" (effects (font (size 1.016 1.016)))))
+ (pin output line (at 17.78 -1.27 180) (length 5.08) (name "OUT" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
+ ))
+	)
+	(symbol
+		(lib_id "tenkiro:TPS63900DSKR")
+		(at 101.6000 73.6600 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1c0d3237-f7bb-4ed5-bb8e-83afedead61e")
+		(property "Reference" "U301"
+			(at 88.9000 58.4200 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "TPS63900DSKR"
+			(at 88.9000 60.9600 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Package_SON:WSON-10-1EP_2.5x2.5mm_P0.5mm_EP1.2x2mm"
+			(at 101.6000 73.6600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps63900.pdf"
+			(at 101.6000 73.6600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "MPN" "TPS63900DSKR"
+			(at 101.6000 73.6600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 101.6000 73.6600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C1518762" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "10" (uuid "ee0b7603-4329-4a6c-bd9a-1b41847f3e83"))
+		(pin "1" (uuid "ccee1054-f086-4004-b5e6-6537e49f7a4f"))
+		(pin "2" (uuid "6237859c-40a7-4728-ab8f-2ad9b71ef2c5"))
+		(pin "3" (uuid "777c59dd-b802-443f-bd8c-babe5852b80c"))
+		(pin "4" (uuid "79770e64-94cd-4431-8b8f-df2d18616e69"))
+		(pin "5" (uuid "c1fa3095-6ee4-4191-af86-e58075be19b9"))
+		(pin "9" (uuid "cf1d4057-7f02-4312-931e-fbb9937d6f25"))
+		(pin "7" (uuid "d900e6b7-46d1-49d2-976e-7aab3e782c8b"))
+		(pin "6" (uuid "93069b8d-26ed-4c64-b809-b7213fc129ec"))
+		(pin "8" (uuid "c01cd29c-2421-4f28-b0e2-cc194ab18673"))
+		(pin "11" (uuid "75adaaa6-a9fd-4551-bc08-91c7ee04024e"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/294db87a-eea2-5f01-be2f-6245f6e13822"
+					(reference "U301")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:L")
+		(at 198.1200 55.8800 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "27578c71-8ba4-4ebf-bf54-37c23ce8070f")
+		(property "Reference" "L301"
+			(at 201.9300 53.3400 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "2.2uH / 20%"
+			(at 201.9300 58.4200 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "tenkiro:L_Murata_DFE201612E"
+			(at 198.1200 55.8800 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/9a2227c0960d033e774a76ebdabff58d.pdf?productCode=C337893"
+			(at 198.1200 55.8800 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "MPN" "DFE201612E-2R2M=P2"
+			(at 198.1200 55.8800 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Manufacturer" "muRata"
+			(at 198.1200 55.8800 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C337893" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "13b682a0-2df6-4590-b323-c6bc7b9f639e"))
+		(pin "2" (uuid "d502f4e5-9d94-495d-b340-7194cd64a696"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/294db87a-eea2-5f01-be2f-6245f6e13822"
+					(reference "L301")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 254.0000 55.8800 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b5906f38-7d9c-43ba-bda6-99c1fa5ccb30")
+		(property "Reference" "C301"
+			(at 257.8100 53.3400 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "10u / 50V X7R"
+			(at 257.8100 58.4200 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 254.0000 55.8800 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/f1936ffd90bd0600554955f5b35b4472.pdf?productCode=C2918502"
+			(at 254.0000 55.8800 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C2918502" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "SAMWHA" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CS3225X7R106K500NRL" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "24f0db52-188a-49d1-a8d0-bf7ada966657"))
+		(pin "2" (uuid "922c1a10-866b-4cf7-a4ab-1f00a7b96d68"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/294db87a-eea2-5f01-be2f-6245f6e13822"
+					(reference "C301")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 312.4200 55.8800 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dfd55a94-c09b-4c16-88e0-87cc16c6896c")
+		(property "Reference" "C302"
+			(at 316.2300 53.3400 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "22u / 25V X7R"
+			(at 316.2300 58.4200 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 312.4200 55.8800 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C309062"
+			(at 312.4200 55.8800 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C309062" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL32B226KAJNNNE" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "25c8696f-427c-4e59-b4e7-8d669e823778"))
+		(pin "2" (uuid "eef79a18-5d7f-48b6-b321-400d451bc89c"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/294db87a-eea2-5f01-be2f-6245f6e13822"
+					(reference "C302")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 198.1200 109.2200 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6ea5b9b4-ab18-43cb-af2a-3a6450f64857")
+		(property "Reference" "R301"
+			(at 201.9300 106.6800 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "36.5k / 1%"
+			(at 201.9300 111.7600 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 198.1200 109.2200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23029"
+			(at 198.1200 109.2200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C23029" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF3652T5E" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "29d93f15-b1c7-4a06-a2b9-1d5f610fcfde"))
+		(pin "2" (uuid "f9207dc1-1c7c-439b-ba39-d0341be52438"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/294db87a-eea2-5f01-be2f-6245f6e13822"
+					(reference "R301")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 256.5400 109.2200 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3abf5b2d-3bb8-47b2-8261-6708f4a5a59a")
+		(property "Reference" "R302"
+			(at 260.3500 106.6800 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "16.2k / 1%"
+			(at 260.3500 111.7600 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 256.5400 109.2200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22885"
+			(at 256.5400 109.2200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C22885" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF1622T5E" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "00390381-f677-4acb-a8b0-4b61e15fe758"))
+		(pin "2" (uuid "db665bcc-e00f-4256-9210-03dc614be4f2"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/294db87a-eea2-5f01-be2f-6245f6e13822"
+					(reference "R302")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tenkiro:TLV3012BIDBVR")
+		(at 101.6000 167.6400 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "535f80be-bd75-4561-bdff-b25fef6dfb81")
+		(property "Reference" "U302"
+			(at 88.9000 154.9400 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "TLV3012BIDBVR"
+			(at 88.9000 157.4800 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+			(at 101.6000 167.6400 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/469f091b93e1da559cb5c8181397a91f.pdf?productCode=C20345924"
+			(at 101.6000 167.6400 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "MPN" "TLV3012BIDBVR"
+			(at 101.6000 167.6400 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Manufacturer" "TI"
+			(at 101.6000 167.6400 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C20345924" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "6" (uuid "e9aa7bd3-acab-45a7-9c31-ba625a4c080a"))
+		(pin "3" (uuid "05cb1b64-6985-469e-9b49-8a7005dedc89"))
+		(pin "4" (uuid "cca6c251-b501-46d3-a799-22c094647942"))
+		(pin "2" (uuid "7abf4790-dcbf-41f7-9ad1-199dfed4ff33"))
+		(pin "5" (uuid "227b93c4-3b22-4b41-a950-ada9a360ec4c"))
+		(pin "1" (uuid "9428caa0-4a0b-42b4-9209-7bb4ad344c2b"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/294db87a-eea2-5f01-be2f-6245f6e13822"
+					(reference "U302")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 198.1200 167.6400 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f141c5b0-e14c-4b5b-be57-4f3dca0c44bd")
+		(property "Reference" "R303"
+			(at 201.9300 165.1000 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "750k / 0.1%"
+			(at 201.9300 170.1800 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 198.1200 167.6400 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/46d7760c582640714d605308a25a220a.pdf?productCode=C861550"
+			(at 198.1200 167.6400 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C861550" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RT0603BRD07750KL" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "53ae2d24-05ca-4338-87f5-51d29d8b88fc"))
+		(pin "2" (uuid "c094be72-0b18-4fa0-b6f3-b5da5a7aa7f5"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/294db87a-eea2-5f01-be2f-6245f6e13822"
+					(reference "R303")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 254.0000 167.6400 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6e01fc3e-ac18-4d8a-92bc-728bf0a545cb")
+		(property "Reference" "R304"
+			(at 257.8100 165.1000 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "1M / 0.1%"
+			(at 257.8100 170.1800 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 254.0000 167.6400 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/46d7760c582640714d605308a25a220a.pdf?productCode=C326730"
+			(at 254.0000 167.6400 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C326730" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RT0603BRD071ML" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "1fc86768-6218-4e89-971f-25bf1f9fe810"))
+		(pin "2" (uuid "653284e0-7df6-45a5-aa19-4562840fd24b"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/294db87a-eea2-5f01-be2f-6245f6e13822"
+					(reference "R304")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 312.4200 167.6400 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "43d168de-d885-49dc-803a-f782190900d2")
+		(property "Reference" "R305"
+			(at 316.2300 165.1000 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "7.5M / 1%"
+			(at 316.2300 170.1800 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 312.4200 167.6400 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C13322"
+			(at 312.4200 167.6400 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C13322" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603WAF7504T5E" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "52b0ec46-aa21-4592-bed3-ad685632b7de"))
+		(pin "2" (uuid "af73b188-bd40-4e70-89b6-3153d083eb1f"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/294db87a-eea2-5f01-be2f-6245f6e13822"
+					(reference "R305")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 198.1200 213.3600 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ad2eeee0-68eb-4af6-b40e-40e95cea2f5f")
+		(property "Reference" "C303"
+			(at 201.9300 210.8200 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "100n / 10V"
+			(at 201.9300 215.9000 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 198.1200 213.3600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+			(at 198.1200 213.3600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C14663" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CC0603KRX7R9BB104" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "77491291-fb37-4bdd-bb3c-2599ee1c3ef9"))
+		(pin "2" (uuid "ffec870e-8ecc-4ae7-89e0-ce78a67eb11e"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/294db87a-eea2-5f01-be2f-6245f6e13822"
+					(reference "C303")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 254.0000 213.3600 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fdf6a940-9bc6-4e3c-abab-ed20a99b0035")
+		(property "Reference" "C304"
+			(at 257.8100 210.8200 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "10n / 10V"
+			(at 257.8100 215.9000 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 254.0000 213.3600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/09fe2daf22580a99fa7fea93ccb20fb7.pdf?productCode=C57112"
+			(at 254.0000 213.3600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C57112" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "FH" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0603B103K500NT" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "fb288db2-6eb3-4cb0-b8ae-8e0da455cc3d"))
+		(pin "2" (uuid "e789feb5-a8e9-4aa6-9083-0d24345ed82c"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/294db87a-eea2-5f01-be2f-6245f6e13822"
+					(reference "C304")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire (pts (xy 83.8200 67.3100) (xy 81.2800 67.3100))
+		(stroke (width 0) (type default))
+		(uuid "ad29c3b1-a579-4489-b2d3-e4614834945c")
+	)
+	(label "VBAT"
+		(at 81.2800 67.3100 0)
+		(effects (font (size 1.27 1.27)) (justify right bottom))
+		(uuid "e6f588f4-19d4-4461-abb9-011018682fe1")
+	)
+	(wire (pts (xy 83.8200 69.8500) (xy 81.2800 69.8500))
+		(stroke (width 0) (type default))
+		(uuid "19fc66fa-8243-4cc8-b2b7-908c5682645c")
+	)
+	(label "BAT_OK"
+		(at 81.2800 69.8500 0)
+		(effects (font (size 1.27 1.27)) (justify right bottom))
+		(uuid "23671942-26e1-4efc-aa8a-7dfb2db18368")
+	)
+	(wire (pts (xy 83.8200 72.3900) (xy 81.2800 72.3900))
+		(stroke (width 0) (type default))
+		(uuid "ca8cde42-249d-45ca-ada5-3c8ff5b32914")
+	)
+	(label "GND"
+		(at 81.2800 72.3900 0)
+		(effects (font (size 1.27 1.27)) (justify right bottom))
+		(uuid "d68d34f1-9527-4d93-8e87-97539aa75eb5")
+	)
+	(wire (pts (xy 83.8200 74.9300) (xy 81.2800 74.9300))
+		(stroke (width 0) (type default))
+		(uuid "d33a1849-c769-46c0-ad85-a60fccd2f4f0")
+	)
+	(label "BB_CFG1"
+		(at 81.2800 74.9300 0)
+		(effects (font (size 1.27 1.27)) (justify right bottom))
+		(uuid "64c37df1-456a-4880-9fee-1b7d2c023f47")
+	)
+	(wire (pts (xy 83.8200 77.4700) (xy 81.2800 77.4700))
+		(stroke (width 0) (type default))
+		(uuid "1c79643c-545b-4c2e-934c-57122dde26cc")
+	)
+	(label "GND"
+		(at 81.2800 77.4700 0)
+		(effects (font (size 1.27 1.27)) (justify right bottom))
+		(uuid "51566b28-9a1d-4976-a570-0b266e8bbcfc")
+	)
+	(wire (pts (xy 83.8200 80.0100) (xy 81.2800 80.0100))
+		(stroke (width 0) (type default))
+		(uuid "91498e5a-5117-4839-bf11-577677fb78b8")
+	)
+	(label "BB_CFG3"
+		(at 81.2800 80.0100 0)
+		(effects (font (size 1.27 1.27)) (justify right bottom))
+		(uuid "6e2c8303-85ce-4c81-94d7-b32065dad27d")
+	)
+	(wire (pts (xy 119.3800 68.5800) (xy 121.9200 68.5800))
+		(stroke (width 0) (type default))
+		(uuid "90578aef-2271-4e92-b4d3-adfb35456a7f")
+	)
+	(label "BB_LX1"
+		(at 121.9200 68.5800 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "6a472a8c-b182-40c7-b9df-07ede393e715")
+	)
+	(wire (pts (xy 119.3800 71.1200) (xy 121.9200 71.1200))
+		(stroke (width 0) (type default))
+		(uuid "f254cb45-8e3a-4ced-b1a9-782c61247612")
+	)
+	(label "BB_LX2"
+		(at 121.9200 71.1200 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "a10ddf17-e4ae-439e-a69b-902fae9117b6")
+	)
+	(wire (pts (xy 119.3800 73.6600) (xy 121.9200 73.6600))
+		(stroke (width 0) (type default))
+		(uuid "d2a083f4-1156-49b8-9c73-e6459d8aa6d6")
+	)
+	(label "3V3"
+		(at 121.9200 73.6600 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "8d0b9d19-af18-416b-a332-d596d7aac210")
+	)
+	(wire (pts (xy 119.3800 76.2000) (xy 121.9200 76.2000))
+		(stroke (width 0) (type default))
+		(uuid "cf52fdfe-46a5-4449-8ab1-8a0c819a9519")
+	)
+	(label "GND"
+		(at 121.9200 76.2000 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "922ebebe-9159-4f54-ae06-e11e2cb2bf84")
+	)
+	(wire (pts (xy 119.3800 78.7400) (xy 121.9200 78.7400))
+		(stroke (width 0) (type default))
+		(uuid "71e46629-437c-4c96-9a5a-86c7d816b2cb")
+	)
+	(label "GND"
+		(at 121.9200 78.7400 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "69cd4aeb-f833-44c6-8c97-554ab4d8a768")
+	)
+	(wire (pts (xy 198.1200 52.0700) (xy 198.1200 49.5300))
+		(stroke (width 0) (type default))
+		(uuid "68d4ddc8-c1c9-4aa7-bd76-e2cfd0b013ff")
+	)
+	(label "BB_LX1"
+		(at 198.1200 49.5300 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "ed16f1a8-853b-4954-811e-99a39ce388f0")
+	)
+	(wire (pts (xy 198.1200 59.6900) (xy 198.1200 62.2300))
+		(stroke (width 0) (type default))
+		(uuid "33c67f9c-eb8e-4a63-9f89-7b3628e18ebd")
+	)
+	(label "BB_LX2"
+		(at 198.1200 62.2300 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "a7aaae93-a54c-4152-b774-03da0e24ac68")
+	)
+	(wire (pts (xy 254.0000 52.0700) (xy 254.0000 49.5300))
+		(stroke (width 0) (type default))
+		(uuid "b7367362-a8f2-48e4-ba54-58b4f5e4f017")
+	)
+	(label "VBAT"
+		(at 254.0000 49.5300 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "a4361009-fc3c-428c-9437-1d950249ac6b")
+	)
+	(wire (pts (xy 254.0000 59.6900) (xy 254.0000 62.2300))
+		(stroke (width 0) (type default))
+		(uuid "c8065561-b0de-4691-a113-fa4e205646da")
+	)
+	(label "GND"
+		(at 254.0000 62.2300 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "cbb97e89-8481-4023-81ee-6db5dff00c89")
+	)
+	(wire (pts (xy 312.4200 52.0700) (xy 312.4200 49.5300))
+		(stroke (width 0) (type default))
+		(uuid "78d1409f-52fa-49a0-a331-684660c8571c")
+	)
+	(label "3V3"
+		(at 312.4200 49.5300 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "7d099abf-d6fa-499d-87c9-ce8ea968cca5")
+	)
+	(wire (pts (xy 312.4200 59.6900) (xy 312.4200 62.2300))
+		(stroke (width 0) (type default))
+		(uuid "80696bdd-3a39-4d3e-b255-610299df3f64")
+	)
+	(label "GND"
+		(at 312.4200 62.2300 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "c3ec4f04-70ac-41fe-ae0b-982328ba258e")
+	)
+	(wire (pts (xy 198.1200 105.4100) (xy 198.1200 102.8700))
+		(stroke (width 0) (type default))
+		(uuid "b160ca1a-4b69-4777-89e6-7824b3b4c9bb")
+	)
+	(label "BB_CFG1"
+		(at 198.1200 102.8700 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "8ff172e2-ce08-49a4-999e-a836330f32ca")
+	)
+	(wire (pts (xy 198.1200 113.0300) (xy 198.1200 115.5700))
+		(stroke (width 0) (type default))
+		(uuid "3af2cc9b-cb3b-481e-9e50-5ff3149645b1")
+	)
+	(label "GND"
+		(at 198.1200 115.5700 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "47f9eb5e-74b3-4b24-ac69-4f26f03079b5")
+	)
+	(wire (pts (xy 256.5400 105.4100) (xy 256.5400 102.8700))
+		(stroke (width 0) (type default))
+		(uuid "5baa8f95-f6f5-4ec4-8eba-70dfd1ae6299")
+	)
+	(label "BB_CFG3"
+		(at 256.5400 102.8700 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "803b7ab3-8d5e-4622-8645-eaf313d66587")
+	)
+	(wire (pts (xy 256.5400 113.0300) (xy 256.5400 115.5700))
+		(stroke (width 0) (type default))
+		(uuid "025bf60e-5497-4f58-b8fd-a7bc219a3754")
+	)
+	(label "GND"
+		(at 256.5400 115.5700 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "b293160d-3505-4154-b141-c6801a8f4cbd")
+	)
+	(wire (pts (xy 83.8200 163.8300) (xy 81.2800 163.8300))
+		(stroke (width 0) (type default))
+		(uuid "eb5db8bd-8609-4c33-8041-b2cae31eb24f")
+	)
+	(label "VBAT"
+		(at 81.2800 163.8300 0)
+		(effects (font (size 1.27 1.27)) (justify right bottom))
+		(uuid "e955b11f-7ea0-4011-9675-2dc582ff35e3")
+	)
+	(wire (pts (xy 83.8200 166.3700) (xy 81.2800 166.3700))
+		(stroke (width 0) (type default))
+		(uuid "91fb7f5d-eb23-4d7f-97d3-a782b26a91c8")
+	)
+	(label "UV_SENSE"
+		(at 81.2800 166.3700 0)
+		(effects (font (size 1.27 1.27)) (justify right bottom))
+		(uuid "d2e0d317-34c8-41e2-a75b-92c1351e65fe")
+	)
+	(wire (pts (xy 83.8200 168.9100) (xy 81.2800 168.9100))
+		(stroke (width 0) (type default))
+		(uuid "2fc64472-0413-44db-9a9c-f404d3b7e1ed")
+	)
+	(label "UV_REF"
+		(at 81.2800 168.9100 0)
+		(effects (font (size 1.27 1.27)) (justify right bottom))
+		(uuid "c197a603-11f8-4a36-9138-6f78735aaaa2")
+	)
+	(wire (pts (xy 83.8200 171.4500) (xy 81.2800 171.4500))
+		(stroke (width 0) (type default))
+		(uuid "d64c8356-4e04-4798-b4b6-0b7a6db4912a")
+	)
+	(label "GND"
+		(at 81.2800 171.4500 0)
+		(effects (font (size 1.27 1.27)) (justify right bottom))
+		(uuid "74084be9-3eb2-4bcd-ac44-6c992450d563")
+	)
+	(wire (pts (xy 119.3800 166.3700) (xy 121.9200 166.3700))
+		(stroke (width 0) (type default))
+		(uuid "48bdc4ff-2418-4349-b0b5-131706027678")
+	)
+	(label "UV_REF"
+		(at 121.9200 166.3700 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "c084550e-a016-4453-bfce-2c791e737088")
+	)
+	(wire (pts (xy 119.3800 168.9100) (xy 121.9200 168.9100))
+		(stroke (width 0) (type default))
+		(uuid "a83c12a0-7b3e-4aad-9083-51441e5bfd5d")
+	)
+	(label "BAT_OK"
+		(at 121.9200 168.9100 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "c76e8164-1afd-4be4-9166-98f952f59213")
+	)
+	(wire (pts (xy 198.1200 163.8300) (xy 198.1200 161.2900))
+		(stroke (width 0) (type default))
+		(uuid "18675750-42ae-475b-b5b6-2638043e8455")
+	)
+	(label "VBAT"
+		(at 198.1200 161.2900 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "85a88e22-2a0e-487c-b6ef-5407fc5c457f")
+	)
+	(wire (pts (xy 198.1200 171.4500) (xy 198.1200 173.9900))
+		(stroke (width 0) (type default))
+		(uuid "64640f0f-8e21-4150-b2f8-6f6fc00f7b22")
+	)
+	(label "UV_SENSE"
+		(at 198.1200 173.9900 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "00fc1e7a-06f7-4431-90af-33dba00d4866")
+	)
+	(wire (pts (xy 254.0000 163.8300) (xy 254.0000 161.2900))
+		(stroke (width 0) (type default))
+		(uuid "c8c98abb-c147-41d6-b7f2-5094fece7ab1")
+	)
+	(label "UV_SENSE"
+		(at 254.0000 161.2900 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "3e610373-8c23-48af-98f6-8f7858cd61d8")
+	)
+	(wire (pts (xy 254.0000 171.4500) (xy 254.0000 173.9900))
+		(stroke (width 0) (type default))
+		(uuid "4941f5d4-70ed-4e41-870c-03118608f1a0")
+	)
+	(label "GND"
+		(at 254.0000 173.9900 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "b32d2230-4a56-47b5-acc4-2c0cd1ec9acb")
+	)
+	(wire (pts (xy 312.4200 163.8300) (xy 312.4200 161.2900))
+		(stroke (width 0) (type default))
+		(uuid "8009913d-7d09-4d2e-a501-1d5aabd10bde")
+	)
+	(label "BAT_OK"
+		(at 312.4200 161.2900 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "760f05a3-38d8-44eb-ab12-8ecab59f1f55")
+	)
+	(wire (pts (xy 312.4200 171.4500) (xy 312.4200 173.9900))
+		(stroke (width 0) (type default))
+		(uuid "cb95421b-16d3-43ca-ac1b-2181644cb16d")
+	)
+	(label "UV_SENSE"
+		(at 312.4200 173.9900 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "4921c2f2-85ef-4d29-91c2-2efc9dc4ed75")
+	)
+	(wire (pts (xy 198.1200 209.5500) (xy 198.1200 207.0100))
+		(stroke (width 0) (type default))
+		(uuid "e4e27c4a-c1b1-4b4f-bf63-651aa2f7dd81")
+	)
+	(label "VBAT"
+		(at 198.1200 207.0100 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "84f15f6b-1495-43b2-abcb-83e6c0ccd30e")
+	)
+	(wire (pts (xy 198.1200 217.1700) (xy 198.1200 219.7100))
+		(stroke (width 0) (type default))
+		(uuid "ea842929-67f8-408e-a680-fd86a747adb9")
+	)
+	(label "GND"
+		(at 198.1200 219.7100 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "fcd1b539-05f1-4cee-bfd3-bf0a01690ffb")
+	)
+	(wire (pts (xy 254.0000 209.5500) (xy 254.0000 207.0100))
+		(stroke (width 0) (type default))
+		(uuid "580eb597-3558-43bf-a9ed-20e20783967b")
+	)
+	(label "UV_REF"
+		(at 254.0000 207.0100 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "79f84034-609f-45cd-9dc9-c11c22e9b74b")
+	)
+	(wire (pts (xy 254.0000 217.1700) (xy 254.0000 219.7100))
+		(stroke (width 0) (type default))
+		(uuid "6f4f5b17-6972-4543-8cd6-346c072fa46c")
+	)
+	(label "GND"
+		(at 254.0000 219.7100 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "8e1c6ed1-8012-4aca-bb1a-a0bd0c4369af")
+	)
+	(hierarchical_label "VBAT"
+		(shape passive)
+		(at 20.3200 243.8400 0)
+		(effects (font (size 1.27 1.27)) (justify left))
+		(uuid "90183b1f-f93f-4334-a3b2-ae06ff3d9784")
+	)
+	(wire (pts (xy 20.3200 243.8400) (xy 55.8800 243.8400))
+		(stroke (width 0) (type default))
+		(uuid "d1257648-5d73-40d6-833f-4f1533d0df93")
+	)
+	(label "VBAT"
+		(at 55.8800 243.8400 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "e435faf6-6452-406d-bc98-f96d04b37d22")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 96.5200 243.8400 0)
+		(effects (font (size 1.27 1.27)) (justify left))
+		(uuid "06ae0aed-bde0-4f81-95f9-f762425216fd")
+	)
+	(wire (pts (xy 96.5200 243.8400) (xy 132.0800 243.8400))
+		(stroke (width 0) (type default))
+		(uuid "e22d0608-36ad-4817-9465-1d6dca90eae0")
+	)
+	(label "GND"
+		(at 132.0800 243.8400 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "ef46f933-5058-4380-a1bb-889cc7d6c591")
+	)
+	(hierarchical_label "3V3"
+		(shape passive)
+		(at 172.7200 243.8400 0)
+		(effects (font (size 1.27 1.27)) (justify left))
+		(uuid "cc05ffe5-9579-4412-9400-adf7bdd3c722")
+	)
+	(wire (pts (xy 172.7200 243.8400) (xy 208.2800 243.8400))
+		(stroke (width 0) (type default))
+		(uuid "36a1cf85-532a-4890-8c90-a0eb375bb471")
+	)
+	(label "3V3"
+		(at 208.2800 243.8400 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "c07a52d0-9ed8-4e90-8559-bca5d8866541")
+	)
+	(text "Both output presets3.3V: CFG1=36.5k, CFG2=GND, CFG3=16.2k; SEL=GND. Input current limit unlimited.\nHardware UVLO: ideal thresholds2.09V off /2.30V on. Include comparator offset/reference/hysteresis in bench trip tests.\nUVLO keeps TPS input above its1.8V minimum and suppresses weak-battery restart cycling. Gauge loses power below UVLO.\nC301 counts toward charger filter! 3V3 output may have local bulk; do not add arbitrary VBAT bulk.\nPM pod: budget180mA peak on3V3, switch fully off between samples; schedule separately from radio TX."
+		(exclude_from_sim no)
+		(at 18.00 227.00 0)
+		(effects (font (face "Courier New") (size 1.27 1.27)) (justify left top))
+		(uuid "9d354621-a3f8-47f4-afb0-bed18292276c")
+	)
+	(sheet_instances
+		(path "/"
+			(page "4")
+		)
+	)
+	(embedded_fonts no)
+)

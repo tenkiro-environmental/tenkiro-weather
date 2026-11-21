@@ -1,0 +1,574 @@
+{
+  "base": {
+    "absolute_max": {
+      "TJ": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 150,
+          "min": -40,
+          "notes": null,
+          "typ": null,
+          "unit": "\u00b0C"
+        }
+      ],
+      "TJ_max": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 150,
+          "min": -40,
+          "notes": null,
+          "typ": null,
+          "unit": "\u00b0C"
+        }
+      ],
+      "VIN": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 5.9,
+          "min": -0.3,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "VIN_max": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 5.9,
+          "min": -0.3,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ]
+    },
+    "esd": {
+      "HBM": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "ESD ratings"
+          },
+          "max": 2000,
+          "min": null,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ]
+    },
+    "family": "Ultra-low-quiescent-current buck-boost regulator",
+    "package": {
+      "code": "DSK WSON-10+EP",
+      "evidence": {
+        "confidence": "high",
+        "method": "table",
+        "page": 3,
+        "section": "Pin configuration and functions"
+      },
+      "pin_count": 11,
+      "thermal_pad": true
+    },
+    "pinout": [
+      {
+        "description": "Device enable, high=run.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "EN",
+        "notes": "Must not float; UVLO supervisor drives this pin.",
+        "numbers": [
+          "1"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Select output voltage bank.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "SEL",
+        "notes": "Must not float; low selects CFG3, high selects CFG1/CFG2.",
+        "numbers": [
+          "2"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Output2/current-limit configuration resistor.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "CFG1",
+        "notes": "36.5k1% to GND for3.3V with CFG2=0ohm.",
+        "numbers": [
+          "3"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Output2/current-limit configuration resistor.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "CFG2",
+        "notes": "0ohm to GND for unlimited input current with CFG1=36.5k.",
+        "numbers": [
+          "4"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Output1 configuration resistor.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "CFG3",
+        "notes": "16.2k1% to GND for3.3V when SEL low.",
+        "numbers": [
+          "5"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Regulated output.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "VOUT",
+        "notes": "Minimum10uF effective output capacitance at specified conditions.",
+        "numbers": [
+          "6"
+        ],
+        "type": "power_out"
+      },
+      {
+        "description": "Boost switching node.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "LX2",
+        "notes": "2.2uH inductor to LX1.",
+        "numbers": [
+          "7"
+        ],
+        "type": "passive"
+      },
+      {
+        "description": "Ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "GND",
+        "notes": null,
+        "numbers": [
+          "8"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "Buck switching node.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "LX1",
+        "notes": "2.2uH inductor to LX2;2A saturation rating when unlimited.",
+        "numbers": [
+          "9"
+        ],
+        "type": "passive"
+      },
+      {
+        "description": "Input supply.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "VIN",
+        "notes": "Minimum5uF effective input capacitance at specified conditions. Include in BQ24650 LC total.",
+        "numbers": [
+          "10"
+        ],
+        "power_domain": "VIN",
+        "type": "power_in"
+      },
+      {
+        "description": "Exposed thermal pad.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "EP",
+        "notes": "Unnumbered in datasheet; connect ground. Logical symbol/footprint pad number must agree.",
+        "numbers": [
+          "EP"
+        ],
+        "type": "power_in"
+      }
+    ],
+    "recommended_operating": {
+      "CFG1_3V3_UNLIMITED": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 14,
+            "section": "Electrical characteristics"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 36500,
+          "unit": "\u03a9"
+        }
+      ],
+      "CFG2_3V3_UNLIMITED": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 14,
+            "section": "Electrical characteristics"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 0,
+          "unit": "\u03a9"
+        }
+      ],
+      "CFG3_3V3": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 16,
+            "section": "Electrical characteristics"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 16200,
+          "unit": "\u03a9"
+        }
+      ],
+      "CFG_CAPACITANCE": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": 1e-11,
+          "min": null,
+          "notes": null,
+          "typ": null,
+          "unit": "F"
+        }
+      ],
+      "IOUT": [
+        {
+          "condition": "VIN>=2.0V,VOUT3.6V",
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": 0.4,
+          "min": null,
+          "notes": null,
+          "typ": null,
+          "unit": "A"
+        }
+      ],
+      "TA": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": 85,
+          "min": -40,
+          "notes": null,
+          "typ": null,
+          "unit": "\u00b0C"
+        }
+      ],
+      "TJ": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": 125,
+          "min": -40,
+          "notes": null,
+          "typ": null,
+          "unit": "\u00b0C"
+        }
+      ],
+      "VIN": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": 5.5,
+          "min": 1.8,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "VOUT": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": 5,
+          "min": 1.8,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ]
+    },
+    "thermal": {
+      "theta_ja": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Thermal information"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 64.6,
+          "unit": "\u00b0C/W"
+        }
+      ]
+    }
+  },
+  "categories": [
+    "regulator"
+  ],
+  "extraction": {
+    "extracted_at": "2026-10-04T00:04:23Z",
+    "extractor_schema_version": "1.0",
+    "extractor_scout": null,
+    "plan_ref": "TPS63900DSKR.plan.json",
+    "quality_score": 92
+  },
+  "regulator": {
+    "cin_min": [
+      {
+        "condition": "VIN2.5\u20135V,VOUT3.3V,IOUT0.4A;effective after DC bias",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Electrical characteristics"
+        },
+        "max": null,
+        "min": 5e-06,
+        "notes": null,
+        "typ": null,
+        "unit": "F"
+      }
+    ],
+    "cout_min": [
+      {
+        "condition": "VIN2.5\u20135V,VOUT3.3V,IOUT0.4A;effective after DC bias",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Electrical characteristics"
+        },
+        "max": null,
+        "min": 1e-05,
+        "notes": null,
+        "typ": null,
+        "unit": "F"
+      }
+    ],
+    "enable_pin": "1",
+    "feedback_pin": null,
+    "inductor_range": [
+      {
+        "condition": null,
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Electrical characteristics"
+        },
+        "max": null,
+        "min": null,
+        "notes": "2A saturation rating for unlimited setting",
+        "typ": 2.2e-06,
+        "unit": "H"
+      }
+    ],
+    "iout_max": [
+      {
+        "condition": "VIN>=2.0V,VOUT3.6V",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Electrical characteristics"
+        },
+        "max": 0.4,
+        "min": null,
+        "notes": null,
+        "typ": null,
+        "unit": "A"
+      }
+    ],
+    "power_good_pin": null,
+    "stability_conditions": {
+      "cap_types_allowed": [
+        "ceramic_x5r",
+        "ceramic_x7r"
+      ],
+      "evidence": {
+        "confidence": "high",
+        "method": "prose",
+        "page": 14,
+        "section": "Device configuration"
+      },
+      "notes": "Configuration resistors read at startup only; require1% or better and200ppm/C or better. Unlimited is not infinite current; peak-current and short-circuit protection remain."
+    },
+    "topology": "buck_boost",
+    "vin_range": [
+      {
+        "condition": null,
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Electrical characteristics"
+        },
+        "max": 5.5,
+        "min": 1.8,
+        "notes": null,
+        "typ": null,
+        "unit": "V"
+      }
+    ],
+    "vout_range": [
+      {
+        "condition": null,
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Electrical characteristics"
+        },
+        "max": 5,
+        "min": 1.8,
+        "notes": null,
+        "typ": null,
+        "unit": "V"
+      }
+    ]
+  },
+  "schema_version": {
+    "base": "1.0",
+    "categories": {
+      "regulator": "0.3"
+    }
+  },
+  "source": {
+    "datasheet_date": "2020-10",
+    "datasheet_revision": "SLVSET3D",
+    "family_ref": null,
+    "local_path": "hardware/datasheets/TPS63900DSKR.pdf",
+    "manufacturer": "Texas Instruments",
+    "mpn": "TPS63900DSKR",
+    "page_count": 40,
+    "sha256": "sha256:06ee84ef9067de0feb67614d3f9c29ab21878b1cac84c0c229fcaf36ebc79b0b",
+    "source_url": "https://www.ti.com/lit/ds/symlink/tps63900.pdf"
+  }
+}

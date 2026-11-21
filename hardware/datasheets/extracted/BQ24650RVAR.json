@@ -1,0 +1,776 @@
+{
+  "base": {
+    "absolute_max": {
+      "SRP_SRN_DIFFERENTIAL": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 0.5,
+          "min": -0.5,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "TJ": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 155,
+          "min": -40,
+          "notes": null,
+          "typ": null,
+          "unit": "\u00b0C"
+        }
+      ],
+      "TJ_max": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 155,
+          "min": -40,
+          "notes": null,
+          "typ": null,
+          "unit": "\u00b0C"
+        }
+      ],
+      "VCC": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 33,
+          "min": -0.3,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "VFB": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 16,
+          "min": -0.3,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "VIN_max": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 33,
+          "min": -0.3,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ]
+    },
+    "esd": {
+      "HBM": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "ESD ratings"
+          },
+          "max": 2000,
+          "min": null,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ]
+    },
+    "family": "Synchronous buck solar battery-charge controller",
+    "package": {
+      "code": "RVA VQFN-16+EP",
+      "evidence": {
+        "confidence": "high",
+        "method": "table",
+        "page": 4,
+        "section": "Pin configuration and functions"
+      },
+      "pin_count": 17,
+      "thermal_pad": true
+    },
+    "pinout": [
+      {
+        "description": "Positive IC input supply.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Pin configuration and functions"
+        },
+        "name": "VCC",
+        "notes": "1uF to GND; feed through 10ohm from protected input.",
+        "numbers": [
+          "1"
+        ],
+        "power_domain": "VCC",
+        "type": "power_in"
+      },
+      {
+        "description": "Input voltage regulation and charge enable.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Pin configuration and functions"
+        },
+        "name": "MPPSET",
+        "notes": "1.2V setpoint. Pull below75mV to inhibit charging; release above175mV to enable. Divider leakage can be1uA max.",
+        "numbers": [
+          "2"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Charge-in-progress open-drain indicator.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Pin configuration and functions"
+        },
+        "name": "STAT1",
+        "notes": null,
+        "numbers": [
+          "3"
+        ],
+        "type": "open_collector"
+      },
+      {
+        "description": "NTC battery-temperature window input.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Pin configuration and functions"
+        },
+        "name": "TS",
+        "notes": "Use103AT-2 cell-attached thermistor and two-resistor network from VREF. Cold73.5%, restart47.5%, hot-stop45% of VREF.",
+        "numbers": [
+          "4"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Charge-complete open-drain indicator.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Pin configuration and functions"
+        },
+        "name": "STAT2",
+        "notes": null,
+        "numbers": [
+          "5"
+        ],
+        "type": "open_collector"
+      },
+      {
+        "description": "3.3V reference output.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Pin configuration and functions"
+        },
+        "name": "VREF",
+        "notes": "1uF to GND near IC; biases TS network.",
+        "numbers": [
+          "6"
+        ],
+        "type": "power_out"
+      },
+      {
+        "description": "Charge termination enable.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Pin configuration and functions"
+        },
+        "name": "TERM_EN",
+        "notes": "Tie VREF to enable termination; GND to disable. Must not float.",
+        "numbers": [
+          "7"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Battery voltage feedback.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Pin configuration and functions"
+        },
+        "name": "VFB",
+        "notes": "2.1V reference; charge=2.1*(1+Rtop/Rbottom). Leakage100nA max adds I*Rtop output error.",
+        "numbers": [
+          "8"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Negative high-side charge-current sense input.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Pin configuration and functions"
+        },
+        "name": "SRN",
+        "notes": "Connect battery side of80mohm shunt. 100nF across SRP/SRN; optional100nF to GND.",
+        "numbers": [
+          "9"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Positive high-side charge-current sense input.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Pin configuration and functions"
+        },
+        "name": "SRP",
+        "notes": "Connect inductor side of shunt. 100nF to GND and100nF to SRN.",
+        "numbers": [
+          "10"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Charger power ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 4,
+          "section": "Pin configuration and functions"
+        },
+        "name": "GND",
+        "notes": "Star-connect through exposed pad to low-side MOSFET and capacitor returns.",
+        "numbers": [
+          "11"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "6V gate-driver supply.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 5,
+          "section": "Pin configuration and functions"
+        },
+        "name": "REGN",
+        "notes": "1uF to GND. Bootstrap Schottky anode REGN, cathode BTST.",
+        "numbers": [
+          "12"
+        ],
+        "type": "power_out"
+      },
+      {
+        "description": "Low-side N-MOSFET gate driver.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 5,
+          "section": "Pin configuration and functions"
+        },
+        "name": "LODRV",
+        "notes": null,
+        "numbers": [
+          "13"
+        ],
+        "type": "output"
+      },
+      {
+        "description": "Switching node between MOSFETs and inductor.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 5,
+          "section": "Pin configuration and functions"
+        },
+        "name": "PH",
+        "notes": "100nF bootstrap capacitor between PH and BTST.",
+        "numbers": [
+          "14"
+        ],
+        "type": "passive"
+      },
+      {
+        "description": "High-side N-MOSFET gate driver.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 5,
+          "section": "Pin configuration and functions"
+        },
+        "name": "HIDRV",
+        "notes": null,
+        "numbers": [
+          "15"
+        ],
+        "type": "output"
+      },
+      {
+        "description": "Floating bootstrap gate-driver supply.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 5,
+          "section": "Pin configuration and functions"
+        },
+        "name": "BTST",
+        "notes": "100nF to PH and Schottky cathode from REGN.",
+        "numbers": [
+          "16"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "Exposed thermal and ground pad.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 5,
+          "section": "Pin configuration and functions"
+        },
+        "name": "EP",
+        "notes": "Datasheet leaves pad unnumbered; logical EP numbering must match symbol and footprint. Must solder to ground and use thermal vias.",
+        "numbers": [
+          "EP"
+        ],
+        "type": "power_in"
+      }
+    ],
+    "recommended_operating": {
+      "CHARGE_ACCURACY": [
+        {
+          "condition": "TJ=-40..125C",
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 6,
+            "section": "Electrical characteristics"
+          },
+          "max": 0.7,
+          "min": -0.7,
+          "notes": null,
+          "typ": null,
+          "unit": "%"
+        }
+      ],
+      "CHARGE_SENSE": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 6,
+            "section": "Electrical characteristics"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 0.04,
+          "unit": "V"
+        }
+      ],
+      "MPPSET_LEAKAGE": [
+        {
+          "condition": "MPPSET7V,TA0..85C",
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 7,
+            "section": "Electrical characteristics"
+          },
+          "max": 1e-06,
+          "min": null,
+          "notes": null,
+          "typ": null,
+          "unit": "A"
+        }
+      ],
+      "MPPSET_REFERENCE": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 7,
+            "section": "Electrical characteristics"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 1.2,
+          "unit": "V"
+        }
+      ],
+      "PRECHARGE_SENSE": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 6,
+            "section": "Electrical characteristics"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 0.004,
+          "unit": "V"
+        }
+      ],
+      "TERMINATION_SENSE": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 7,
+            "section": "Electrical characteristics"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 0.004,
+          "unit": "V"
+        }
+      ],
+      "TJ": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 6,
+            "section": "Electrical characteristics"
+          },
+          "max": 125,
+          "min": -40,
+          "notes": null,
+          "typ": null,
+          "unit": "\u00b0C"
+        }
+      ],
+      "TS_COLD_PERCENT": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 8,
+            "section": "Electrical characteristics"
+          },
+          "max": 74.5,
+          "min": 72.5,
+          "notes": null,
+          "typ": 73.5,
+          "unit": "%"
+        }
+      ],
+      "TS_HOT_RESTART_PERCENT": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 8,
+            "section": "Electrical characteristics"
+          },
+          "max": 48.3,
+          "min": 46.7,
+          "notes": null,
+          "typ": 47.5,
+          "unit": "%"
+        }
+      ],
+      "TS_HOT_STOP_PERCENT": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 8,
+            "section": "Electrical characteristics"
+          },
+          "max": 45.7,
+          "min": 44.3,
+          "notes": null,
+          "typ": 45,
+          "unit": "%"
+        }
+      ],
+      "VCC": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 6,
+            "section": "Electrical characteristics"
+          },
+          "max": 28,
+          "min": 5,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "VFB_LEAKAGE": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 6,
+            "section": "Electrical characteristics"
+          },
+          "max": 1e-07,
+          "min": null,
+          "notes": null,
+          "typ": null,
+          "unit": "A"
+        }
+      ],
+      "VFB_PRECHARGE": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 7,
+            "section": "Electrical characteristics"
+          },
+          "max": 1.56,
+          "min": 1.54,
+          "notes": null,
+          "typ": 1.55,
+          "unit": "V"
+        }
+      ],
+      "VFB_REFERENCE": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 6,
+            "section": "Electrical characteristics"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 2.1,
+          "unit": "V"
+        }
+      ],
+      "VIN": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 6,
+            "section": "Electrical characteristics"
+          },
+          "max": 28,
+          "min": 5,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ]
+    },
+    "thermal": {
+      "theta_ja": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 6,
+            "section": "Thermal information"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 43.8,
+          "unit": "\u00b0C/W"
+        }
+      ]
+    }
+  },
+  "categories": [
+    "regulator"
+  ],
+  "extraction": {
+    "extracted_at": "2026-10-04T00:04:23Z",
+    "extractor_schema_version": "1.0",
+    "extractor_scout": null,
+    "plan_ref": "BQ24650RVAR.plan.json",
+    "quality_score": 82
+  },
+  "regulator": {
+    "cout_min": [
+      {
+        "condition": "22uH/0.5A Table1 typical effective output capacitance; not an independent minimum",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 18,
+          "section": "Electrical characteristics"
+        },
+        "max": null,
+        "min": null,
+        "notes": null,
+        "typ": 7e-06,
+        "unit": "F"
+      }
+    ],
+    "enable_pin": "2",
+    "feedback_pin": "8",
+    "inductor_range": [
+      {
+        "condition": "0.5A charge Table1",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 18,
+          "section": "Electrical characteristics"
+        },
+        "max": null,
+        "min": null,
+        "notes": null,
+        "typ": 2.2e-05,
+        "unit": "H"
+      }
+    ],
+    "power_good_pin": null,
+    "reference_voltage": [
+      {
+        "condition": null,
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 6,
+          "section": "Electrical characteristics"
+        },
+        "max": null,
+        "min": null,
+        "notes": null,
+        "typ": 2.1,
+        "unit": "V"
+      }
+    ],
+    "stability_conditions": {
+      "cap_types_allowed": [
+        "ceramic_x5r",
+        "ceramic_x7r"
+      ],
+      "evidence": {
+        "confidence": "high",
+        "method": "prose",
+        "page": 24,
+        "section": "Output capacitor"
+      },
+      "notes": "Design total effective battery-node Cout, including boost-input caps, for12\u201317kHz LC resonance. Page21 conflicts(17\u201325kHz); pp16,18,24 and TI support agree12\u201317kHz. At22uH Ceff4.0\u20138.0uF."
+    },
+    "switching_freq": [
+      {
+        "condition": null,
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 1,
+          "section": "Features"
+        },
+        "max": null,
+        "min": null,
+        "notes": null,
+        "typ": 600000.0,
+        "unit": "Hz"
+      }
+    ],
+    "topology": "buck",
+    "vin_range": [
+      {
+        "condition": null,
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 6,
+          "section": "Electrical characteristics"
+        },
+        "max": 28,
+        "min": 5,
+        "notes": null,
+        "typ": null,
+        "unit": "V"
+      }
+    ]
+  },
+  "schema_version": {
+    "base": "1.0",
+    "categories": {
+      "regulator": "0.3"
+    }
+  },
+  "source": {
+    "datasheet_date": "2020-01",
+    "datasheet_revision": "SLUSA75B",
+    "family_ref": null,
+    "local_path": "hardware/datasheets/BQ24650RVAR.pdf",
+    "manufacturer": "Texas Instruments",
+    "mpn": "BQ24650RVAR",
+    "page_count": 39,
+    "sha256": "sha256:c62393dc9b5fc3d2da0391c018d46c97886b828c47990b2526fb5c881f78602e",
+    "source_url": "https://www.ti.com/lit/ds/symlink/bq24650.pdf"
+  }
+}

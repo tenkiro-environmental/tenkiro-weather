@@ -15,6 +15,23 @@ See `../DESIGN.md` for the full design and `scripts/README.md` for the
 schematic-generation flow. Build docs/BOMs/fab packages with the `Makefile`
 (`make help`).
 
+## Captured A0 circuits (2026-10-03)
+
+[Power/radio specifications and bench gates](specs/power-radio.md) describe the
+fully wired Sora power chain and the shared Sora/Hashi radio. Open each board's
+`.kicad_pro` in KiCad 10. These are partial-board captures; MCU/sensor/USB sheets
+and PCB layout remain. They have not been bench validated.
+
+Use `make validate-capture` for strict ERC and exported pin/net checks, and
+`make capture-pdfs` for review PDFs. Default generation preserves manual edits;
+`KSCHGEN_FORCE=1` deliberately replaces them. Core datasheets and structured
+extractions are in `datasheets/`.
+
+[The 10-set sourcing record](bom/README.md) compares the captured BOM with owned
+JLCPCB inventory, records selected equivalents, and links the verified shortage
+cart and updated schematic PDFs. `bom/selected-parts.json` supplies ordering
+properties to the generators; the live symbols carry the same properties.
+
 ## Library
 
 `lib/{symbols,footprints.pretty,3dmodels}` holds project-specific parts (shared

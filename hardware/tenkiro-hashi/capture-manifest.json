@@ -1,0 +1,335 @@
+[
+  {
+    "name": "Radio",
+    "file": "radio.kicad_sch",
+    "exports": [
+      "3V3",
+      "GND",
+      "RADIO_NSS",
+      "RADIO_SCK",
+      "RADIO_MOSI",
+      "RADIO_MISO",
+      "RADIO_NRST",
+      "RADIO_BUSY",
+      "RADIO_DIO1",
+      "RADIO_RXEN"
+    ],
+    "comps": [
+      {
+        "ref": "U501",
+        "lib_id": "tenkiro:E22-900M22S",
+        "value": "E22-900M22S",
+        "x": 109.22,
+        "y": 88.9,
+        "nets": {
+          "9": "3V3",
+          "19": "RADIO_NSS",
+          "18": "RADIO_SCK",
+          "17": "RADIO_MOSI",
+          "16": "RADIO_MISO",
+          "15": "RADIO_NRST",
+          "14": "RADIO_BUSY",
+          "13": "RADIO_DIO1",
+          "6": "RADIO_RXEN",
+          "7": "RADIO_TXEN",
+          "8": "RADIO_DIO2",
+          "21": "RF_MODULE",
+          "1": "GND",
+          "2": "GND",
+          "3": "GND",
+          "4": "GND",
+          "5": "GND",
+          "10": "GND",
+          "11": "GND",
+          "12": "GND",
+          "20": "GND",
+          "22": "GND"
+        },
+        "fp": "tenkiro:E22-900M22S_14x20mm",
+        "mpn": "E22-900M22S",
+        "mfr": "Ebyte",
+        "datasheet": "https://www.cdebyte.com/pdf-down.aspx?id=4216",
+        "lcsc": "C411293"
+      },
+      {
+        "ref": "R501",
+        "lib_id": "Device:R",
+        "value": "0R",
+        "x": 203.2,
+        "y": 58.42,
+        "nets": {
+          "1": "RADIO_DIO2",
+          "2": "RADIO_TXEN"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF0000T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f42da6c80a0747bae77c2f98f4e46d1d.pdf?productCode=C21189",
+        "lcsc": "C21189"
+      },
+      {
+        "ref": "R502",
+        "lib_id": "Device:R",
+        "value": "100k",
+        "x": 243.84,
+        "y": 58.42,
+        "nets": {
+          "1": "RADIO_RXEN",
+          "2": "GND"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1003T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803",
+        "lcsc": "C25803"
+      },
+      {
+        "ref": "R503",
+        "lib_id": "Device:R",
+        "value": "100k",
+        "x": 284.48,
+        "y": 58.42,
+        "nets": {
+          "1": "3V3",
+          "2": "RADIO_NSS"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1003T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803",
+        "lcsc": "C25803"
+      },
+      {
+        "ref": "R504",
+        "lib_id": "Device:R",
+        "value": "100k",
+        "x": 325.12,
+        "y": 58.42,
+        "nets": {
+          "1": "3V3",
+          "2": "RADIO_NRST"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1003T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803",
+        "lcsc": "C25803"
+      },
+      {
+        "ref": "C501",
+        "lib_id": "Device:C",
+        "value": "100n / 16V",
+        "x": 203.2,
+        "y": 111.76,
+        "nets": {
+          "1": "3V3",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CC0603KRX7R9BB104",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663",
+        "lcsc": "C14663"
+      },
+      {
+        "ref": "C502",
+        "lib_id": "Device:C",
+        "value": "10u / 50V X7R",
+        "x": 243.84,
+        "y": 111.76,
+        "nets": {
+          "1": "3V3",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_1210_3225Metric",
+        "mpn": "CS3225X7R106K500NRL",
+        "mfr": "SAMWHA",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f1936ffd90bd0600554955f5b35b4472.pdf?productCode=C2918502",
+        "lcsc": "C2918502"
+      },
+      {
+        "ref": "C503",
+        "lib_id": "Device:C",
+        "value": "22u / 25V X7R",
+        "x": 284.48,
+        "y": 111.76,
+        "nets": {
+          "1": "3V3",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_1210_3225Metric",
+        "mpn": "CL32B226KAJNNNE",
+        "mfr": "Samsung Electro-Mechanics",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C309062",
+        "lcsc": "C309062"
+      },
+      {
+        "ref": "C505",
+        "lib_id": "Device:C",
+        "value": "22u / 25V X7R",
+        "x": 325.12,
+        "y": 111.76,
+        "nets": {
+          "1": "3V3",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_1210_3225Metric",
+        "mpn": "CL32B226KAJNNNE",
+        "mfr": "Samsung Electro-Mechanics",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C309062",
+        "lcsc": "C309062"
+      },
+      {
+        "ref": "R506",
+        "lib_id": "Device:R",
+        "value": "0R external RF",
+        "x": 165.1,
+        "y": 170.18,
+        "nets": {
+          "1": "RF_MODULE",
+          "2": "RF_UFL"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF0000T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f42da6c80a0747bae77c2f98f4e46d1d.pdf?productCode=C21189",
+        "lcsc": "C21189"
+      },
+      {
+        "ref": "J501",
+        "lib_id": "Connector:Conn_Coaxial",
+        "value": "U.FL external antenna",
+        "x": 236.22,
+        "y": 170.18,
+        "nets": {
+          "1": "RF_UFL",
+          "2": "GND"
+        },
+        "fp": "Connector_Coaxial:U.FL_Hirose_U.FL-R-SMT-1_Vertical",
+        "mpn": "U.FL-R-SMT-1(10)",
+        "mfr": "HRS",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/ed724b9ee28536c28fee4171a29923cc.pdf?productCode=C88373",
+        "lcsc": "C88373"
+      },
+      {
+        "ref": "C504",
+        "lib_id": "Device:C",
+        "value": "DNP RF shunt",
+        "x": 284.48,
+        "y": 170.18,
+        "nets": {
+          "1": "RF_UFL",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "",
+        "mfr": "",
+        "datasheet": "",
+        "dnp": true
+      },
+      {
+        "ref": "D501",
+        "lib_id": "Device:D_TVS",
+        "value": "PESD5V0F1BRSF",
+        "x": 330.2,
+        "y": 170.18,
+        "nets": {
+          "1": "RF_UFL",
+          "2": "GND"
+        },
+        "fp": "Diode_SMD:Nexperia_DSN0603-2_0.6x0.3mm_P0.4mm",
+        "mpn": "PESD5V0F1BRSFYL",
+        "mfr": "Nexperia",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0c5ef144ad12d1d951deec3f0b0ae6fb.pdf?productCode=C552550",
+        "rotation": 270,
+        "lcsc": "C552550"
+      }
+    ],
+    "notes": [
+      [
+        18,
+        205,
+        "SPI module, not UART T variant. MCU controls RXEN; DIO2 controls TXEN through R501.\nRXEN low during TX/sleep; set DIO2 RF-switch control in firmware. 3.3 V supply, budget 124 mA TX.\nSTART: 915 MHz, SF7 / 125 kHz / CR4/5, +14 dBm, 60 s packet interval.\nDo not fit/use two antennas: R506 connects board U.FL; remove R506 if using module IPEX.\nPin 12 = GND, pin 15 = NRST per official E22-M V1.5 (2026-09-18), not the erroneous web pin table.\nInternal DIO3 TCXO supply = 2.2 V per official manual 4.2; initial startup delay 5 ms, verify at temperature.\nPCB: short 50-ohm RF trace, continuous GND, antenna keepout, close C501/C502/C503/C505.\nD501: bidirectional 5 V / 0.25 pF RF ESD at U.FL; C504 DNP tuning. Verify RF loss and ESD on PCB."
+      ]
+    ]
+  },
+  {
+    "name": "Commissioning host interface",
+    "file": "host_interface.kicad_sch",
+    "exports": [
+      "3V3",
+      "GND",
+      "RADIO_NSS",
+      "RADIO_SCK",
+      "RADIO_MOSI",
+      "RADIO_MISO",
+      "RADIO_NRST",
+      "RADIO_BUSY",
+      "RADIO_DIO1",
+      "RADIO_RXEN"
+    ],
+    "comps": [
+      {
+        "ref": "J901",
+        "lib_id": "Connector_Generic:Conn_01x10",
+        "value": "DNP commissioning host",
+        "x": 106.68,
+        "y": 99.06,
+        "nets": {
+          "1": "3V3",
+          "2": "GND",
+          "3": "RADIO_NSS",
+          "4": "RADIO_SCK",
+          "5": "RADIO_MOSI",
+          "6": "RADIO_MISO",
+          "7": "RADIO_NRST",
+          "8": "RADIO_BUSY",
+          "9": "RADIO_DIO1",
+          "10": "RADIO_RXEN"
+        },
+        "fp": "Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical",
+        "mpn": "",
+        "mfr": "",
+        "datasheet": "",
+        "dnp": true
+      },
+      {
+        "ref": "#FLG901",
+        "lib_id": "power:PWR_FLAG",
+        "value": "PWR_FLAG",
+        "x": 203.2,
+        "y": 76.2,
+        "nets": {
+          "1": "3V3"
+        },
+        "fp": "",
+        "mpn": "",
+        "mfr": "",
+        "datasheet": "",
+        "in_bom": false
+      },
+      {
+        "ref": "#FLG902",
+        "lib_id": "power:PWR_FLAG",
+        "value": "PWR_FLAG",
+        "x": 254.0,
+        "y": 76.2,
+        "nets": {
+          "1": "GND"
+        },
+        "fp": "",
+        "mpn": "",
+        "mfr": "",
+        "datasheet": "",
+        "in_bom": false
+      }
+    ],
+    "notes": [
+      [
+        18,
+        175,
+        "DNP header allows power/radio bring-up with an external 3.3 V MCU. Final onboard MCU is not captured yet.\nPin 1 = 3V3, pin 2 = GND; all IO must be 3.3 V. Never apply 5 V to any pin.\nSora: pin 1 is an OUTPUT; do not drive 3V3 from the external host while the battery rail is powered.\nHashi: pin 1 is an INPUT; external regulated 3.3 V supply must allocate >= 200 mA for radio.\nHost supplies SPI SCK/MOSI/NSS, NRST and RXEN; reads MISO/BUSY/DIO1.\nOptional Sora pins 11/12 are I2C SCL/SDA; pins 13/14 read CHG_STAT1/2.\nHeaders are explicitly DNP and can be removed when the actual MCU sheets replace this boundary."
+      ]
+    ]
+  }
+]

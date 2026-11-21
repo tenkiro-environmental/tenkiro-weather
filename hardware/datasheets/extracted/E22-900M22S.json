@@ -1,0 +1,439 @@
+{
+  "base": {
+    "absolute_max": {},
+    "family": "SX1262 LoRa SPI radio module with TCXO",
+    "package": {
+      "code": "Ebyte22-pad14x20mm",
+      "evidence": {
+        "confidence": "high",
+        "method": "table",
+        "page": 10,
+        "section": "Pin configuration and functions"
+      },
+      "pin_count": 22,
+      "thermal_pad": false
+    },
+    "pinout": [
+      {
+        "description": "Module ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "GND",
+        "notes": null,
+        "numbers": [
+          "1"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "Module ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "GND",
+        "notes": null,
+        "numbers": [
+          "2"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "Module ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "GND",
+        "notes": null,
+        "numbers": [
+          "3"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "Module ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "GND",
+        "notes": null,
+        "numbers": [
+          "4"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "Module ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "GND",
+        "notes": null,
+        "numbers": [
+          "5"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "Active-high RF switch receive enable.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "RXEN",
+        "notes": "Drive low for TX and sleep; TXEN/RXEN must not both be high.",
+        "numbers": [
+          "6"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Active-high RF switch transmit enable.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "TXEN",
+        "notes": "Drive low for RX and sleep; may connect DIO2 if firmware enables DIO2 RF-switch control.",
+        "numbers": [
+          "7"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Configurable SX1262 digital I/O.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "DIO2",
+        "notes": "Optional TXEN control; unused may float.",
+        "numbers": [
+          "8"
+        ],
+        "type": "bidirectional"
+      },
+      {
+        "description": "Module supply.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "VCC",
+        "notes": "1.8\u20133.7V;3.3V recommended. Local ceramic/bulk decoupling.",
+        "numbers": [
+          "9"
+        ],
+        "power_domain": "VCC",
+        "type": "power_in"
+      },
+      {
+        "description": "Module ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "GND",
+        "notes": null,
+        "numbers": [
+          "10"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "Module ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "GND",
+        "notes": null,
+        "numbers": [
+          "11"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "Module ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "GND",
+        "notes": "Pin12 verified in official2026V1.5 manual; current product-web table contradicts it by listing NRST. Manual takes precedence.",
+        "numbers": [
+          "12"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "Configurable interrupt I/O.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "DIO1",
+        "notes": null,
+        "numbers": [
+          "13"
+        ],
+        "type": "bidirectional"
+      },
+      {
+        "description": "Radio busy status.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "BUSY",
+        "notes": null,
+        "numbers": [
+          "14"
+        ],
+        "type": "output"
+      },
+      {
+        "description": "Active-low radio reset.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "NRST",
+        "notes": null,
+        "numbers": [
+          "15"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "SPI data to host.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "MISO",
+        "notes": null,
+        "numbers": [
+          "16"
+        ],
+        "type": "output"
+      },
+      {
+        "description": "SPI data from host.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "MOSI",
+        "notes": null,
+        "numbers": [
+          "17"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "SPI clock.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "SCK",
+        "notes": null,
+        "numbers": [
+          "18"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Active-low SPI chip select.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "NSS",
+        "notes": null,
+        "numbers": [
+          "19"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Module ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "GND",
+        "notes": null,
+        "numbers": [
+          "20"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "50ohm antenna connection.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "ANT",
+        "notes": null,
+        "numbers": [
+          "21"
+        ],
+        "type": "passive"
+      },
+      {
+        "description": "Module ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 10,
+          "section": "Pin configuration and functions"
+        },
+        "name": "GND",
+        "notes": null,
+        "numbers": [
+          "22"
+        ],
+        "type": "power_in"
+      }
+    ],
+    "recommended_operating": {
+      "TA": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 7,
+            "section": "Electrical characteristics"
+          },
+          "max": 85,
+          "min": -40,
+          "notes": null,
+          "typ": null,
+          "unit": "\u00b0C"
+        }
+      ],
+      "TCXO_VOLTAGE": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "prose",
+            "page": 13,
+            "section": "4.2 Software development"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 2.2,
+          "unit": "V"
+        }
+      ],
+      "VCC": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 10,
+            "section": "Electrical characteristics"
+          },
+          "max": 3.7,
+          "min": 1.8,
+          "notes": null,
+          "typ": 3.3,
+          "unit": "V"
+        }
+      ],
+      "VIN": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 10,
+            "section": "Electrical characteristics"
+          },
+          "max": 3.7,
+          "min": 1.8,
+          "notes": null,
+          "typ": 3.3,
+          "unit": "V"
+        }
+      ]
+    }
+  },
+  "categories": [],
+  "extraction": {
+    "extracted_at": "2026-10-04T00:04:23Z",
+    "extractor_schema_version": "1.0",
+    "extractor_scout": null,
+    "plan_ref": "E22-900M22S.plan.json",
+    "quality_score": 58
+  },
+  "schema_version": {
+    "base": "1.0",
+    "categories": {}
+  },
+  "source": {
+    "datasheet_date": "2026-09-18",
+    "datasheet_revision": "E22-M Series V1.5",
+    "family_ref": null,
+    "local_path": "hardware/datasheets/extracted/evidence/E22-M-Series_V1.5_2026-09-18.pdf",
+    "manufacturer": "Chengdu Ebyte Electronic Technology",
+    "mpn": "E22-900M22S",
+    "page_count": 19,
+    "sha256": "sha256:2a330a5ccd7b139aba2268350c5e7fbd74f9caa87edebdc1cd16be208c37ea83",
+    "source_url": "https://www.cdebyte.com/pdf-down.aspx?id=4216"
+  }
+}

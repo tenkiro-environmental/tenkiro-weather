@@ -188,7 +188,7 @@ echo "[jlcpcb] generating BOM"
     --output "$OUT_DIR/${NAME}-BOM.csv" \
     --fields '${ITEM_NUMBER},Reference,Value,Footprint,${QUANTITY},LCSC,MPN,Manufacturer' \
     --labels "Item,Designator,Comment,Footprint,Qty,LCSC Part #,MPN,Manufacturer" \
-    --group-by 'Value,Footprint' \
+    --group-by 'Value,Footprint,MPN,LCSC' \
     --ref-delimiter ',' \
     --ref-range-delimiter '' \
     --exclude-dnp \

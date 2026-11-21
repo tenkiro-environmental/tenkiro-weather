@@ -1,0 +1,516 @@
+{
+  "base": {
+    "absolute_max": {
+      "BAT": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 5.5,
+          "min": -0.3,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "OPEN_DRAIN_IO": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 5.5,
+          "min": -0.3,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "REG25": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 2.75,
+          "min": -0.3,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "REGIN": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 5.5,
+          "min": -0.3,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "VIN_max": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Absolute maximum ratings"
+          },
+          "max": 5.5,
+          "min": -0.3,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ]
+    },
+    "esd": {
+      "HBM": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "ESD ratings"
+          },
+          "max": 2000,
+          "min": null,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ]
+    },
+    "family": "Wide-range Impedance Track battery fuel gauge",
+    "package": {
+      "code": "PW TSSOP-14",
+      "evidence": {
+        "confidence": "high",
+        "method": "table",
+        "page": 3,
+        "section": "Pin configuration and functions"
+      },
+      "pin_count": 14,
+      "thermal_pad": false
+    },
+    "pinout": [
+      {
+        "description": "LED2 output.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "P2",
+        "notes": "Tie VSS when unused per manufacturer.",
+        "numbers": [
+          "1"
+        ],
+        "type": "output"
+      },
+      {
+        "description": "Optional external voltage-divider enable.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "VEN",
+        "notes": "Can be floating or tied VSS when unused.",
+        "numbers": [
+          "2"
+        ],
+        "type": "output"
+      },
+      {
+        "description": "LED1 output.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "P1",
+        "notes": "Tie VSS when unused per manufacturer.",
+        "numbers": [
+          "3"
+        ],
+        "type": "output"
+      },
+      {
+        "description": "Battery voltage input.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "BAT",
+        "notes": "Use internal5:1 divider for1S below4.5V; VOLTSEL=0, VoltageDivider5000, NumberOfSeriesCells1. Reference VSS to cell BAT\u2212.",
+        "numbers": [
+          "4"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Internal LDO enable.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "CE",
+        "notes": "Figure8-2 p46 ties CE directly to REGIN; use REGIN3.3V. CE-low powers off gauge; not LED control.",
+        "numbers": [
+          "5"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Internal LDO input.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "REGIN",
+        "notes": "Supply2.7\u20134.5V for flash writes; only2.45\u20132.7V if flash writes prohibited. 100nF to local VSS.",
+        "numbers": [
+          "6"
+        ],
+        "power_domain": "REGIN",
+        "type": "power_in"
+      },
+      {
+        "description": "2.5V LDO output.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "REG25",
+        "notes": "1uF to local VSS. Do not externally drive.",
+        "numbers": [
+          "7"
+        ],
+        "type": "power_out"
+      },
+      {
+        "description": "Quiet gauge ground.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "VSS",
+        "notes": "Join cell BAT\u2212 at shunt Kelvin point, not PACK\u2212 system-return plane (pp54\u201356).",
+        "numbers": [
+          "8"
+        ],
+        "type": "power_in"
+      },
+      {
+        "description": "Battery-side current sense.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "SRP",
+        "notes": "BAT\u2212 Kelvin connection via100ohm. 100nF differential SRP/SRN; symmetric optional100nF common-mode caps (Fig10-2).",
+        "numbers": [
+          "9"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "System-side current sense.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "SRN",
+        "notes": "PACK\u2212 Kelvin connection via100ohm; all load/charger main returns at PACK\u2212.",
+        "numbers": [
+          "10"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Pack thermistor input.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "P6/TS",
+        "notes": "103AT-type thermistor; separate gauge thermistor network from charger TS network.",
+        "numbers": [
+          "11"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Open-drain HDQ or optional ALERT.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "P5/HDQ",
+        "notes": "Unused may float or tie VSS.",
+        "numbers": [
+          "12"
+        ],
+        "type": "bidirectional"
+      },
+      {
+        "description": "I2C serial clock.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "P4/SCL",
+        "notes": "Typical10k pull-up. Open-drain interface pins tolerate5V;3.3V pull-up appropriate.",
+        "numbers": [
+          "13"
+        ],
+        "type": "input"
+      },
+      {
+        "description": "Open-drain I2C data.",
+        "evidence": {
+          "confidence": "high",
+          "method": "table",
+          "page": 3,
+          "section": "Pin configuration and functions"
+        },
+        "name": "P3/SDA",
+        "notes": "Typical10k pull-up.",
+        "numbers": [
+          "14"
+        ],
+        "type": "bidirectional"
+      }
+    ],
+    "recommended_operating": {
+      "BAT": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Electrical characteristics"
+          },
+          "max": 5,
+          "min": -0.125,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "IQ_FULLSLEEP": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 3e-05,
+          "unit": "A"
+        }
+      ],
+      "IQ_NORMAL": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 0.000145,
+          "unit": "A"
+        }
+      ],
+      "IQ_SLEEP": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 8.4e-05,
+          "unit": "A"
+        }
+      ],
+      "REGIN": [
+        {
+          "condition": "No operating restrictions",
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": 4.5,
+          "min": 2.7,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "REGIN_NO_FLASH": [
+        {
+          "condition": "No flash writes",
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": 2.7,
+          "min": 2.45,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "SR_INPUT": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Electrical characteristics"
+          },
+          "max": 0.125,
+          "min": -0.125,
+          "notes": "Relative to VSS",
+          "typ": null,
+          "unit": "V"
+        }
+      ],
+      "TA": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": 85,
+          "min": -40,
+          "notes": null,
+          "typ": null,
+          "unit": "\u00b0C"
+        }
+      ],
+      "VIN": [
+        {
+          "condition": "No operating restrictions",
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 4,
+            "section": "Electrical characteristics"
+          },
+          "max": 4.5,
+          "min": 2.7,
+          "notes": null,
+          "typ": null,
+          "unit": "V"
+        }
+      ]
+    },
+    "thermal": {
+      "theta_ja": [
+        {
+          "condition": null,
+          "evidence": {
+            "confidence": "high",
+            "method": "table",
+            "page": 5,
+            "section": "Thermal information"
+          },
+          "max": null,
+          "min": null,
+          "notes": null,
+          "typ": 103.8,
+          "unit": "\u00b0C/W"
+        }
+      ]
+    }
+  },
+  "categories": [],
+  "extraction": {
+    "extracted_at": "2026-10-04T00:04:23Z",
+    "extractor_schema_version": "1.0",
+    "extractor_scout": null,
+    "plan_ref": "BQ34Z100PWR-G1.plan.json",
+    "quality_score": 67
+  },
+  "schema_version": {
+    "base": "1.0",
+    "categories": {}
+  },
+  "source": {
+    "datasheet_date": "2021-04",
+    "datasheet_revision": "SLUSBZ5D",
+    "family_ref": null,
+    "local_path": "hardware/datasheets/BQ34Z100PWR-G1.pdf",
+    "manufacturer": "Texas Instruments",
+    "mpn": "BQ34Z100PWR-G1",
+    "page_count": 66,
+    "sha256": "sha256:15e3d505a108f484d162706bee0d0998c97e38e8d108f2cb61f5f70239737c44",
+    "source_url": "https://www.ti.com/lit/ds/symlink/bq34z100-g1.pdf"
+  }
+}

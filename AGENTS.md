@@ -17,7 +17,7 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
 - This is a **KiCad 10** project — use `kicad-cli` for schematic/PCB operations.
 - Use `uv` for all Python operations (never bare `pip`).
 - **Don't assume** final part choices that are still open (wind/AQ pod split,
-  vane mechanics, mast-bus field connector, LTO pack format, panel sizing,
+  vane mechanics, mast-bus field connector, cell supplier qualification,
   enclosures). Source of truth is `DESIGN.md` → Open Questions. **No WIZnet
   parts** (2026-07 decision).
 
@@ -32,9 +32,9 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
 - `hardware/tenkiro-sora/` — outdoor station: **STM32U073CBT6** (U0 family
   shared with ephemerkey), E22-900M22S radio, U.FL antenna, **1S LTO** cell
   (2026-07: 1S, not 2s — no balancing) charged by **BQ24650** MPPT
-  (float 2.85 V; CN3722 is only the revert-to-2s fallback) from raw solar
+  (A0 float 2.75 V at 0.5 A; see hardware/specs/power-radio.md) from raw solar
   **or** 9–16 V DC (12 V battery systems), **BQ34Z100-G1 fuel gauge** (LTO
-  ChemID; the second always-on load beside the AS3935), **TPS63900
+  ChemID; powered while 3V3 is on, loses power below hardware UVLO), **TPS63900
   buck-boost** 3.3 V rail (pack is below 3.3 V — never substitute a
   buck-only part), load switches for sensor rails; outage
   buffering + the nonce epoch counter use **internal flash** (no external
@@ -66,10 +66,10 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
   LAN8720A — see DESIGN.md). Both variants carry an **SCD40** CO₂/T/RH
   sensor (indoor air on the always-on node).
 - Each board's schematic is **generated from its own data manifest**
-  (`hardware/scripts/tenkiro-{sora,hashi}.schgen.py` — to be authored), not
-  hand-authored, then **placed, not wired** — wiring happens in eeschema using
-  the per-sheet notes. Regenerating needs `KSCHGEN_FORCE=1` (kschgen keeps
-  existing `.kicad_sch` to protect manual wiring).
+  (`hardware/scripts/tenkiro-{sora,hashi}.schgen.py`). **Power/radio sheets
+  are fully wired**, per the user's 2026-10-03 decision. Other functional
+  sheets remain to be captured. Regenerating existing sheets requires
+  `KSCHGEN_FORCE=1`; default generation protects manual wiring.
 - Custom parts (E22-900M22S module, sensor connectors, etc.) go in
   `hardware/lib/{symbols,footprints.pretty,3dmodels}` and are registered in
   the per-board lib-tables (lib name `tenkiro`, shared).
@@ -77,8 +77,7 @@ the design doc (`DESIGN.md`), naming (`NAMING.md`), and references
   (source + license + where the pinout came from) — required by CERN-OHL-S, and
   it's what lets a later reader trust a land pattern instead of re-deriving it.
   Author **exposed pads as visible pins** (never hidden power pins): the sheets
-  are placed-not-wired and wired by hand, so a hidden EP is invisible to both
-  the wirer and ERC.
+  must expose every physical connection for review and ERC.
 - Run from `hardware/` (set `KICAD_CLI` if `kicad-cli` isn't on PATH):
   ```sh
   make gen-tenkiro-sora    # regenerate a board's schematic from its manifest

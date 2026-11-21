@@ -1,0 +1,1704 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "312a1a2e-8361-5cac-bed4-b15ccf2ec4f6")
+	(paper "A3")
+	(title_block
+		(title "tenkiro-sora — Solar and DC inputs")
+		(date "2026-10-03")
+		(rev "A0")
+		(company "Tenkiro")
+	)
+	(lib_symbols
+	(symbol "Connector:Conn_01x02_Pin"
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "J"
+			(at 0 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x02_Pin"
+			(at 0 -5.08 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_locked" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "connector"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "Connector*:*_1x??_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "Conn_01x02_Pin_1_1"
+			(rectangle
+				(start 0.8636 0.127)
+				(end 0 -0.127)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type outline)
+				)
+			)
+			(rectangle
+				(start 0.8636 -2.413)
+				(end 0 -2.667)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type outline)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 0) (xy 0.8636 0)
+				)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 -2.54) (xy 0.8636 -2.54)
+				)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin passive line
+				(at 5.08 0 180)
+				(length 3.81)
+				(name "Pin_1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 5.08 -2.54 180)
+				(length 3.81)
+				(name "Pin_2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "Device:Fuse"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "F"
+			(at 2.032 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Fuse"
+			(at -1.905 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at -1.778 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Fuse"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "fuse"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "*Fuse*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "Fuse_0_1"
+			(rectangle
+				(start -0.762 -2.54)
+				(end 0.762 2.54)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 2.54) (xy 0 -2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "Fuse_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 1.27)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 1.27)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "Device:D_Schottky"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "D"
+			(at 0 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "D_Schottky"
+			(at 0 -2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Schottky diode"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "diode Schottky"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "D_Schottky_0_1"
+			(polyline
+				(pts
+					(xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 0) (xy -1.27 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "D_Schottky_1_1"
+			(pin passive line
+				(at -3.81 0 0)
+				(length 2.54)
+				(name "K"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 3.81 0 180)
+				(length 2.54)
+				(name "A"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "Device:D_Zener"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "D"
+			(at 0 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "D_Zener"
+			(at 0 -2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Zener diode"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "diode"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "D_Zener_0_1"
+			(polyline
+				(pts
+					(xy -1.27 -1.27) (xy -1.27 1.27) (xy -0.762 1.27)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 0) (xy -1.27 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "D_Zener_1_1"
+			(pin passive line
+				(at -3.81 0 0)
+				(length 2.54)
+				(name "K"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 3.81 0 180)
+				(length 2.54)
+				(name "A"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "Device:C"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0.254)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "C"
+			(at 0.635 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C"
+			(at 0.635 -2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 0.9652 -3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "cap capacitor"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "C_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "C_0_1"
+			(polyline
+				(pts
+					(xy -2.032 0.762) (xy 2.032 0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 -0.762) (xy 2.032 -0.762)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "C_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 2.794)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 2.794)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "power:PWR_FLAG"
+		(power global)
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "#FLG"
+			(at 0 1.905 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 0 3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "flag power"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "PWR_FLAG_0_0"
+			(pin power_out line
+				(at 0 0 90)
+				(length 0)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(symbol "PWR_FLAG_0_1"
+			(polyline
+				(pts
+					(xy 0 0) (xy 0 1.27) (xy -1.016 1.905) (xy 0 2.54) (xy 1.016 1.905) (xy 0 1.27)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Pin")
+		(at 45.7200 50.8000 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f1b7248b-8c7d-4c9f-a107-3e8cd80de469")
+		(property "Reference" "J101"
+			(at 33.0200 41.9100 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "SOLAR: P105 / 6V 5W"
+			(at 33.0200 44.4500 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical"
+			(at 45.7200 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/6324c8615b21464c92f0a46fe6f6545c.pdf?productCode=C131337"
+			(at 45.7200 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "MPN" "B2B-PH-K-S(LF)(SN)"
+			(at 45.7200 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Manufacturer" "JST"
+			(at 45.7200 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C131337" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "3e92c5c8-c1a9-4cd4-aa7d-1b319f66303f"))
+		(pin "2" (uuid "e6f3d4e2-44b4-44f3-803b-7db6e0af64e1"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/312a1a2e-8361-5cac-bed4-b15ccf2ec4f6"
+					(reference "J101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Pin")
+		(at 45.7200 121.9200 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5b9f2cf3-f53e-47ec-8e38-53a5557f792e")
+		(property "Reference" "J102"
+			(at 33.0200 113.0300 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "DC: 9-16V"
+			(at 33.0200 115.5700 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical"
+			(at 45.7200 121.9200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/6324c8615b21464c92f0a46fe6f6545c.pdf?productCode=C131337"
+			(at 45.7200 121.9200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "MPN" "B2B-PH-K-S(LF)(SN)"
+			(at 45.7200 121.9200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Manufacturer" "JST"
+			(at 45.7200 121.9200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C131337" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "6d37e5e8-9bc5-488f-9cea-d6816ee94070"))
+		(pin "2" (uuid "657cf90e-2f04-40e8-92b5-f6090e07de81"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/312a1a2e-8361-5cac-bed4-b15ccf2ec4f6"
+					(reference "J102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Fuse")
+		(at 88.9000 50.8000 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "be246f78-5ae8-4077-a1b0-69114ffdfebc")
+		(property "Reference" "F101"
+			(at 88.9000 43.1800 90)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "1A / 63V"
+			(at 88.9000 45.7200 90)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Fuse:Fuse_1206_3216Metric"
+			(at 88.9000 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0bcfbc78ab5946639ddffe2b4625af7e.pdf?productCode=C151135"
+			(at 88.9000 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "MPN" "0466001.NRHF"
+			(at 88.9000 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Manufacturer" "Littelfuse"
+			(at 88.9000 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C151135" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "94d2e8ca-9e05-4ca0-8c33-40808516b29c"))
+		(pin "2" (uuid "c5fe8a3b-2cd2-4675-a971-1d808a56b8a9"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/312a1a2e-8361-5cac-bed4-b15ccf2ec4f6"
+					(reference "F101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Fuse")
+		(at 88.9000 121.9200 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c443ea32-44db-4358-9bc4-126dc98d9c4a")
+		(property "Reference" "F102"
+			(at 88.9000 114.3000 90)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "1A / 63V"
+			(at 88.9000 45.7200 90)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Fuse:Fuse_1206_3216Metric"
+			(at 88.9000 121.9200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0bcfbc78ab5946639ddffe2b4625af7e.pdf?productCode=C151135"
+			(at 88.9000 121.9200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "MPN" "0466001.NRHF"
+			(at 88.9000 121.9200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Manufacturer" "Littelfuse"
+			(at 88.9000 121.9200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C151135" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "4cdb88f8-b661-41d8-863e-251c2abd3e7b"))
+		(pin "2" (uuid "40e5dda2-323a-459b-b3ea-339853e60ca7"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/312a1a2e-8361-5cac-bed4-b15ccf2ec4f6"
+					(reference "F102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_Schottky")
+		(at 139.7000 50.8000 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9c22d6e0-4954-4c4f-bd89-c52831fcd6b7")
+		(property "Reference" "D101"
+			(at 143.5100 48.2600 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "B360A / 60V"
+			(at 143.5100 53.3400 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Diode_SMD:D_SMA"
+			(at 139.7000 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/4341698a2794575dc7c94af0a06dfb39.pdf?productCode=C6807778"
+			(at 139.7000 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "MPN" "B360A"
+			(at 139.7000 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Manufacturer" "FUXINSEMI"
+			(at 139.7000 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C6807778" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "18d1adcf-dd26-43fd-a003-cf4531f867a4"))
+		(pin "2" (uuid "81c85989-5248-42e1-a68b-7c619ce45869"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/312a1a2e-8361-5cac-bed4-b15ccf2ec4f6"
+					(reference "D101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_Schottky")
+		(at 139.7000 121.9200 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2c9c89f0-0cfe-44e9-939b-8a71e4929bb7")
+		(property "Reference" "D102"
+			(at 143.5100 119.3800 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "B360A / 60V"
+			(at 143.5100 124.4600 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Diode_SMD:D_SMA"
+			(at 139.7000 121.9200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/4341698a2794575dc7c94af0a06dfb39.pdf?productCode=C6807778"
+			(at 139.7000 121.9200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "MPN" "B360A"
+			(at 139.7000 121.9200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Manufacturer" "FUXINSEMI"
+			(at 139.7000 121.9200 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C6807778" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "d5b20d4f-be24-4ab7-b9f4-58c51aedbae2"))
+		(pin "2" (uuid "e6c51897-9549-4d44-8925-5170f9d18d73"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/312a1a2e-8361-5cac-bed4-b15ccf2ec4f6"
+					(reference "D102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_Zener")
+		(at 203.2000 86.3600 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "87112f59-9118-4a5a-a705-548c7b3afd8e")
+		(property "Reference" "D103"
+			(at 203.2000 78.7400 270)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "SMBJ16A / TVS"
+			(at 203.2000 81.2800 270)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Diode_SMD:D_SMB"
+			(at 203.2000 86.3600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/4ab84a227fae39f9eac85241b8264ead.pdf?productCode=C151254"
+			(at 203.2000 86.3600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "MPN" "SMBJ16A"
+			(at 203.2000 86.3600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Manufacturer" "Littelfuse"
+			(at 203.2000 86.3600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C151254" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "89b56d30-2c67-4809-88f7-aa37b472bf9c"))
+		(pin "2" (uuid "3a9c2e69-9d6f-4c74-a8e5-f5c3eee1063c"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/312a1a2e-8361-5cac-bed4-b15ccf2ec4f6"
+					(reference "D103")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 254.0000 86.3600 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8508ecf6-3362-4654-b9d3-312366557794")
+		(property "Reference" "C101"
+			(at 257.8100 83.8200 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "10u / 50V X7R"
+			(at 257.8100 88.9000 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 254.0000 86.3600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C596319"
+			(at 254.0000 86.3600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C596319" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CC1210KKX7R9BB106" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "290b5233-abac-4bfa-9563-a15ef37ddd05"))
+		(pin "2" (uuid "daf9803b-2eee-4e5b-aa1f-31ca530a8db2"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/312a1a2e-8361-5cac-bed4-b15ccf2ec4f6"
+					(reference "C101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 304.8000 86.3600 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "328b7c34-ea94-4d69-8978-657ce9b4dd88")
+		(property "Reference" "C102"
+			(at 308.6100 83.8200 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "100n / 50V"
+			(at 308.6100 88.9000 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 304.8000 86.3600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+			(at 304.8000 86.3600 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "LCSC" "C14663" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CC0603KRX7R9BB104" (at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1" (uuid "27777ad8-a5b5-48db-b115-5b0fc948b2a0"))
+		(pin "2" (uuid "a7991d7b-aeae-4cd4-b59e-89c333922718"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/312a1a2e-8361-5cac-bed4-b15ccf2ec4f6"
+					(reference "C102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 309.8800 50.8000 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "eb791490-3eb8-42b1-8a9d-54ff594f3d19")
+		(property "Reference" "#FLG101"
+			(at 313.6900 48.2600 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "PWR_FLAG"
+			(at 313.6900 53.3400 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" ""
+			(at 309.8800 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" ""
+			(at 309.8800 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(pin "1" (uuid "b942d882-8c94-4920-be98-ee567ed3afaf"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/312a1a2e-8361-5cac-bed4-b15ccf2ec4f6"
+					(reference "#FLG101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 350.5200 50.8000 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "4ff38b23-941e-4549-bfbc-1825f699fa61")
+		(property "Reference" "#FLG102"
+			(at 354.3300 48.2600 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Value" "PWR_FLAG"
+			(at 354.3300 53.3400 0)
+			(effects (font (size 1.27 1.27)) (justify left))
+		)
+		(property "Footprint" ""
+			(at 350.5200 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(property "Datasheet" ""
+			(at 350.5200 50.8000 0)
+			(effects (font (size 1.27 1.27))) (hide yes)
+		)
+		(pin "1" (uuid "65554ba8-d37b-405c-aa49-5706575685c1"))
+		(instances
+			(project "tenkiro-sora"
+				(path "/763242a1-7205-599c-8778-31b222f77a37/312a1a2e-8361-5cac-bed4-b15ccf2ec4f6"
+					(reference "#FLG102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire (pts (xy 50.8000 50.8000) (xy 85.0900 50.8000))
+		(stroke (width 0) (type default))
+		(uuid "c3c1a3e4-ec14-473f-a7df-1a3fb7db87c1")
+	)
+	(label "SOLAR_POS"
+		(at 67.9450 50.8000 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "e3d90422-134a-4fea-8cc6-c26579ee352d")
+	)
+	(wire (pts (xy 92.7100 50.8000) (xy 135.8900 50.8000))
+		(stroke (width 0) (type default))
+		(uuid "9b9c1193-ff0e-40ab-b731-9dc8cbd19ce8")
+	)
+	(label "SOLAR_FUSED"
+		(at 114.3000 50.8000 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "b04689b1-8b7d-469f-ad64-58c8f4a5b925")
+	)
+	(wire (pts (xy 50.8000 121.9200) (xy 85.0900 121.9200))
+		(stroke (width 0) (type default))
+		(uuid "674c5a37-569c-4790-9844-bacc965bf8f0")
+	)
+	(label "DC_POS"
+		(at 67.9450 121.9200 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "94cc498c-2d59-4e6c-a021-da575b6d47cb")
+	)
+	(wire (pts (xy 92.7100 121.9200) (xy 135.8900 121.9200))
+		(stroke (width 0) (type default))
+		(uuid "ac2d7efa-0d5d-4ccc-95d1-f5a939dca462")
+	)
+	(label "DC_FUSED"
+		(at 114.3000 121.9200 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "74b190b1-2da8-472b-af0e-aa17236fdea5")
+	)
+	(wire (pts (xy 143.5100 50.8000) (xy 203.2000 50.8000))
+		(stroke (width 0) (type default))
+		(uuid "b49273e0-bf64-47cb-aaaf-59984e5d2324")
+	)
+	(wire (pts (xy 203.2000 50.8000) (xy 203.2000 82.5500))
+		(stroke (width 0) (type default))
+		(uuid "78111afe-c4f4-4543-8b46-54f38f8b2489")
+	)
+	(label "VIN_CHG"
+		(at 173.3550 50.8000 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "f24adb8a-25e8-4cef-bb5c-3c4c8ce96351")
+	)
+	(wire (pts (xy 143.5100 121.9200) (xy 177.8000 121.9200))
+		(stroke (width 0) (type default))
+		(uuid "3a1400d2-3a87-4d3f-9afa-9b13170ab387")
+	)
+	(wire (pts (xy 177.8000 121.9200) (xy 177.8000 50.8000))
+		(stroke (width 0) (type default))
+		(uuid "ddc96a2e-92b2-4f0a-a553-067d3c02ce05")
+	)
+	(wire (pts (xy 177.8000 50.8000) (xy 203.2000 50.8000))
+		(stroke (width 0) (type default))
+		(uuid "17105940-f556-4fbc-a508-414b7e17c761")
+	)
+	(label "VIN_CHG"
+		(at 177.8000 86.3600 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "b4d1c348-e71b-43df-b0be-59769a2736ed")
+	)
+	(wire (pts (xy 254.0000 82.5500) (xy 254.0000 50.8000))
+		(stroke (width 0) (type default))
+		(uuid "d22bdc59-f351-4917-ad56-bb5a39bef24a")
+	)
+	(wire (pts (xy 254.0000 50.8000) (xy 203.2000 50.8000))
+		(stroke (width 0) (type default))
+		(uuid "5fe0c916-9cf3-46e4-a5ca-3a88fab8b2a0")
+	)
+	(label "VIN_CHG"
+		(at 228.6000 50.8000 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "978954dc-cad4-4d99-8026-5b0e86224ee0")
+	)
+	(wire (pts (xy 304.8000 82.5500) (xy 304.8000 50.8000))
+		(stroke (width 0) (type default))
+		(uuid "a402d102-c13c-42ca-9093-9c511d046844")
+	)
+	(wire (pts (xy 304.8000 50.8000) (xy 254.0000 50.8000))
+		(stroke (width 0) (type default))
+		(uuid "9d2d5b24-c338-40f2-88fe-f8b75cab36b3")
+	)
+	(label "VIN_CHG"
+		(at 279.4000 50.8000 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "6f284680-933c-4a20-9d0b-cd7087579a78")
+	)
+(junction (at 203.2000 50.8000) (diameter 0) (color 0 0 0 0) (uuid "97ec8a29-8fb9-42d1-8207-bb7abf113b4c"))
+(junction (at 254.0000 50.8000) (diameter 0) (color 0 0 0 0) (uuid "95795e40-b971-4e9e-a0db-427298dc87a6"))
+(junction (at 177.8000 50.8000) (diameter 0) (color 0 0 0 0) (uuid "6b63abec-4f14-4390-9529-98478dc472af"))
+	(wire (pts (xy 50.8000 53.3400) (xy 53.3400 53.3400))
+		(stroke (width 0) (type default))
+		(uuid "ccd8eb2d-c5a3-4cce-a610-dd10aa60e9b5")
+	)
+	(label "GND"
+		(at 53.3400 53.3400 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "a9bac49d-c134-4544-bca5-8972a0f5941b")
+	)
+	(wire (pts (xy 50.8000 124.4600) (xy 53.3400 124.4600))
+		(stroke (width 0) (type default))
+		(uuid "e6bef6c0-32eb-42a9-9074-b59ee0eb7d9d")
+	)
+	(label "GND"
+		(at 53.3400 124.4600 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "cf20936b-1261-4808-bfab-44d7843f8298")
+	)
+	(wire (pts (xy 203.2000 90.1700) (xy 203.2000 97.7900))
+		(stroke (width 0) (type default))
+		(uuid "9e431a64-44f7-4a30-8c9f-abe313aef64e")
+	)
+	(label "GND"
+		(at 203.2000 97.7900 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "5ca76392-44f5-46d4-bcd1-1636a577af1d")
+	)
+	(wire (pts (xy 254.0000 90.1700) (xy 254.0000 92.7100))
+		(stroke (width 0) (type default))
+		(uuid "f126e4a9-fdc0-450e-8f74-a610ea510de7")
+	)
+	(label "GND"
+		(at 254.0000 92.7100 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "2b8e09d8-3a58-4d27-b62a-68e9ac97f80a")
+	)
+	(wire (pts (xy 304.8000 90.1700) (xy 304.8000 92.7100))
+		(stroke (width 0) (type default))
+		(uuid "f14bbc29-42c5-485b-ba64-f590d8c4a08e")
+	)
+	(label "GND"
+		(at 304.8000 92.7100 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "94667387-cd54-4fdf-8fd7-725900f5ef1e")
+	)
+	(wire (pts (xy 309.8800 50.8000) (xy 309.8800 53.3400))
+		(stroke (width 0) (type default))
+		(uuid "c3369b61-4de3-4979-8505-e23c89c32bfd")
+	)
+	(label "VIN_CHG"
+		(at 309.8800 53.3400 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "231d09f9-eee3-420f-a139-803779c0b3c5")
+	)
+	(wire (pts (xy 350.5200 50.8000) (xy 350.5200 53.3400))
+		(stroke (width 0) (type default))
+		(uuid "e9067c0f-a73e-4c2b-bf75-a5976221d865")
+	)
+	(label "GND"
+		(at 350.5200 53.3400 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "041d5f1d-0707-4187-ab60-0ea92270fa48")
+	)
+	(hierarchical_label "VIN_CHG"
+		(shape passive)
+		(at 20.3200 243.8400 0)
+		(effects (font (size 1.27 1.27)) (justify left))
+		(uuid "08db1a9e-1262-43fb-9996-194d07ecf0dc")
+	)
+	(wire (pts (xy 20.3200 243.8400) (xy 55.8800 243.8400))
+		(stroke (width 0) (type default))
+		(uuid "cafb47f7-8a05-4240-bffa-b6b3717a4e1a")
+	)
+	(label "VIN_CHG"
+		(at 55.8800 243.8400 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "0f66302f-7935-4878-a984-a4f8ed3b78b1")
+	)
+	(hierarchical_label "GND"
+		(shape passive)
+		(at 96.5200 243.8400 0)
+		(effects (font (size 1.27 1.27)) (justify left))
+		(uuid "c5b96acb-0426-42fe-b3c3-971059a0fa2f")
+	)
+	(wire (pts (xy 96.5200 243.8400) (xy 132.0800 243.8400))
+		(stroke (width 0) (type default))
+		(uuid "19d78bd4-a5a1-4eb3-9ba2-8e0e0ba772ea")
+	)
+	(label "GND"
+		(at 132.0800 243.8400 0)
+		(effects (font (size 1.27 1.27)) (justify left bottom))
+		(uuid "0723e9ff-1f56-4006-892b-2c614801e227")
+	)
+	(text "INPUT CONTRACT\nSolar: Voltaic P105, 6V class, expected ~5W / Vmp6.01V / Voc7.07V; raw panel, no USB regulator.\nDC: regulated or fused 9-16V battery source; NOT an automotive load-dump qualified input.\nD101/D102 provide source ORing, reverse-polarity blocking and prevent DC feeding the panel.\nHigher-voltage DC normally wins. Both inputs may be connected. Grounds are common.\nSMBJ16A: 16V standoff, specified clamp26V at rated pulse; replace old SMBJ26A.\nTVS is AFTER blocking diodes; reversed input must not forward-bias the TVS.\nF101/F102 protect wiring; coordinate source fault current/fuse/TVS energy during bench validation.\nBoard connectors are internal JST PH pigtail landings; external weatherproof connector remains mechanical scope.\nNo input bypasses the cell: system operation requires a valid battery."
+		(exclude_from_sim no)
+		(at 18.00 175.00 0)
+		(effects (font (face "Courier New") (size 1.27 1.27)) (justify left top))
+		(uuid "e1c23688-06b5-43ff-9390-78f0f4a3aa1e")
+	)
+	(sheet_instances
+		(path "/"
+			(page "2")
+		)
+	)
+	(embedded_fonts no)
+)

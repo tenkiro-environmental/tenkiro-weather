@@ -1,3 +1,2 @@
-(sym_lib_table
-  (version 7)
-)
+(sym_lib_table (version 7)
+ (lib (name "tenkiro") (type "KiCad") (uri "${KIPRJMOD}/../lib/symbols/tenkiro.kicad_sym") (options "") (descr "Tenkiro authored parts")))

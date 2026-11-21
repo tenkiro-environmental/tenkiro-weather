@@ -1,0 +1,498 @@
+{
+  "sora": {
+    "C101": {
+      "lcsc": "C596319",
+      "mpn": "CC1210KKX7R9BB106",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C596319"
+    },
+    "C102": {
+      "lcsc": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+    },
+    "C202": {
+      "lcsc": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+    },
+    "C201": {
+      "lcsc": "C170099",
+      "mpn": "CL32B475KBUYNNE",
+      "mfr": "Samsung Electro-Mechanics",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/61b8a52ad9f6bbda0838948a03e436a3.pdf?productCode=C170099"
+    },
+    "C203": {
+      "lcsc": "C15849",
+      "mpn": "CL10A105KB8NNNC",
+      "mfr": "Samsung Electro-Mechanics",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849"
+    },
+    "C204": {
+      "lcsc": "C15849",
+      "mpn": "CL10A105KB8NNNC",
+      "mfr": "Samsung Electro-Mechanics",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849"
+    },
+    "C205": {
+      "lcsc": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+    },
+    "C501": {
+      "lcsc": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+    },
+    "C206": {
+      "lcsc": "C15849",
+      "mpn": "CL10A105KB8NNNC",
+      "mfr": "Samsung Electro-Mechanics",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849"
+    },
+    "C404": {
+      "lcsc": "C15849",
+      "mpn": "CL10A105KB8NNNC",
+      "mfr": "Samsung Electro-Mechanics",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849"
+    },
+    "C207": {
+      "lcsc": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+    },
+    "C303": {
+      "lcsc": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+    },
+    "C401": {
+      "lcsc": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+    },
+    "C402": {
+      "lcsc": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+    },
+    "C403": {
+      "lcsc": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+    },
+    "C301": {
+      "lcsc": "C2918502",
+      "mpn": "CS3225X7R106K500NRL",
+      "mfr": "SAMWHA",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f1936ffd90bd0600554955f5b35b4472.pdf?productCode=C2918502"
+    },
+    "C302": {
+      "lcsc": "C309062",
+      "mpn": "CL32B226KAJNNNE",
+      "mfr": "Samsung Electro-Mechanics",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C309062"
+    },
+    "C304": {
+      "lcsc": "C57112",
+      "mpn": "0603B103K500NT",
+      "mfr": "FH",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/09fe2daf22580a99fa7fea93ccb20fb7.pdf?productCode=C57112"
+    },
+    "C502": {
+      "lcsc": "C2918502",
+      "mpn": "CS3225X7R106K500NRL",
+      "mfr": "SAMWHA",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f1936ffd90bd0600554955f5b35b4472.pdf?productCode=C2918502"
+    },
+    "C503": {
+      "lcsc": "C309062",
+      "mpn": "CL32B226KAJNNNE",
+      "mfr": "Samsung Electro-Mechanics",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C309062"
+    },
+    "D101": {
+      "lcsc": "C6807778",
+      "mpn": "B360A",
+      "mfr": "FUXINSEMI",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/4341698a2794575dc7c94af0a06dfb39.pdf?productCode=C6807778"
+    },
+    "D102": {
+      "lcsc": "C6807778",
+      "mpn": "B360A",
+      "mfr": "FUXINSEMI",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/4341698a2794575dc7c94af0a06dfb39.pdf?productCode=C6807778"
+    },
+    "D103": {
+      "lcsc": "C151254",
+      "mpn": "SMBJ16A",
+      "mfr": "Littelfuse",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/4ab84a227fae39f9eac85241b8264ead.pdf?productCode=C151254"
+    },
+    "D201": {
+      "lcsc": "C83152",
+      "mpn": "BAT46W-7-F",
+      "mfr": "DIODES",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/18e08184e5865113cc055d7c9a1d2463.pdf?productCode=C83152"
+    },
+    "D501": {
+      "lcsc": "C552550",
+      "mpn": "PESD5V0F1BRSFYL",
+      "mfr": "Nexperia",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0c5ef144ad12d1d951deec3f0b0ae6fb.pdf?productCode=C552550"
+    },
+    "F101": {
+      "lcsc": "C151135",
+      "mpn": "0466001.NRHF",
+      "mfr": "Littelfuse",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0bcfbc78ab5946639ddffe2b4625af7e.pdf?productCode=C151135"
+    },
+    "F102": {
+      "lcsc": "C151135",
+      "mpn": "0466001.NRHF",
+      "mfr": "Littelfuse",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0bcfbc78ab5946639ddffe2b4625af7e.pdf?productCode=C151135"
+    },
+    "F401": {
+      "lcsc": "C3105",
+      "mpn": "0466002.NRHF",
+      "mfr": "Littelfuse",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/6219a627c4d940b38430cad44a96cd77.pdf?productCode=C3105"
+    },
+    "J101": {
+      "lcsc": "C131337",
+      "mpn": "B2B-PH-K-S(LF)(SN)",
+      "mfr": "JST",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/6324c8615b21464c92f0a46fe6f6545c.pdf?productCode=C131337"
+    },
+    "J102": {
+      "lcsc": "C131337",
+      "mpn": "B2B-PH-K-S(LF)(SN)",
+      "mfr": "JST",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/6324c8615b21464c92f0a46fe6f6545c.pdf?productCode=C131337"
+    },
+    "J201": {
+      "lcsc": "C131337",
+      "mpn": "B2B-PH-K-S(LF)(SN)",
+      "mfr": "JST",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/6324c8615b21464c92f0a46fe6f6545c.pdf?productCode=C131337"
+    },
+    "J401": {
+      "lcsc": "C131337",
+      "mpn": "B2B-PH-K-S(LF)(SN)",
+      "mfr": "JST",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/6324c8615b21464c92f0a46fe6f6545c.pdf?productCode=C131337"
+    },
+    "J402": {
+      "lcsc": "C131337",
+      "mpn": "B2B-PH-K-S(LF)(SN)",
+      "mfr": "JST",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/6324c8615b21464c92f0a46fe6f6545c.pdf?productCode=C131337"
+    },
+    "J501": {
+      "lcsc": "C88373",
+      "mpn": "U.FL-R-SMT-1(10)",
+      "mfr": "HRS",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/ed724b9ee28536c28fee4171a29923cc.pdf?productCode=C88373"
+    },
+    "L201": {
+      "lcsc": "C2046332",
+      "mpn": "SRN6045TA-100M",
+      "mfr": "BOURNS",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/fc722837e761f56d503be027e2e53d8f.pdf?productCode=C2046332"
+    },
+    "L301": {
+      "lcsc": "C337893",
+      "mpn": "DFE201612E-2R2M=P2",
+      "mfr": "muRata",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/9a2227c0960d033e774a76ebdabff58d.pdf?productCode=C337893"
+    },
+    "Q201": {
+      "lcsc": "C155242",
+      "mpn": "DMN6075S-7",
+      "mfr": "DIODES",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/d3a3e3e47a9dfdf604ec2915aaa8adf8.pdf?productCode=C155242"
+    },
+    "Q202": {
+      "lcsc": "C155242",
+      "mpn": "DMN6075S-7",
+      "mfr": "DIODES",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/d3a3e3e47a9dfdf604ec2915aaa8adf8.pdf?productCode=C155242"
+    },
+    "R201": {
+      "lcsc": "C4237034",
+      "mpn": "WSL2010R0800FEA",
+      "mfr": "VISHAY",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/548f4c1b2301e9c8a8b168347d5344c1.pdf?productCode=C4237034"
+    },
+    "R202": {
+      "lcsc": "C22859",
+      "mpn": "0603WAF100JT5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22859"
+    },
+    "R203": {
+      "lcsc": "C23006",
+      "mpn": "0603WAF3483T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23006"
+    },
+    "R204": {
+      "lcsc": "C122538",
+      "mpn": "RT0603BRD07100KL",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/46d7760c582640714d605308a25a220a.pdf?productCode=C122538"
+    },
+    "R206": {
+      "lcsc": "C122538",
+      "mpn": "RT0603BRD07100KL",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/46d7760c582640714d605308a25a220a.pdf?productCode=C122538"
+    },
+    "R205": {
+      "lcsc": "C861313",
+      "mpn": "RT0603BRD0730K9L",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/46d7760c582640714d605308a25a220a.pdf?productCode=C861313"
+    },
+    "R207": {
+      "lcsc": "C25977",
+      "mpn": "0603WAF6041T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25977"
+    },
+    "R208": {
+      "lcsc": "C185338",
+      "mpn": "RC0603FR-0733K2L",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/b426be3ce22c6de3e0c3a2248e49159e.pdf?productCode=C185338"
+    },
+    "R209": {
+      "lcsc": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803"
+    },
+    "R210": {
+      "lcsc": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803"
+    },
+    "R502": {
+      "lcsc": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803"
+    },
+    "R503": {
+      "lcsc": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803"
+    },
+    "R504": {
+      "lcsc": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803"
+    },
+    "R301": {
+      "lcsc": "C23029",
+      "mpn": "0603WAF3652T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23029"
+    },
+    "R302": {
+      "lcsc": "C22885",
+      "mpn": "0603WAF1622T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22885"
+    },
+    "R303": {
+      "lcsc": "C861550",
+      "mpn": "RT0603BRD07750KL",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/46d7760c582640714d605308a25a220a.pdf?productCode=C861550"
+    },
+    "R304": {
+      "lcsc": "C326730",
+      "mpn": "RT0603BRD071ML",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/46d7760c582640714d605308a25a220a.pdf?productCode=C326730"
+    },
+    "R305": {
+      "lcsc": "C13322",
+      "mpn": "0603WAF7504T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C13322"
+    },
+    "R401": {
+      "lcsc": "C844897",
+      "mpn": "WSL2010R0100FEA",
+      "mfr": "VISHAY",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/29c7260cba1187f8619068e63986a477.pdf?productCode=C844897"
+    },
+    "R402": {
+      "lcsc": "C22962",
+      "mpn": "0603WAF2200T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22962"
+    },
+    "R403": {
+      "lcsc": "C22775",
+      "mpn": "0603WAF1000T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22775"
+    },
+    "R404": {
+      "lcsc": "C22775",
+      "mpn": "0603WAF1000T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22775"
+    },
+    "R405": {
+      "lcsc": "C25804",
+      "mpn": "0603WAF1002T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804"
+    },
+    "R406": {
+      "lcsc": "C25804",
+      "mpn": "0603WAF1002T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804"
+    },
+    "R501": {
+      "lcsc": "C21189",
+      "mpn": "0603WAF0000T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f42da6c80a0747bae77c2f98f4e46d1d.pdf?productCode=C21189"
+    },
+    "R506": {
+      "lcsc": "C21189",
+      "mpn": "0603WAF0000T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f42da6c80a0747bae77c2f98f4e46d1d.pdf?productCode=C21189"
+    },
+    "U201": {
+      "lcsc": "C53712",
+      "mpn": "BQ24650RVAR",
+      "mfr": "TI",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/522ee13c4894c0e4c39120f4b949c913.pdf?productCode=C53712"
+    },
+    "U301": {
+      "lcsc": "C1518762",
+      "mpn": "TPS63900DSKR",
+      "mfr": "Texas Instruments",
+      "datasheet": "https://www.ti.com/lit/ds/symlink/tps63900.pdf"
+    },
+    "U302": {
+      "lcsc": "C20345924",
+      "mpn": "TLV3012BIDBVR",
+      "mfr": "TI",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/469f091b93e1da559cb5c8181397a91f.pdf?productCode=C20345924"
+    },
+    "U401": {
+      "lcsc": "C91302",
+      "mpn": "BQ34Z100PWR-G1",
+      "mfr": "TI",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/9fb345d578af45c7b48dff1827d0f091.pdf?productCode=C91302"
+    },
+    "U501": {
+      "lcsc": "C411293",
+      "mpn": "E22-900M22S",
+      "mfr": "Ebyte",
+      "datasheet": "https://www.cdebyte.com/pdf-down.aspx?id=4216"
+    },
+    "C505": {
+      "lcsc": "C309062",
+      "mpn": "CL32B226KAJNNNE",
+      "mfr": "Samsung Electro-Mechanics",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C309062"
+    }
+  },
+  "hashi": {
+    "C501": {
+      "lcsc": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "mfr": "YAGEO",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663"
+    },
+    "C502": {
+      "lcsc": "C2918502",
+      "mpn": "CS3225X7R106K500NRL",
+      "mfr": "SAMWHA",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f1936ffd90bd0600554955f5b35b4472.pdf?productCode=C2918502"
+    },
+    "C503": {
+      "lcsc": "C309062",
+      "mpn": "CL32B226KAJNNNE",
+      "mfr": "Samsung Electro-Mechanics",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C309062"
+    },
+    "D501": {
+      "lcsc": "C552550",
+      "mpn": "PESD5V0F1BRSFYL",
+      "mfr": "Nexperia",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0c5ef144ad12d1d951deec3f0b0ae6fb.pdf?productCode=C552550"
+    },
+    "J501": {
+      "lcsc": "C88373",
+      "mpn": "U.FL-R-SMT-1(10)",
+      "mfr": "HRS",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/ed724b9ee28536c28fee4171a29923cc.pdf?productCode=C88373"
+    },
+    "R501": {
+      "lcsc": "C21189",
+      "mpn": "0603WAF0000T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f42da6c80a0747bae77c2f98f4e46d1d.pdf?productCode=C21189"
+    },
+    "R502": {
+      "lcsc": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803"
+    },
+    "R503": {
+      "lcsc": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803"
+    },
+    "R504": {
+      "lcsc": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803"
+    },
+    "R506": {
+      "lcsc": "C21189",
+      "mpn": "0603WAF0000T5E",
+      "mfr": "UNI-ROYAL",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f42da6c80a0747bae77c2f98f4e46d1d.pdf?productCode=C21189"
+    },
+    "U501": {
+      "lcsc": "C411293",
+      "mpn": "E22-900M22S",
+      "mfr": "Ebyte",
+      "datasheet": "https://www.cdebyte.com/pdf-down.aspx?id=4216"
+    },
+    "C505": {
+      "lcsc": "C309062",
+      "mpn": "CL32B226KAJNNNE",
+      "mfr": "Samsung Electro-Mechanics",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C309062"
+    }
+  }
+}

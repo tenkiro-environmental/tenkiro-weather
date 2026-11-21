@@ -1,0 +1,1570 @@
+[
+  {
+    "name": "Solar and DC inputs",
+    "file": "inputs.kicad_sch",
+    "exports": [
+      "VIN_CHG",
+      "GND"
+    ],
+    "comps": [
+      {
+        "ref": "J101",
+        "lib_id": "Connector:Conn_01x02_Pin",
+        "value": "SOLAR: P105 / 6V 5W",
+        "x": 45.72,
+        "y": 50.8,
+        "nets": {
+          "1": "SOLAR_POS",
+          "2": "GND"
+        },
+        "fp": "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+        "mpn": "B2B-PH-K-S(LF)(SN)",
+        "mfr": "JST",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/6324c8615b21464c92f0a46fe6f6545c.pdf?productCode=C131337",
+        "lcsc": "C131337"
+      },
+      {
+        "ref": "J102",
+        "lib_id": "Connector:Conn_01x02_Pin",
+        "value": "DC: 9-16V",
+        "x": 45.72,
+        "y": 121.92,
+        "nets": {
+          "1": "DC_POS",
+          "2": "GND"
+        },
+        "fp": "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+        "mpn": "B2B-PH-K-S(LF)(SN)",
+        "mfr": "JST",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/6324c8615b21464c92f0a46fe6f6545c.pdf?productCode=C131337",
+        "lcsc": "C131337"
+      },
+      {
+        "ref": "F101",
+        "lib_id": "Device:Fuse",
+        "value": "1A / 63V",
+        "x": 88.9,
+        "y": 50.8,
+        "nets": {
+          "1": "SOLAR_POS",
+          "2": "SOLAR_FUSED"
+        },
+        "fp": "Fuse:Fuse_1206_3216Metric",
+        "mpn": "0466001.NRHF",
+        "mfr": "Littelfuse",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0bcfbc78ab5946639ddffe2b4625af7e.pdf?productCode=C151135",
+        "rotation": 90,
+        "lcsc": "C151135"
+      },
+      {
+        "ref": "F102",
+        "lib_id": "Device:Fuse",
+        "value": "1A / 63V",
+        "x": 88.9,
+        "y": 121.92,
+        "nets": {
+          "1": "DC_POS",
+          "2": "DC_FUSED"
+        },
+        "fp": "Fuse:Fuse_1206_3216Metric",
+        "mpn": "0466001.NRHF",
+        "mfr": "Littelfuse",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0bcfbc78ab5946639ddffe2b4625af7e.pdf?productCode=C151135",
+        "rotation": 90,
+        "lcsc": "C151135"
+      },
+      {
+        "ref": "D101",
+        "lib_id": "Device:D_Schottky",
+        "value": "B360A / 60V",
+        "x": 139.7,
+        "y": 50.8,
+        "nets": {
+          "1": "VIN_CHG",
+          "2": "SOLAR_FUSED"
+        },
+        "fp": "Diode_SMD:D_SMA",
+        "mpn": "B360A",
+        "mfr": "FUXINSEMI",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/4341698a2794575dc7c94af0a06dfb39.pdf?productCode=C6807778",
+        "rotation": 180,
+        "lcsc": "C6807778"
+      },
+      {
+        "ref": "D102",
+        "lib_id": "Device:D_Schottky",
+        "value": "B360A / 60V",
+        "x": 139.7,
+        "y": 121.92,
+        "nets": {
+          "1": "VIN_CHG",
+          "2": "DC_FUSED"
+        },
+        "fp": "Diode_SMD:D_SMA",
+        "mpn": "B360A",
+        "mfr": "FUXINSEMI",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/4341698a2794575dc7c94af0a06dfb39.pdf?productCode=C6807778",
+        "rotation": 180,
+        "lcsc": "C6807778"
+      },
+      {
+        "ref": "D103",
+        "lib_id": "Device:D_Zener",
+        "value": "SMBJ16A / TVS",
+        "x": 203.2,
+        "y": 86.36,
+        "nets": {
+          "1": "VIN_CHG",
+          "2": "GND"
+        },
+        "fp": "Diode_SMD:D_SMB",
+        "mpn": "SMBJ16A",
+        "mfr": "Littelfuse",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/4ab84a227fae39f9eac85241b8264ead.pdf?productCode=C151254",
+        "rotation": 270,
+        "lcsc": "C151254"
+      },
+      {
+        "ref": "C101",
+        "lib_id": "Device:C",
+        "value": "10u / 50V X7R",
+        "x": 254.0,
+        "y": 86.36,
+        "nets": {
+          "1": "VIN_CHG",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_1210_3225Metric",
+        "mpn": "CC1210KKX7R9BB106",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C596319",
+        "rotation": 0,
+        "lcsc": "C596319"
+      },
+      {
+        "ref": "C102",
+        "lib_id": "Device:C",
+        "value": "100n / 50V",
+        "x": 304.8,
+        "y": 86.36,
+        "nets": {
+          "1": "VIN_CHG",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CC0603KRX7R9BB104",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663",
+        "rotation": 0,
+        "lcsc": "C14663"
+      },
+      {
+        "ref": "#FLG101",
+        "lib_id": "power:PWR_FLAG",
+        "value": "PWR_FLAG",
+        "x": 309.88,
+        "y": 50.8,
+        "nets": {
+          "1": "VIN_CHG"
+        },
+        "fp": "",
+        "mpn": "",
+        "mfr": "",
+        "datasheet": "",
+        "in_bom": false
+      },
+      {
+        "ref": "#FLG102",
+        "lib_id": "power:PWR_FLAG",
+        "value": "PWR_FLAG",
+        "x": 350.52,
+        "y": 50.8,
+        "nets": {
+          "1": "GND"
+        },
+        "fp": "",
+        "mpn": "",
+        "mfr": "",
+        "datasheet": "",
+        "in_bom": false
+      }
+    ],
+    "notes": [
+      [
+        18,
+        175,
+        "INPUT CONTRACT\nSolar: Voltaic P105, 6V class, expected ~5W / Vmp6.01V / Voc7.07V; raw panel, no USB regulator.\nDC: regulated or fused 9-16V battery source; NOT an automotive load-dump qualified input.\nD101/D102 provide source ORing, reverse-polarity blocking and prevent DC feeding the panel.\nHigher-voltage DC normally wins. Both inputs may be connected. Grounds are common.\nSMBJ16A: 16V standoff, specified clamp26V at rated pulse; replace old SMBJ26A.\nTVS is AFTER blocking diodes; reversed input must not forward-bias the TVS.\nF101/F102 protect wiring; coordinate source fault current/fuse/TVS energy during bench validation.\nBoard connectors are internal JST PH pigtail landings; external weatherproof connector remains mechanical scope.\nNo input bypasses the cell: system operation requires a valid battery."
+      ]
+    ],
+    "routes": [
+      [
+        "J101.1",
+        "F101.1"
+      ],
+      [
+        "F101.2",
+        "D101.2"
+      ],
+      [
+        "J102.1",
+        "F102.1"
+      ],
+      [
+        "F102.2",
+        "D102.2"
+      ],
+      [
+        "D101.1",
+        [
+          80,
+          20
+        ],
+        [
+          80,
+          32.5
+        ],
+        "D103.1"
+      ],
+      [
+        "D102.1",
+        [
+          70,
+          48
+        ],
+        [
+          70,
+          20
+        ],
+        [
+          80,
+          20
+        ]
+      ],
+      [
+        "C101.1",
+        [
+          100,
+          20
+        ],
+        [
+          80,
+          20
+        ]
+      ],
+      [
+        "C102.1",
+        [
+          120,
+          20
+        ],
+        [
+          100,
+          20
+        ]
+      ]
+    ],
+    "junctions": [
+      [
+        80,
+        20
+      ],
+      [
+        100,
+        20
+      ],
+      [
+        70,
+        20
+      ]
+    ]
+  },
+  {
+    "name": "1S LTO charger",
+    "file": "charger.kicad_sch",
+    "exports": [
+      "VIN_CHG",
+      "VBAT",
+      "GND",
+      "3V3",
+      "CHG_STAT1",
+      "CHG_STAT2"
+    ],
+    "comps": [
+      {
+        "ref": "U201",
+        "lib_id": "tenkiro:BQ24650RVAR",
+        "value": "BQ24650RVAR",
+        "x": 101.6,
+        "y": 76.2,
+        "nets": {
+          "1": "CHG_VCC",
+          "2": "MPPSET",
+          "3": "CHG_STAT1",
+          "4": "CHG_TS",
+          "5": "CHG_STAT2",
+          "6": "CHG_VREF",
+          "7": "CHG_VREF",
+          "8": "CHG_VFB",
+          "9": "VBAT",
+          "10": "CHG_SRP",
+          "11": "GND",
+          "12": "CHG_REGN",
+          "13": "CHG_LODRV",
+          "14": "CHG_SW",
+          "15": "CHG_HIDRV",
+          "16": "CHG_BTST",
+          "17": "GND"
+        },
+        "fp": "Package_DFN_QFN:Texas_RVA_VQFN-16-1EP_3.5x3.5mm_P0.5mm_EP2.14x2.14mm",
+        "mpn": "BQ24650RVAR",
+        "mfr": "TI",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/522ee13c4894c0e4c39120f4b949c913.pdf?productCode=C53712",
+        "lcsc": "C53712"
+      },
+      {
+        "ref": "Q201",
+        "lib_id": "Transistor_FET:Q_NMOS_GSD",
+        "value": "DMN6075S-7 / 60V",
+        "x": 190.5,
+        "y": 55.88,
+        "nets": {
+          "1": "CHG_HIDRV",
+          "2": "CHG_SW",
+          "3": "VIN_CHG"
+        },
+        "fp": "Package_TO_SOT_SMD:SOT-23",
+        "mpn": "DMN6075S-7",
+        "mfr": "DIODES",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/d3a3e3e47a9dfdf604ec2915aaa8adf8.pdf?productCode=C155242",
+        "lcsc": "C155242"
+      },
+      {
+        "ref": "Q202",
+        "lib_id": "Transistor_FET:Q_NMOS_GSD",
+        "value": "DMN6075S-7 / 60V",
+        "x": 190.5,
+        "y": 101.6,
+        "nets": {
+          "1": "CHG_LODRV",
+          "2": "GND",
+          "3": "CHG_SW"
+        },
+        "fp": "Package_TO_SOT_SMD:SOT-23",
+        "mpn": "DMN6075S-7",
+        "mfr": "DIODES",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/d3a3e3e47a9dfdf604ec2915aaa8adf8.pdf?productCode=C155242",
+        "lcsc": "C155242"
+      },
+      {
+        "ref": "L201",
+        "lib_id": "Device:L",
+        "value": "10uH / 3.2A",
+        "x": 246.38,
+        "y": 78.74,
+        "nets": {
+          "1": "CHG_SW",
+          "2": "CHG_SRP"
+        },
+        "fp": "Inductor_SMD:L_Bourns_SRN6045TA",
+        "mpn": "SRN6045TA-100M",
+        "mfr": "BOURNS",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/fc722837e761f56d503be027e2e53d8f.pdf?productCode=C2046332",
+        "rotation": 90,
+        "lcsc": "C2046332"
+      },
+      {
+        "ref": "R201",
+        "lib_id": "Device:R",
+        "value": "80m / 1% / 0.5W",
+        "x": 302.26,
+        "y": 78.74,
+        "nets": {
+          "1": "CHG_SRP",
+          "2": "VBAT"
+        },
+        "fp": "Resistor_SMD:R_2010_5025Metric",
+        "mpn": "WSL2010R0800FEA",
+        "mfr": "VISHAY",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/548f4c1b2301e9c8a8b168347d5344c1.pdf?productCode=C4237034",
+        "rotation": 90,
+        "lcsc": "C4237034"
+      },
+      {
+        "ref": "C201",
+        "lib_id": "Device:C",
+        "value": "4.7u / 50V X7R",
+        "x": 353.06,
+        "y": 104.14,
+        "nets": {
+          "1": "VBAT",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_1210_3225Metric",
+        "mpn": "CL32B475KBUYNNE",
+        "mfr": "Samsung Electro-Mechanics",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/61b8a52ad9f6bbda0838948a03e436a3.pdf?productCode=C170099",
+        "rotation": 0,
+        "lcsc": "C170099"
+      },
+      {
+        "ref": "C202",
+        "lib_id": "Device:C",
+        "value": "100n / 50V",
+        "x": 246.38,
+        "y": 111.76,
+        "nets": {
+          "1": "CHG_BTST",
+          "2": "CHG_SW"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CC0603KRX7R9BB104",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663",
+        "rotation": 0,
+        "lcsc": "C14663"
+      },
+      {
+        "ref": "D201",
+        "lib_id": "Device:D_Schottky",
+        "value": "BAT46W / 100V",
+        "x": 302.26,
+        "y": 109.22,
+        "nets": {
+          "1": "CHG_BTST",
+          "2": "CHG_REGN"
+        },
+        "fp": "Diode_SMD:D_SOD-123",
+        "mpn": "BAT46W-7-F",
+        "mfr": "DIODES",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/18e08184e5865113cc055d7c9a1d2463.pdf?productCode=C83152",
+        "rotation": 0,
+        "lcsc": "C83152"
+      },
+      {
+        "ref": "C203",
+        "lib_id": "Device:C",
+        "value": "1u / 16V",
+        "x": 353.06,
+        "y": 147.32,
+        "nets": {
+          "1": "CHG_REGN",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CL10A105KB8NNNC",
+        "mfr": "Samsung Electro-Mechanics",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849",
+        "rotation": 0,
+        "lcsc": "C15849"
+      },
+      {
+        "ref": "R202",
+        "lib_id": "Device:R",
+        "value": "10R",
+        "x": 50.8,
+        "y": 144.78,
+        "nets": {
+          "1": "VIN_CHG",
+          "2": "CHG_VCC"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF100JT5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22859",
+        "lcsc": "C22859"
+      },
+      {
+        "ref": "C204",
+        "lib_id": "Device:C",
+        "value": "1u / 50V X5R",
+        "x": 96.52,
+        "y": 144.78,
+        "nets": {
+          "1": "CHG_VCC",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CL10A105KB8NNNC",
+        "mfr": "Samsung Electro-Mechanics",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849",
+        "lcsc": "C15849"
+      },
+      {
+        "ref": "R203",
+        "lib_id": "Device:R",
+        "value": "348k / 1%",
+        "x": 144.78,
+        "y": 144.78,
+        "nets": {
+          "1": "VIN_CHG",
+          "2": "MPPSET"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF3483T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23006",
+        "lcsc": "C23006"
+      },
+      {
+        "ref": "R204",
+        "lib_id": "Device:R",
+        "value": "100k / 0.1%",
+        "x": 195.58,
+        "y": 144.78,
+        "nets": {
+          "1": "MPPSET",
+          "2": "GND"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "RT0603BRD07100KL",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/46d7760c582640714d605308a25a220a.pdf?productCode=C122538",
+        "lcsc": "C122538"
+      },
+      {
+        "ref": "R205",
+        "lib_id": "Device:R",
+        "value": "30.9k / 0.1%",
+        "x": 246.38,
+        "y": 157.48,
+        "nets": {
+          "1": "VBAT",
+          "2": "CHG_VFB"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "RT0603BRD0730K9L",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/46d7760c582640714d605308a25a220a.pdf?productCode=C861313",
+        "rotation": 0,
+        "lcsc": "C861313"
+      },
+      {
+        "ref": "R206",
+        "lib_id": "Device:R",
+        "value": "100k / 0.1%",
+        "x": 246.38,
+        "y": 185.42000000000002,
+        "nets": {
+          "1": "CHG_VFB",
+          "2": "GND"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "RT0603BRD07100KL",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/46d7760c582640714d605308a25a220a.pdf?productCode=C122538",
+        "rotation": 0,
+        "lcsc": "C122538"
+      },
+      {
+        "ref": "C205",
+        "lib_id": "Device:C",
+        "value": "100n / 16V",
+        "x": 330.2,
+        "y": 114.3,
+        "nets": {
+          "1": "CHG_SRP",
+          "2": "VBAT"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CC0603KRX7R9BB104",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663",
+        "rotation": 0,
+        "lcsc": "C14663"
+      },
+      {
+        "ref": "R207",
+        "lib_id": "Device:R",
+        "value": "6.04k / 1%",
+        "x": 50.8,
+        "y": 190.5,
+        "nets": {
+          "1": "CHG_VREF",
+          "2": "CHG_TS"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF6041T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25977",
+        "lcsc": "C25977"
+      },
+      {
+        "ref": "R208",
+        "lib_id": "Device:R",
+        "value": "33.2k / 1%",
+        "x": 101.6,
+        "y": 190.5,
+        "nets": {
+          "1": "CHG_TS",
+          "2": "GND"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "RC0603FR-0733K2L",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/b426be3ce22c6de3e0c3a2248e49159e.pdf?productCode=C185338",
+        "lcsc": "C185338"
+      },
+      {
+        "ref": "J201",
+        "lib_id": "Connector:Conn_01x02_Pin",
+        "value": "Cell NTC: 103AT-2",
+        "x": 165.1,
+        "y": 190.5,
+        "nets": {
+          "1": "CHG_TS",
+          "2": "GND"
+        },
+        "fp": "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+        "mpn": "B2B-PH-K-S(LF)(SN)",
+        "mfr": "JST",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/6324c8615b21464c92f0a46fe6f6545c.pdf?productCode=C131337",
+        "lcsc": "C131337"
+      },
+      {
+        "ref": "C206",
+        "lib_id": "Device:C",
+        "value": "1u / 10V",
+        "x": 220.98,
+        "y": 190.5,
+        "nets": {
+          "1": "CHG_VREF",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CL10A105KB8NNNC",
+        "mfr": "Samsung Electro-Mechanics",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849",
+        "lcsc": "C15849"
+      },
+      {
+        "ref": "R209",
+        "lib_id": "Device:R",
+        "value": "100k",
+        "x": 274.32,
+        "y": 190.5,
+        "nets": {
+          "1": "3V3",
+          "2": "CHG_STAT1"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1003T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803",
+        "lcsc": "C25803"
+      },
+      {
+        "ref": "R210",
+        "lib_id": "Device:R",
+        "value": "100k",
+        "x": 327.66,
+        "y": 190.5,
+        "nets": {
+          "1": "3V3",
+          "2": "CHG_STAT2"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1003T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803",
+        "lcsc": "C25803"
+      },
+      {
+        "ref": "#FLG201",
+        "lib_id": "power:PWR_FLAG",
+        "value": "PWR_FLAG",
+        "x": 355.6,
+        "y": 190.5,
+        "nets": {
+          "1": "CHG_VCC"
+        },
+        "fp": "",
+        "mpn": "",
+        "mfr": "",
+        "datasheet": "",
+        "in_bom": false
+      },
+      {
+        "ref": "C207",
+        "lib_id": "Device:C",
+        "value": "100n / 10V",
+        "x": 302.26,
+        "y": 157.48,
+        "nets": {
+          "1": "CHG_SRP",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CC0603KRX7R9BB104",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663",
+        "lcsc": "C14663"
+      }
+    ],
+    "notes": [
+      [
+        18,
+        213,
+        "CC/CV: 2.7489V nominal = 2.1*(1+30.9k/100k), 0.5A = 40mV/80mOhm. Termination enabled.\nMPP input setpoint5.376V AFTER ORing: usable with6V panel and9-16VDC; hot/weak panel performance must be measured.\nNTC is attached to CELL, not PCB. 6.04k/33.2k with103AT-2 targets roughly -5..40C; open/short inhibits charge.\nPrecharge/termination50mA; depleted-cell precharge is limited to30minutes. Validate recovery with selected cell.\nL201/C201 plus TPS63900 input capacitance form ONE charger filter: nominal10uH/14.7uF ->13.1kHz.\nMLCC effective capacitance, tolerances and loop stability remain required bench checks. Kelvin route R201 sense."
+      ]
+    ],
+    "routes": [
+      [
+        "Q201.2",
+        [
+          76,
+          31
+        ],
+        "Q202.3"
+      ],
+      [
+        "L201.1",
+        [
+          76,
+          31
+        ]
+      ],
+      [
+        "L201.2",
+        "R201.1"
+      ],
+      [
+        "R201.2",
+        [
+          139,
+          31
+        ],
+        "C201.1"
+      ],
+      [
+        "R205.2",
+        "R206.1"
+      ]
+    ],
+    "junctions": [
+      [
+        76,
+        31
+      ]
+    ]
+  },
+  {
+    "name": "3V3 rail and UVLO",
+    "file": "rail.kicad_sch",
+    "exports": [
+      "VBAT",
+      "GND",
+      "3V3"
+    ],
+    "comps": [
+      {
+        "ref": "U301",
+        "lib_id": "tenkiro:TPS63900DSKR",
+        "value": "TPS63900DSKR",
+        "x": 101.6,
+        "y": 73.66,
+        "nets": {
+          "10": "VBAT",
+          "1": "BAT_OK",
+          "2": "GND",
+          "3": "BB_CFG1",
+          "4": "GND",
+          "5": "BB_CFG3",
+          "9": "BB_LX1",
+          "7": "BB_LX2",
+          "6": "3V3",
+          "8": "GND",
+          "11": "GND"
+        },
+        "fp": "Package_SON:WSON-10-1EP_2.5x2.5mm_P0.5mm_EP1.2x2mm",
+        "mpn": "TPS63900DSKR",
+        "mfr": "Texas Instruments",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/tps63900.pdf",
+        "lcsc": "C1518762"
+      },
+      {
+        "ref": "L301",
+        "lib_id": "Device:L",
+        "value": "2.2uH / 20%",
+        "x": 198.12,
+        "y": 55.88,
+        "nets": {
+          "1": "BB_LX1",
+          "2": "BB_LX2"
+        },
+        "fp": "tenkiro:L_Murata_DFE201612E",
+        "mpn": "DFE201612E-2R2M=P2",
+        "mfr": "muRata",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/9a2227c0960d033e774a76ebdabff58d.pdf?productCode=C337893",
+        "lcsc": "C337893"
+      },
+      {
+        "ref": "C301",
+        "lib_id": "Device:C",
+        "value": "10u / 50V X7R",
+        "x": 254.0,
+        "y": 55.88,
+        "nets": {
+          "1": "VBAT",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_1210_3225Metric",
+        "mpn": "CS3225X7R106K500NRL",
+        "mfr": "SAMWHA",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f1936ffd90bd0600554955f5b35b4472.pdf?productCode=C2918502",
+        "lcsc": "C2918502"
+      },
+      {
+        "ref": "C302",
+        "lib_id": "Device:C",
+        "value": "22u / 25V X7R",
+        "x": 312.42,
+        "y": 55.88,
+        "nets": {
+          "1": "3V3",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_1210_3225Metric",
+        "mpn": "CL32B226KAJNNNE",
+        "mfr": "Samsung Electro-Mechanics",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C309062",
+        "lcsc": "C309062"
+      },
+      {
+        "ref": "R301",
+        "lib_id": "Device:R",
+        "value": "36.5k / 1%",
+        "x": 198.12,
+        "y": 109.22,
+        "nets": {
+          "1": "BB_CFG1",
+          "2": "GND"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF3652T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C23029",
+        "lcsc": "C23029"
+      },
+      {
+        "ref": "R302",
+        "lib_id": "Device:R",
+        "value": "16.2k / 1%",
+        "x": 256.54,
+        "y": 109.22,
+        "nets": {
+          "1": "BB_CFG3",
+          "2": "GND"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1622T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22885",
+        "lcsc": "C22885"
+      },
+      {
+        "ref": "U302",
+        "lib_id": "tenkiro:TLV3012BIDBVR",
+        "value": "TLV3012BIDBVR",
+        "x": 101.6,
+        "y": 167.64000000000001,
+        "nets": {
+          "6": "VBAT",
+          "3": "UV_SENSE",
+          "4": "UV_REF",
+          "2": "GND",
+          "5": "UV_REF",
+          "1": "BAT_OK"
+        },
+        "fp": "Package_TO_SOT_SMD:SOT-23-6",
+        "mpn": "TLV3012BIDBVR",
+        "mfr": "TI",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/469f091b93e1da559cb5c8181397a91f.pdf?productCode=C20345924",
+        "lcsc": "C20345924"
+      },
+      {
+        "ref": "R303",
+        "lib_id": "Device:R",
+        "value": "750k / 0.1%",
+        "x": 198.12,
+        "y": 167.64000000000001,
+        "nets": {
+          "1": "VBAT",
+          "2": "UV_SENSE"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "RT0603BRD07750KL",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/46d7760c582640714d605308a25a220a.pdf?productCode=C861550",
+        "lcsc": "C861550"
+      },
+      {
+        "ref": "R304",
+        "lib_id": "Device:R",
+        "value": "1M / 0.1%",
+        "x": 254.0,
+        "y": 167.64000000000001,
+        "nets": {
+          "1": "UV_SENSE",
+          "2": "GND"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "RT0603BRD071ML",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/46d7760c582640714d605308a25a220a.pdf?productCode=C326730",
+        "lcsc": "C326730"
+      },
+      {
+        "ref": "R305",
+        "lib_id": "Device:R",
+        "value": "7.5M / 1%",
+        "x": 312.42,
+        "y": 167.64000000000001,
+        "nets": {
+          "1": "BAT_OK",
+          "2": "UV_SENSE"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF7504T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C13322",
+        "lcsc": "C13322"
+      },
+      {
+        "ref": "C303",
+        "lib_id": "Device:C",
+        "value": "100n / 10V",
+        "x": 198.12,
+        "y": 213.36,
+        "nets": {
+          "1": "VBAT",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CC0603KRX7R9BB104",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663",
+        "lcsc": "C14663"
+      },
+      {
+        "ref": "C304",
+        "lib_id": "Device:C",
+        "value": "10n / 10V",
+        "x": 254.0,
+        "y": 213.36,
+        "nets": {
+          "1": "UV_REF",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "0603B103K500NT",
+        "mfr": "FH",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/09fe2daf22580a99fa7fea93ccb20fb7.pdf?productCode=C57112",
+        "lcsc": "C57112"
+      }
+    ],
+    "notes": [
+      [
+        18,
+        227,
+        "Both output presets3.3V: CFG1=36.5k, CFG2=GND, CFG3=16.2k; SEL=GND. Input current limit unlimited.\nHardware UVLO: ideal thresholds2.09V off /2.30V on. Include comparator offset/reference/hysteresis in bench trip tests.\nUVLO keeps TPS input above its1.8V minimum and suppresses weak-battery restart cycling. Gauge loses power below UVLO.\nC301 counts toward charger filter! 3V3 output may have local bulk; do not add arbitrary VBAT bulk.\nPM pod: budget180mA peak on3V3, switch fully off between samples; schedule separately from radio TX."
+      ]
+    ]
+  },
+  {
+    "name": "Battery and fuel gauge",
+    "file": "battery.kicad_sch",
+    "exports": [
+      "VBAT",
+      "GND",
+      "3V3",
+      "I2C_SCL",
+      "I2C_SDA"
+    ],
+    "comps": [
+      {
+        "ref": "J401",
+        "lib_id": "Connector:Conn_01x02_Pin",
+        "value": "1S LTO PACK ONLY",
+        "x": 53.34,
+        "y": 50.8,
+        "nets": {
+          "1": "BAT_RAW",
+          "2": "BAT_NEG"
+        },
+        "fp": "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+        "mpn": "B2B-PH-K-S(LF)(SN)",
+        "mfr": "JST",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/6324c8615b21464c92f0a46fe6f6545c.pdf?productCode=C131337",
+        "lcsc": "C131337"
+      },
+      {
+        "ref": "F401",
+        "lib_id": "Device:Fuse",
+        "value": "2A / 63V",
+        "x": 121.92,
+        "y": 50.8,
+        "nets": {
+          "1": "BAT_RAW",
+          "2": "VBAT"
+        },
+        "fp": "Fuse:Fuse_1206_3216Metric",
+        "mpn": "0466002.NRHF",
+        "mfr": "Littelfuse",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/6219a627c4d940b38430cad44a96cd77.pdf?productCode=C3105",
+        "lcsc": "C3105"
+      },
+      {
+        "ref": "R401",
+        "lib_id": "Device:R",
+        "value": "10m / 1% / 0.5W",
+        "x": 187.96,
+        "y": 50.8,
+        "nets": {
+          "1": "BAT_NEG",
+          "2": "GND"
+        },
+        "fp": "Resistor_SMD:R_2010_5025Metric",
+        "mpn": "WSL2010R0100FEA",
+        "mfr": "VISHAY",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/29c7260cba1187f8619068e63986a477.pdf?productCode=C844897",
+        "lcsc": "C844897"
+      },
+      {
+        "ref": "U401",
+        "lib_id": "tenkiro:BQ34Z100PWR-G1",
+        "value": "BQ34Z100PWR-G1",
+        "x": 109.22,
+        "y": 124.46000000000001,
+        "nets": {
+          "1": "BAT_NEG",
+          "2": null,
+          "3": "BAT_NEG",
+          "4": "GAUGE_BAT",
+          "5": "3V3",
+          "6": "3V3",
+          "7": "GAUGE_REG25",
+          "8": "BAT_NEG",
+          "9": "GAUGE_SRP",
+          "10": "GAUGE_SRN",
+          "11": "GAUGE_TS",
+          "12": null,
+          "13": "I2C_SCL",
+          "14": "I2C_SDA"
+        },
+        "fp": "Package_SO:TSSOP-14_4.4x5mm_P0.65mm",
+        "mpn": "BQ34Z100PWR-G1",
+        "mfr": "TI",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/9fb345d578af45c7b48dff1827d0f091.pdf?productCode=C91302",
+        "lcsc": "C91302"
+      },
+      {
+        "ref": "R402",
+        "lib_id": "Device:R",
+        "value": "220R",
+        "x": 251.46,
+        "y": 50.8,
+        "nets": {
+          "1": "BAT_RAW",
+          "2": "GAUGE_BAT"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF2200T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22962",
+        "lcsc": "C22962"
+      },
+      {
+        "ref": "C401",
+        "lib_id": "Device:C",
+        "value": "100n / 10V",
+        "x": 312.42,
+        "y": 50.8,
+        "nets": {
+          "1": "GAUGE_BAT",
+          "2": "BAT_NEG"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CC0603KRX7R9BB104",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663",
+        "lcsc": "C14663"
+      },
+      {
+        "ref": "R403",
+        "lib_id": "Device:R",
+        "value": "100R",
+        "x": 198.12,
+        "y": 114.3,
+        "nets": {
+          "1": "BAT_NEG",
+          "2": "GAUGE_SRP"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1000T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22775",
+        "lcsc": "C22775"
+      },
+      {
+        "ref": "R404",
+        "lib_id": "Device:R",
+        "value": "100R",
+        "x": 256.54,
+        "y": 114.3,
+        "nets": {
+          "1": "GND",
+          "2": "GAUGE_SRN"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1000T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C22775",
+        "lcsc": "C22775"
+      },
+      {
+        "ref": "C402",
+        "lib_id": "Device:C",
+        "value": "100n / 10V",
+        "x": 314.96,
+        "y": 114.3,
+        "nets": {
+          "1": "GAUGE_SRP",
+          "2": "GAUGE_SRN"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CC0603KRX7R9BB104",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663",
+        "lcsc": "C14663"
+      },
+      {
+        "ref": "C403",
+        "lib_id": "Device:C",
+        "value": "100n / 10V",
+        "x": 198.12,
+        "y": 165.1,
+        "nets": {
+          "1": "3V3",
+          "2": "BAT_NEG"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CC0603KRX7R9BB104",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663",
+        "lcsc": "C14663"
+      },
+      {
+        "ref": "C404",
+        "lib_id": "Device:C",
+        "value": "1u / 10V",
+        "x": 256.54,
+        "y": 165.1,
+        "nets": {
+          "1": "GAUGE_REG25",
+          "2": "BAT_NEG"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CL10A105KB8NNNC",
+        "mfr": "Samsung Electro-Mechanics",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C15849",
+        "lcsc": "C15849"
+      },
+      {
+        "ref": "J402",
+        "lib_id": "Connector:Conn_01x02_Pin",
+        "value": "Gauge NTC: 103AT-2",
+        "x": 314.96,
+        "y": 165.1,
+        "nets": {
+          "1": "GAUGE_TS",
+          "2": "BAT_NEG"
+        },
+        "fp": "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+        "mpn": "B2B-PH-K-S(LF)(SN)",
+        "mfr": "JST",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/6324c8615b21464c92f0a46fe6f6545c.pdf?productCode=C131337",
+        "lcsc": "C131337"
+      },
+      {
+        "ref": "R405",
+        "lib_id": "Device:R",
+        "value": "10k",
+        "x": 198.12,
+        "y": 215.9,
+        "nets": {
+          "1": "3V3",
+          "2": "I2C_SCL"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1002T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804",
+        "lcsc": "C25804"
+      },
+      {
+        "ref": "R406",
+        "lib_id": "Device:R",
+        "value": "10k",
+        "x": 256.54,
+        "y": 215.9,
+        "nets": {
+          "1": "3V3",
+          "2": "I2C_SDA"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1002T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25804",
+        "lcsc": "C25804"
+      },
+      {
+        "ref": "#FLG401",
+        "lib_id": "power:PWR_FLAG",
+        "value": "PWR_FLAG",
+        "x": 325.12,
+        "y": 215.9,
+        "nets": {
+          "1": "VBAT"
+        },
+        "fp": "",
+        "mpn": "",
+        "mfr": "",
+        "datasheet": "",
+        "in_bom": false
+      },
+      {
+        "ref": "#FLG402",
+        "lib_id": "power:PWR_FLAG",
+        "value": "PWR_FLAG",
+        "x": 358.14,
+        "y": 215.9,
+        "nets": {
+          "1": "BAT_NEG"
+        },
+        "fp": "",
+        "mpn": "",
+        "mfr": "",
+        "datasheet": "",
+        "in_bom": false
+      }
+    ],
+    "notes": [
+      [
+        18,
+        230,
+        "REV-A CELL: GWL LTO1865-13 class,1S1P,1.3Ah nominal /0.95Ah guaranteed minimum; keyed fused pigtail.\nGauge VSS/local caps are BAT_NEG, NOT system GND. All charger/load returns must cross R401.\nSRP is cell-negative side; SRN is system-ground side. Kelvin routing; never short BAT_NEG to GND elsewhere.\nREGIN and CE from3V3; REG25 decoupled only. BAT measures raw cell through220R, no high-voltage divider.\nSeparate thermistors J201/J402: do not share biased TS nodes. Select GPCCHEM ChemID/calibrate/learn actual cell.\nNo lithium-ion4.2V substitute. External cell pigtail needs its own fuse near the cell; PCB fuse cannot protect that lead."
+      ]
+    ]
+  },
+  {
+    "name": "Radio",
+    "file": "radio.kicad_sch",
+    "exports": [
+      "3V3",
+      "GND",
+      "RADIO_NSS",
+      "RADIO_SCK",
+      "RADIO_MOSI",
+      "RADIO_MISO",
+      "RADIO_NRST",
+      "RADIO_BUSY",
+      "RADIO_DIO1",
+      "RADIO_RXEN"
+    ],
+    "comps": [
+      {
+        "ref": "U501",
+        "lib_id": "tenkiro:E22-900M22S",
+        "value": "E22-900M22S",
+        "x": 109.22,
+        "y": 88.9,
+        "nets": {
+          "9": "3V3",
+          "19": "RADIO_NSS",
+          "18": "RADIO_SCK",
+          "17": "RADIO_MOSI",
+          "16": "RADIO_MISO",
+          "15": "RADIO_NRST",
+          "14": "RADIO_BUSY",
+          "13": "RADIO_DIO1",
+          "6": "RADIO_RXEN",
+          "7": "RADIO_TXEN",
+          "8": "RADIO_DIO2",
+          "21": "RF_MODULE",
+          "1": "GND",
+          "2": "GND",
+          "3": "GND",
+          "4": "GND",
+          "5": "GND",
+          "10": "GND",
+          "11": "GND",
+          "12": "GND",
+          "20": "GND",
+          "22": "GND"
+        },
+        "fp": "tenkiro:E22-900M22S_14x20mm",
+        "mpn": "E22-900M22S",
+        "mfr": "Ebyte",
+        "datasheet": "https://www.cdebyte.com/pdf-down.aspx?id=4216",
+        "lcsc": "C411293"
+      },
+      {
+        "ref": "R501",
+        "lib_id": "Device:R",
+        "value": "0R",
+        "x": 203.2,
+        "y": 58.42,
+        "nets": {
+          "1": "RADIO_DIO2",
+          "2": "RADIO_TXEN"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF0000T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f42da6c80a0747bae77c2f98f4e46d1d.pdf?productCode=C21189",
+        "lcsc": "C21189"
+      },
+      {
+        "ref": "R502",
+        "lib_id": "Device:R",
+        "value": "100k",
+        "x": 243.84,
+        "y": 58.42,
+        "nets": {
+          "1": "RADIO_RXEN",
+          "2": "GND"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1003T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803",
+        "lcsc": "C25803"
+      },
+      {
+        "ref": "R503",
+        "lib_id": "Device:R",
+        "value": "100k",
+        "x": 284.48,
+        "y": 58.42,
+        "nets": {
+          "1": "3V3",
+          "2": "RADIO_NSS"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1003T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803",
+        "lcsc": "C25803"
+      },
+      {
+        "ref": "R504",
+        "lib_id": "Device:R",
+        "value": "100k",
+        "x": 325.12,
+        "y": 58.42,
+        "nets": {
+          "1": "3V3",
+          "2": "RADIO_NRST"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF1003T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25803",
+        "lcsc": "C25803"
+      },
+      {
+        "ref": "C501",
+        "lib_id": "Device:C",
+        "value": "100n / 16V",
+        "x": 203.2,
+        "y": 111.76,
+        "nets": {
+          "1": "3V3",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "CC0603KRX7R9BB104",
+        "mfr": "YAGEO",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf?productCode=C14663",
+        "lcsc": "C14663"
+      },
+      {
+        "ref": "C502",
+        "lib_id": "Device:C",
+        "value": "10u / 50V X7R",
+        "x": 243.84,
+        "y": 111.76,
+        "nets": {
+          "1": "3V3",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_1210_3225Metric",
+        "mpn": "CS3225X7R106K500NRL",
+        "mfr": "SAMWHA",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f1936ffd90bd0600554955f5b35b4472.pdf?productCode=C2918502",
+        "lcsc": "C2918502"
+      },
+      {
+        "ref": "C503",
+        "lib_id": "Device:C",
+        "value": "22u / 25V X7R",
+        "x": 284.48,
+        "y": 111.76,
+        "nets": {
+          "1": "3V3",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_1210_3225Metric",
+        "mpn": "CL32B226KAJNNNE",
+        "mfr": "Samsung Electro-Mechanics",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C309062",
+        "lcsc": "C309062"
+      },
+      {
+        "ref": "C505",
+        "lib_id": "Device:C",
+        "value": "22u / 25V X7R",
+        "x": 325.12,
+        "y": 111.76,
+        "nets": {
+          "1": "3V3",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_1210_3225Metric",
+        "mpn": "CL32B226KAJNNNE",
+        "mfr": "Samsung Electro-Mechanics",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C309062",
+        "lcsc": "C309062"
+      },
+      {
+        "ref": "R506",
+        "lib_id": "Device:R",
+        "value": "0R external RF",
+        "x": 165.1,
+        "y": 170.18,
+        "nets": {
+          "1": "RF_MODULE",
+          "2": "RF_UFL"
+        },
+        "fp": "Resistor_SMD:R_0603_1608Metric",
+        "mpn": "0603WAF0000T5E",
+        "mfr": "UNI-ROYAL",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/f42da6c80a0747bae77c2f98f4e46d1d.pdf?productCode=C21189",
+        "lcsc": "C21189"
+      },
+      {
+        "ref": "J501",
+        "lib_id": "Connector:Conn_Coaxial",
+        "value": "U.FL external antenna",
+        "x": 236.22,
+        "y": 170.18,
+        "nets": {
+          "1": "RF_UFL",
+          "2": "GND"
+        },
+        "fp": "Connector_Coaxial:U.FL_Hirose_U.FL-R-SMT-1_Vertical",
+        "mpn": "U.FL-R-SMT-1(10)",
+        "mfr": "HRS",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/ed724b9ee28536c28fee4171a29923cc.pdf?productCode=C88373",
+        "lcsc": "C88373"
+      },
+      {
+        "ref": "C504",
+        "lib_id": "Device:C",
+        "value": "DNP RF shunt",
+        "x": 284.48,
+        "y": 170.18,
+        "nets": {
+          "1": "RF_UFL",
+          "2": "GND"
+        },
+        "fp": "Capacitor_SMD:C_0603_1608Metric",
+        "mpn": "",
+        "mfr": "",
+        "datasheet": "",
+        "dnp": true
+      },
+      {
+        "ref": "D501",
+        "lib_id": "Device:D_TVS",
+        "value": "PESD5V0F1BRSF",
+        "x": 330.2,
+        "y": 170.18,
+        "nets": {
+          "1": "RF_UFL",
+          "2": "GND"
+        },
+        "fp": "Diode_SMD:Nexperia_DSN0603-2_0.6x0.3mm_P0.4mm",
+        "mpn": "PESD5V0F1BRSFYL",
+        "mfr": "Nexperia",
+        "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/0c5ef144ad12d1d951deec3f0b0ae6fb.pdf?productCode=C552550",
+        "rotation": 270,
+        "lcsc": "C552550"
+      }
+    ],
+    "notes": [
+      [
+        18,
+        205,
+        "SPI module, not UART T variant. MCU controls RXEN; DIO2 controls TXEN through R501.\nRXEN low during TX/sleep; set DIO2 RF-switch control in firmware. 3.3 V supply, budget 124 mA TX.\nSTART: 915 MHz, SF7 / 125 kHz / CR4/5, +14 dBm, 60 s packet interval.\nDo not fit/use two antennas: R506 connects board U.FL; remove R506 if using module IPEX.\nPin 12 = GND, pin 15 = NRST per official E22-M V1.5 (2026-09-18), not the erroneous web pin table.\nInternal DIO3 TCXO supply = 2.2 V per official manual 4.2; initial startup delay 5 ms, verify at temperature.\nPCB: short 50-ohm RF trace, continuous GND, antenna keepout, close C501/C502/C503/C505.\nD501: bidirectional 5 V / 0.25 pF RF ESD at U.FL; C504 DNP tuning. Verify RF loss and ESD on PCB."
+      ]
+    ]
+  },
+  {
+    "name": "Commissioning host interface",
+    "file": "host_interface.kicad_sch",
+    "exports": [
+      "3V3",
+      "GND",
+      "RADIO_NSS",
+      "RADIO_SCK",
+      "RADIO_MOSI",
+      "RADIO_MISO",
+      "RADIO_NRST",
+      "RADIO_BUSY",
+      "RADIO_DIO1",
+      "RADIO_RXEN",
+      "I2C_SCL",
+      "I2C_SDA",
+      "CHG_STAT1",
+      "CHG_STAT2"
+    ],
+    "comps": [
+      {
+        "ref": "J901",
+        "lib_id": "Connector_Generic:Conn_01x14",
+        "value": "DNP commissioning host",
+        "x": 106.68,
+        "y": 99.06,
+        "nets": {
+          "1": "3V3",
+          "2": "GND",
+          "3": "RADIO_NSS",
+          "4": "RADIO_SCK",
+          "5": "RADIO_MOSI",
+          "6": "RADIO_MISO",
+          "7": "RADIO_NRST",
+          "8": "RADIO_BUSY",
+          "9": "RADIO_DIO1",
+          "10": "RADIO_RXEN",
+          "11": "I2C_SCL",
+          "12": "I2C_SDA",
+          "13": "CHG_STAT1",
+          "14": "CHG_STAT2"
+        },
+        "fp": "Connector_PinHeader_2.54mm:PinHeader_1x14_P2.54mm_Vertical",
+        "mpn": "",
+        "mfr": "",
+        "datasheet": "",
+        "dnp": true
+      }
+    ],
+    "notes": [
+      [
+        18,
+        175,
+        "DNP header allows power/radio bring-up with an external 3.3 V MCU. Final onboard MCU is not captured yet.\nPin 1 = 3V3, pin 2 = GND; all IO must be 3.3 V. Never apply 5 V to any pin.\nSora: pin 1 is an OUTPUT; do not drive 3V3 from the external host while the battery rail is powered.\nHashi: pin 1 is an INPUT; external regulated 3.3 V supply must allocate >= 200 mA for radio.\nHost supplies SPI SCK/MOSI/NSS, NRST and RXEN; reads MISO/BUSY/DIO1.\nOptional Sora pins 11/12 are I2C SCL/SDA; pins 13/14 read CHG_STAT1/2.\nHeaders are explicitly DNP and can be removed when the actual MCU sheets replace this boundary."
+      ]
+    ]
+  }
+]

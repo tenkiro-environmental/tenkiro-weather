@@ -401,8 +401,13 @@ _OUTWARD = {0: (-1.0, 0.0), 180: (1.0, 0.0), 90: (0.0, 1.0), 270: (0.0, -1.0)}
 
 
 def _sheet_xy(c, p):
-    """Pin p's connection point in sheet coords for comp c placed at orient 0."""
-    return (round(c["x"] + p["x"], 4), round(c["y"] - p["y"], 4))
+    """Pin connection point with optional orthogonal symbol rotation."""
+    x, y = p['x'], p['y']
+    angle = c.get('rotation', 0) % 360
+    assert angle in (0, 90, 180, 270)
+    for _ in range(angle // 90):
+        x, y = -y, x
+    return (round(c["x"] + x, 4), round(c["y"] - y, 4))
 
 
 def pin_at(c, number):
@@ -410,7 +415,7 @@ def pin_at(c, number):
     for p in pin_geom(c["lib_id"]):
         if p["number"] == str(number):
             x, y = _sheet_xy(c, p)
-            return (x, y, p["angle"])
+            return (x, y, (p["angle"] + c.get('rotation', 0)) % 360)
     raise KeyError(f'{c["lib_id"]}: no pin #{number}')
 
 
@@ -485,7 +490,7 @@ def w_symbol(c, project, instances):
     ref0 = instances[0][1]
     s = ("\t(symbol\n"
          f'\t\t(lib_id "{c["lib_id"]}")\n'
-         f'\t\t(at {x:.4f} {y:.4f} 0)\n\t\t(unit 1)\n'
+         f'\t\t(at {x:.4f} {y:.4f} {c.get("rotation", 0)})\n\t\t(unit 1)\n'
          "\t\t(exclude_from_sim no)\n"
          f"\t\t(in_bom {inbom})\n\t\t(on_board yes)\n"
          f"\t\t(dnp {dnp})\n"

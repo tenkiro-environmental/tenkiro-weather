@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-03",
+  "kicad_version": "10.0.6",
+  "bench_validated": false,
+  "boards": [
+    {
+      "project": "tenkiro-sora",
+      "erc_violations": 0,
+      "components": 72,
+      "checked_pins": 218,
+      "exported_nets": 51,
+      "manufacturer_pin_assignments_checked": 70,
+      "status": "PASS: capture connectivity only; no bench validation"
+    },
+    {
+      "project": "tenkiro-hashi",
+      "erc_violations": 0,
+      "components": 14,
+      "checked_pins": 56,
+      "exported_nets": 14,
+      "manufacturer_pin_assignments_checked": 22,
+      "status": "PASS: capture connectivity only; no bench validation"
+    }
+  ]
+}

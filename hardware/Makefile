@@ -26,6 +26,7 @@
 # Requires kicad-cli (KiCad 9+/10) on PATH (or set KICAD_CLI).
 
 KICAD_CLI ?= kicad-cli
+PYTHON ?= uv run python
 
 # Add new PCB projects here. Tenkiro is a two-board system: Sora, the outdoor
 # solar-powered weather station (sensors + low-power MCU + SX1262 radio), and
@@ -42,6 +43,15 @@ JLC_SCRIPT  := $(SCRIPTS_DIR)/jlcpcb-package.sh
 .PHONY: $(foreach p,$(PROJECTS),docs-$(p) images-$(p) bom-$(p) jlc-$(p) gen-$(p) check-$(p) render-$(p))
 
 all: docs
+
+.PHONY: validate-capture capture-pdfs
+validate-capture:
+	KICAD_CLI=$(KICAD_CLI) $(PYTHON) $(SCRIPTS_DIR)/validate_capture.py
+
+capture-pdfs:
+	@mkdir -p tenkiro-sora/docs tenkiro-hashi/docs
+	$(KICAD_CLI) sch export pdf -o tenkiro-sora/docs/power-radio.pdf tenkiro-sora/tenkiro-sora.kicad_sch
+	$(KICAD_CLI) sch export pdf -o tenkiro-hashi/docs/radio.pdf tenkiro-hashi/tenkiro-hashi.kicad_sch
 
 help:
 	@echo "tenkiro hardware makefile"
@@ -110,7 +120,7 @@ bom-$(1): $$($(1)_SCH)
 	    --output $$($(1)_BOM) \
 	    --fields '$$(BOM_FIELDS)' \
 	    --labels '$$(BOM_LABELS)' \
-	    --group-by 'Value,Footprint' \
+	    --group-by 'Value,Footprint,MPN,LCSC' \
 	    --exclude-dnp \
 	    $$($(1)_SCH)
 
@@ -119,14 +129,14 @@ jlc-$(1): $$(JLC_SCRIPT) $$($(1)_PCB) $$($(1)_SCH)
 	cd $$($(1)_DIR) && KICAD_CLI=$$(KICAD_CLI) ../$$(JLC_SCRIPT) \
 	    $(1).kicad_pcb $(1).kicad_sch
 
-# Regenerate the schematic from its data manifest (placed, not wired).
+# Generate the fully wired power/radio capture; existing sheets are preserved.
 gen-$(1): $(SCRIPTS_DIR)/$(1).schgen.py
 	@echo "[$(1)] generating schematic from manifest"
-	python3 $(SCRIPTS_DIR)/$(1).schgen.py
+	$$(PYTHON) $(SCRIPTS_DIR)/$(1).schgen.py
 
 # Sanity-check the schematic: component count, footprints, dup refs, ERC tally.
 check-$(1): $$($(1)_SCH)
-	@KICAD_CLI=$$(KICAD_CLI) python3 $(SCRIPTS_DIR)/kicad-sch-check.py $$($(1)_SCH)
+	@KICAD_CLI=$$(KICAD_CLI) $$(PYTHON) $(SCRIPTS_DIR)/kicad-sch-check.py $$($(1)_SCH)
 
 # Render every sheet to PNG for a quick visual review.
 render-$(1): $$($(1)_SCH)

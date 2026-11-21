@@ -33,6 +33,17 @@ firmware/vendor/
 __pycache__/
 *.pyc
 
+# Downloaded vendor documents / generated verification products
+hardware/datasheets/**/*.pdf
+hardware/datasheets/**/*.txt
+hardware/datasheets/**/.pipeline/
+hardware/*/docs/*.pdf
+hardware/*/docs/*.png
+hardware/*/docs/*.net
+hardware/*/docs/*.xml
+hardware/*/docs/*.erc
+hardware/*/docs/validation.json
+
 # IDE
 .vscode/
 .idea/

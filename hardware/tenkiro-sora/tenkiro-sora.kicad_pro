@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "filename": "tenkiro-sora.kicad_pro",
+    "version": 1
+  },
+  "sheets": [
+    [
+      "763242a1-7205-599c-8778-31b222f77a37",
+      "tenkiro-sora"
+    ],
+    [
+      "312a1a2e-8361-5cac-bed4-b15ccf2ec4f6",
+      "Solar and DC inputs"
+    ],
+    [
+      "c3e63504-50e4-5e69-a561-99fff414fa8d",
+      "1S LTO charger"
+    ],
+    [
+      "294db87a-eea2-5f01-be2f-6245f6e13822",
+      "3V3 rail and UVLO"
+    ],
+    [
+      "080a447f-e73e-5d67-ac43-5e19c36eaf81",
+      "Battery and fuel gauge"
+    ],
+    [
+      "d13a1b8d-3503-54fd-9c34-a072acdcf252",
+      "Radio"
+    ],
+    [
+      "f01155c1-e773-56d8-9f27-f48fd2d52f8c",
+      "Commissioning host interface"
+    ]
+  ]
+}
